@@ -1,1 +1,1 @@
-import './home/home.js';
+import '/client/home/home.js';
