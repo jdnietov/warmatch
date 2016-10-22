@@ -20,7 +20,7 @@ Template.hello.helpers({
 Template.hello.events({
   'click button'(event, instance) {
     // increment the counter when button is clicked
-    Router.go('/home');
+    Router.go('/login');
     instance.counter.set(instance.counter.get() + 1);
   },
 });
