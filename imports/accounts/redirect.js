@@ -5,6 +5,7 @@ redirect['login'] = 'out';
 redirect['register'] = 'out';
 redirect['home'] = 'out';
 redirect['dashboard'] = 'in';
+redirect['createMatch'] = 'in';
 
 // react and redirect depending on user
 export default function userRedirect(url) {

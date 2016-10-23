@@ -10,3 +10,9 @@ Template.dashboard.onCreated( function dashboardOnCreated() {
     userRedirect('dashboard');
   });
 });
+
+Template.dashboard.events({
+  'click button'(event, instance) {
+    Router.go('/createMatch');
+  }
+});
