@@ -8,10 +8,10 @@ import '/imports/ui/templates.js';
 
 import './main.html';
 
-if(Meteor.userId()) {
-  console.log("Il y a des usagers");
-  Router.go('/dashboard');
-}
+// if(Meteor.userId()) {
+//   console.log("Il y a des usagers");
+//   Router.go('/dashboard');
+// }
 
 // Template.hello.onCreated(function helloOnCreated() {
 //   // counter starts at 0
