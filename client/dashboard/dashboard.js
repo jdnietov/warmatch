@@ -1,5 +1,7 @@
 import { Template } from 'meteor/templating';
 
+import '/imports/ui/matchFragment.js';
+
 import './dashboard.html';
 
 if(!Meteor.userId()) {
