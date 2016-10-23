@@ -1,11 +1,7 @@
 import { Mongo } from 'meteor/mongo';
+import { MatchSchema } from '/imports/api/schemas.js';
 
 Match = new Mongo.Collection('matches');
-Match.schema = new SimpleSchema({
-  _id: {type: Number},
-  playerOne: {type: String},
-  playerTwo: {type: String},
-  date: {type: Date}
-});
+Match.attachSchema(MatchSchema);
 
 export const Matches = Match;
