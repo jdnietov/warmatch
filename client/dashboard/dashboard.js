@@ -4,13 +4,8 @@ import '/imports/ui/matchFragment.js';
 
 import './dashboard.html';
 
-if(!Meteor.userId()) {
-  console.log("Il y a des usagers");
-  Router.go('/');
-}
-
-Template.dashboard.events({
-  'click button'(event, instance) {
+Tracker.autorun (function() {
+  if(!Meteor.userId()) {
     Router.go('/');
   }
 });
