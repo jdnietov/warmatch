@@ -25,3 +25,4 @@ accounts-password
 iron:router
 matb33:bootstrap-glyphicons
 twbs:bootstrap
+aldeed:simple-schema
