@@ -4,7 +4,7 @@ import '/imports/ui/matchFragment.js';
 // import './imports/ui/match-fragment.html';
 import './home.html';
 
-Tracker.autorun (function() {
+Template.home.onCreated(function homeOnCreated() {
   if(Meteor.userId()) {
     Router.go('/dashboard');
   }

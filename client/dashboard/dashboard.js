@@ -4,7 +4,7 @@ import '/imports/ui/matchFragment.js';
 
 import './dashboard.html';
 
-Tracker.autorun (function() {
+Template.dashboard.onCreated( function dashboardOnCreated() {
   if(!Meteor.userId()) {
     Router.go('/');
   }

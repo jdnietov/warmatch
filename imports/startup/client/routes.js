@@ -9,3 +9,4 @@ Router.route('/', function () {
 Router.route('/login');
 Router.route('/register');
 Router.route('/dashboard');
+Router.route('/profile');
