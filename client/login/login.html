@@ -1,4 +1,22 @@
 <template name="login">
-  <h2>Warmatch login</h2>
-  <button>Go to register</button>
+  <div id="login">
+    <form method="post">
+      
+      <img src="/warmatch-logo.png" alt="Warmatch logo" />
+      <header>
+        Bienvenido a <strong>Warmatch.</strong>
+        <br>
+        ¡Ingresa tus datos!
+      </header>
+      <input type="text" name="username" placeholder="Nombre de usuario...">
+      <input type="password" name="password" placeholder="Contraseña...">
+      <button id="btn-login" type="submit" class="btn btn-success">
+        Inicia sesión
+      </button>
+
+    </form>
+
+    <p>Olvidaste tu <a href="/forgot-password">contraseña?</a>
+      <br> ¿No tienes cuenta aún? <a href="/register">Regístrate</a></p>
+  </div>
 </template>

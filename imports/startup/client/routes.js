@@ -1,7 +1,7 @@
-import '/client/home/home.js';
-import '/client/dashboard/dashboard.js';
-import '/client/login/login.js';
-import '/client/register/register.js';
+import '/client/home/home.html';
+import '/client/dashboard/dashboard.html';
+import '/client/login/login.html';
+import '/client/register/register.html';
 
 Router.route('/', function () {
   this.render('home');

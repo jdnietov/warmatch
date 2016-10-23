@@ -1,4 +1,19 @@
-<template name="register">
-  <h2>Warmatch register</h2>
-  <button>Go to dashboard</button>
+<template name="register" style="color: black;">
+  <div id="register">
+    <h1>Regístrate en Warmatch!</h1>
+    <form>
+      <input type="checkbox" name="futbol">Fútbol
+      <input type="checkbox" name="basquetball">Basquetball
+      <input type="checkbox" name="baseball">Baseball
+      <input type="checkbox" name="volleyball">Volleyball <br>
+      <input type="checkbox" name="tennis">Tenis
+      <label for="reg-username">Nombre de usuario:</label><br>
+      <input type="text" name="username" id="reg-username"><br>
+      <label for="reg-password">Contraseña:</label><br>
+      <input type="password" name="password" id="reg-password"><br>
+      <label for="reg-email">Email</label><br>
+      <input type="email" name="email" id="reg-email"><br>
+      <input type="submit">
+    </form>
+  </div>
 </template>
