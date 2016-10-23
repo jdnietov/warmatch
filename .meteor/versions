@@ -51,6 +51,8 @@ less@2.6.5
 livedata@1.0.18
 localstorage@1.0.11
 logging@1.1.15_1
+matb33:bootstrap-base@10.0.0
+matb33:bootstrap-glyphicons@10.0.0
 meteor@1.2.17_1
 meteor-base@1.0.4
 minifier-css@1.2.14_1
