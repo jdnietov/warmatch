@@ -16,9 +16,5 @@ Template.createMatch.events({
     const sport = target.sport.value;
     const place = target.where.value;
     const date = target.when.value;
-
-    console.log(title);
-    console.log(sport);
-    console.log(date);
   }
 });
