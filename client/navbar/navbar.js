@@ -1,5 +1,6 @@
 import { Template } from 'meteor/templating';
 
+
 import './navbar.html';
 
 
@@ -9,7 +10,9 @@ Template.navbar.events({
     Meteor.logout();
     Router.go('/');
   },
-  'click .profile': function(event){
-    
+  'submit form': function(event){
+    event.preventDefault();
+    var user = $('[id=search]').val();
+    Router.go('/profile/'+$('[id=search]').val());
   }
 });
