@@ -15,6 +15,21 @@ Router.route('/', function () {
     });
   }
 });
-Router.route('/login');
-Router.route('/register');
-Router.route('/profile');
+Router.route('/login',function(){
+  this.render('login',{
+    to: 'main'
+  })
+});
+Router.route('/register',function(){
+  this.render('register',{
+    to: 'main'
+  })
+});
+Router.route('/profile/:_username', function () {
+  this.render('profile',{
+    to:'main',
+    data:function(){
+      return Meteor.users.findOne({username:this.params._username});
+    }
+  });
+});

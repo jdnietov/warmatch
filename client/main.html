@@ -1,29 +1,11 @@
 <head>
   <title>Warmatch: Compite contra otros equipos y deportistas</title>
 </head>
-
 <body>
-  {{> navbar}}
+{{> navbar}}
 </body>
 
-<template name="navbar">
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="/">Warmatch</a>
-      </div>
-      <ul class="nav navbar-nav">
-        <!-- TODO change href if user is logged in-->
-        <li class="active"><a href="/dashboard">Inicio</a></li>
-        <li><a href="#">Partidas</a></li>
-        <li><a href="#">Equipos</a></li>
-        <li><a href="#">¿Quiénes somos?</a></li>
-        <li><a href="#">{{> loginButtons}}</a></li>
-      </ul>
-    </div>
-  </nav>
-</template>
-
 <template name="application-layout">
+
   {{> yield main}}
 </template>
