@@ -38,7 +38,13 @@ Template.register.events({
         deportes: deportes,
         img_src: foto
       }
+    }, function(error){
+      if(error){
+        window.alert(error.reason);
+      }
+      else{
+        Router.go('/');
+      }
     });
-    Router.go('/');
   }
 });
