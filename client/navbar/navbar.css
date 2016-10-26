@@ -1,0 +1,27 @@
+a.navbar-brand{
+  font-family: Airstrike;
+  color: #EC3642;
+}
+
+nav.navbar.navbar-inverse {
+  border-color: transparent;
+}
+
+nav.navbar.navbar-inverse form {
+  float: left;
+  margin-right: 10px;
+}
+
+nav.navbar.navbar-inverse button {
+  border-color: transparent;
+  background-color: #EC3642;
+}
+
+nav.navbar.navbar-inverse button span {
+  color: white;
+}
+
+@font-face {
+    font-family: Airstrike;
+    src: url("/fonts/airstrike.ttf");
+}
