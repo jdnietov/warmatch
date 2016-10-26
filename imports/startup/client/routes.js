@@ -11,6 +11,10 @@ Router.configure({
   layoutTemplate: 'app-layout'
 });
 
+Router.configure({
+  layoutTemplate: "application-layout"
+});
+
 Router.route('/', function () {
   if(Meteor.user()){
     this.render('dashboard',{
