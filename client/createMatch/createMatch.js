@@ -1,5 +1,6 @@
 import { Template } from 'meteor/templating';
 import userRedirect from '/imports/accounts/redirect.js';
+import { OpenMatches } from '/imports/api/open-matches.js';
 
 Template.createMatch.onCreated(function onCreateMatchCreated() {
   Tracker.autorun(function() {

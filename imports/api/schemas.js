@@ -14,5 +14,13 @@ Schemas.Match = new SimpleSchema({
   date: {type: Date}
 });
 
+Schemas.OpenMatch = new SimpleSchema({
+  title: {type: String},
+  sport: {type: String},
+  place: {type: String},
+  date: {type: String}
+});
+
 export const SportSchema = Schemas.Sport;
 export const MatchSchema = Schemas.Match;
+export const OpenMatchSchema = Schemas.OpenMatch;
