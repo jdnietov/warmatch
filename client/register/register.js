@@ -32,7 +32,13 @@ Template.register.events({
         tenis: tenis,
         foto: foto
       }
+    }, function(error){
+      if(error){
+        window.alert(error.reason);
+      }
+      else{
+        Router.go('/');
+      }
     });
-    Router.go('/');
   }
 });

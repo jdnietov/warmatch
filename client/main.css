@@ -1,4 +1,9 @@
 /* CSS declarations go here */
+*{
+  font-family: Jura;
+  letter-spacing: 0.03em;
+}
+
 body{
   padding-top: 50px;
   background-color: rgb(35, 35, 35);
@@ -27,9 +32,22 @@ p {
 }
 
 img.logo {
-  width: 200px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 150px;
 }
 
 input {
   color: rgb(35, 35, 35);
+}
+
+.dracula{
+  padding: 100px 500px;
+  text-align: center;
+}
+
+
+@font-face {
+    font-family: Jura;
+    src: url("/fonts/jura.otf");
 }

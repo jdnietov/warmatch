@@ -33,6 +33,11 @@ Router.route('/register',function(){
     to: 'main'
   })
 });
+Router.route('/nosotros',function(){
+  this.render('nosotros',{
+    to: 'main'
+  })
+});
 Router.route('/profile/:_username', function () {
   if(this.params._username!="errorNotFound"){
     this.render('profile',{
