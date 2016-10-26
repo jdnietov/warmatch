@@ -14,17 +14,30 @@ Router.configure({
 Router.route('/', function () {
   if(Meteor.user()){
     this.render('dashboard',{
-      to:'main'
+      to: 'main'
     });
   }
   else{
     this.render('home',{
-      to:'main'
+      to: 'main'
     });
   }
 });
-Router.route('/login');
-Router.route('/register');
-Router.route('/dashboard');
-Router.route('/profile');
-Router.route('/createMatch');
+Router.route('/login',function(){
+  this.render('login',{
+    to: 'main'
+  })
+});
+Router.route('/register',function(){
+  this.render('register',{
+    to: 'main'
+  })
+});
+Router.route('/profile/:_username', function () {
+  this.render('profile',{
+    to:'main',
+    data:function(){
+      return Meteor.users.findOne({username:this.params._username});
+    }
+  });
+});

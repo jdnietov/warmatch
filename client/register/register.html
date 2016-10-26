@@ -1,19 +1,25 @@
+
 <template name="register" style="color: black;">
   <div id="register">
     <h1>Regístrate en Warmatch!</h1>
-    <form>
+    <form class="register">
       <input type="checkbox" name="futbol">Fútbol
       <input type="checkbox" name="basquetball">Basquetball
       <input type="checkbox" name="baseball">Baseball
-      <input type="checkbox" name="volleyball">Volleyball <br>
-      <input type="checkbox" name="tennis">Tenis
-      <label for="reg-username">Nombre de usuario:</label><br>
+      <input type="checkbox" name="volleyball">Volleyball
+      <input type="checkbox" name="tenis">Tenis<br>
+      <label for="reg-username">Nombre de usuario: </label><br>
       <input type="text" name="username" id="reg-username"><br>
-      <label for="reg-password">Contraseña:</label><br>
-      <input type="password" name="password" id="reg-password"><br>
-      <label for="reg-email">Email</label><br>
+      <label for="reg-email">Email: </label><br>
       <input type="email" name="email" id="reg-email"><br>
+      <label for="reg-password">Contraseña: </label><br>
+      <input type="password" name="password" id="reg-password"><br>
+      <label for="reg-nombre">Nombre: </label><br>
+      <input type="text" name="nombre" id="reg-nombre"><br>
+      <label for="reg-apellido">Apellido: </label><br>
+      <input type="text" name="apellido" id="reg-apellido"><br>
       <input type="submit">
+
     </form>
   </div>
 </template>

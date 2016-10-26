@@ -1,11 +1,14 @@
 import { Template } from 'meteor/templating';
 import { Tracker } from 'meteor/tracker';
-import userRedirect from '/imports/accounts/redirect.js';
 
 import './login.html';
 
-Template.login.onCreated(function onLoginCreated() {
-  Tracker.autorun(function() {
-    userRedirect('login');
-  });
+Template.login.events({
+  'submit form': function(event){
+    event.preventDefault();
+    var username = $('[name=username]').val();
+    var password = $('[name=password]').val();
+    Meteor.loginWithPassword(username,password);
+    Router.go('/');
+  }
 });

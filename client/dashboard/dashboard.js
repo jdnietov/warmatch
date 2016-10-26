@@ -1,9 +1,9 @@
 import { Template } from 'meteor/templating';
 import { Tracker } from 'meteor/tracker';
-import userRedirect from '/imports/accounts/redirect.js';
 
 import '/imports/ui/matchFragment.js';
 import './dashboard.html';
+<<<<<<< HEAD
 
 /*Template.dashboard.onCreated( function dashboardOnCreated() {
   Tracker.autorun(function() {
@@ -16,3 +16,5 @@ Template.dashboard.events({
     Router.go('/createMatch');
   }
 });
+=======
+>>>>>>> 287518a4b564cae584098b3fb0e8792d65e661a0
