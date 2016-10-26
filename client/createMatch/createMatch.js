@@ -1,7 +1,7 @@
 import { Template } from 'meteor/templating';
 import userRedirect from '/imports/accounts/redirect.js';
 
-import '/imports/api/open-matches.js';
+import { OpenMatches } from '/imports/api/open-matches.js';
 
 Template.createMatch.onCreated(function onCreateMatchCreated() {
   Tracker.autorun(function() {
@@ -19,7 +19,7 @@ Template.createMatch.events({
     const _place = target.where.value;
     const _date = target.when.value;
 
-    OpenMatch.insert({
+    OpenMatches.insert({
       title: _title,
       sport: _sport,
       place: _place,
@@ -27,6 +27,6 @@ Template.createMatch.events({
     });
 
     console.log("Inserted!");
-    Router.go('/');
+    Router.go('/')
   }
 });

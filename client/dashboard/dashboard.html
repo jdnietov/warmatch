@@ -26,9 +26,12 @@
         <button class="btn btn-success">Comienza</button>
 
         <p>Aquí van los componentes que muestran los juegos.</p>
-        {{> matchFragment}}
+        {{#each matchList}}
+          {{> matchFragment}}
+        {{/each}}
       </div>
 
     </div>
   </div>
+
 </template>
