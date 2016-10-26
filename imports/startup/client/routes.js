@@ -33,9 +33,14 @@ Router.route('/', function () {
 
 // render login
 Router.route('/login',function(){
-  this.render('login',{
-    to: 'main'
-  })
+  if(!Meteor.user()){
+    this.render('login',{
+      to:'main'
+    });
+  }
+  else{
+    Router.go('/');
+  }
 });
 
 // render register
