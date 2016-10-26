@@ -3,6 +3,10 @@ import '/client/dashboard/dashboard.html';
 import '/client/login/login.html';
 import '/client/register/register.html';
 
+Router.configure({
+  layoutTemplate: "application-layout"
+});
+
 Router.route('/', function () {
   if(Meteor.user()){
     this.render('dashboard',{
