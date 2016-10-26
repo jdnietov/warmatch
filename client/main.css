@@ -18,6 +18,9 @@ button.btn.btn-success {
   background-color: #EC3642;
   border-color: transparent;
 }
+button.btn.btn-success:active{
+  background-color: #AB222B;
+}
 
 p {
   margin-top: 10px;

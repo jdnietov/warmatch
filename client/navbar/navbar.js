@@ -12,6 +12,12 @@ Template.navbar.events({
   'submit form'(event, instance) {
     event.preventDefault();
     var user = $('[id=search]').val();
-    Router.go('/profile/'+$('[id=search]').val());
+    if(Meteor.users.findOne({username:user})){
+      Router.go('/profile/'+$('[id=search]').val());
+    }
+    else{
+      console.log("a");
+      Router.go('/profile/errorNotFound');
+    }
   }
 });

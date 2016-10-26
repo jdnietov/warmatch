@@ -34,12 +34,19 @@ Router.route('/register',function(){
   })
 });
 Router.route('/profile/:_username', function () {
-  this.render('profile',{
-    to:'main',
-    data:function(){
-      return Meteor.users.findOne({username:this.params._username});
-    }
-  });
+  if(this.params._username!="errorNotFound"){
+    this.render('profile',{
+      to:'main',
+      data:function(){
+        return Meteor.users.findOne({username:this.params._username});
+      }
+    });
+  }
+  else{
+    this.render('not-found',{
+      to:'main'
+    });
+  }
 });
 Router.route('/createMatch',function(){
   this.render('createMatch',{
