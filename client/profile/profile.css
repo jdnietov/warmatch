@@ -6,7 +6,11 @@ img {
   display: block;
   border-radius: 100%;
   margin: auto;
-  margin-bottom: 40px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   width: 200px;
   height: 200px;
+}
+.info{
+  margin-top: 20px;
 }

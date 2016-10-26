@@ -11,6 +11,7 @@ Template.register.events({
     var password = $('[name=password]').val();
     var nombre = $('[name=nombre]').val();
     var apellido = $('[name=apellido]').val();
+    var foto = $('[name=foto]').val();
     var deportes = "";
     if($('[name=futbol]').prop("checked")){
       deportes += "Futbol, ";
@@ -34,7 +35,8 @@ Template.register.events({
       profile: {
         nombre: nombre,
         apellido: apellido,
-        deportes: deportes
+        deportes: deportes,
+        img_src: foto
       }
     });
     Router.go('/');
