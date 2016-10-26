@@ -1,4 +1,26 @@
 /* CSS declarations go here */
 body{
   padding-top: 50px;
+  background-color: rgb(35, 35, 35);;
+  color: white;
+}
+
+a, strong, h1, h2 {
+  color: #EC3642;
+}
+
+h1 {
+  font-size: 60px;
+}
+
+button.btn {
+  border-radius: 0px;
+}
+
+p {
+  margin-top: 10px;
+}
+
+img.logo {
+  width: 200px;
 }
