@@ -14,6 +14,11 @@ h1 {
 }
 
 button.btn.btn-success {
+  background-color: #EC3642;
+  border-color: transparent;
+}
+
+button.btn.btn-success:active {
   border-radius: 0px;
   background-color: #EC3642;
   border-color: transparent;
