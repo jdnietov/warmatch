@@ -7,7 +7,9 @@
 
 <template name="application-layout">
   {{> navbar}}
-  {{> yield main}}
+  <div clas="main">
+    {{> yield main}}
+  </div>
 </template>
 
 <template name='app-layout'>
