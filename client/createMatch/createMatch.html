@@ -1,17 +1,21 @@
 <template name="createMatch">
-  <div id="match">
+  <div id="createMatch">
     <h2>Warmatch match</h2>
     <img src="/img/bskt.jpg" alt="" />
     <form>
-      <input type="text" name="title" placeholder="Nombre para tu partida">
+      <p>Un nombre para tu partida:</p>
+      <input type="text" name="title" placeholder="Nombre para tu partida"><br>
+      <p>Selecciona un deporte:</p>
       <select name="sport" id="sport-select">
         <option value="football">Fútbol</option>
         <option value="basket">Basketball</option>
         <option value="base">Baseball</option>
         <option value="volley">Volleyball</option>
-      </select>
-      <input type="text" name="where" placeholder="Dónde?">
-      <input type="text" name="when" placeholder="Cuándo?">
+      </select><br>
+      <p>Lugar de encuentro:</p>
+      <input type="text" name="where" placeholder="Dónde?"><br>
+      <p>Fecha:</p>
+      <input type="text" name="when" placeholder="Cuándo?"><br>
       <!-- TODO meteor add rajit:bootstrap3-datepicker -->
       <input type="submit">
     </form>

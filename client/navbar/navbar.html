@@ -5,9 +5,8 @@
         <a class="navbar-brand" href="/">Warmatch</a>
       </div>
       <ul class="nav navbar-nav">
-        <li><a href="/">Inicio</a></li>
         {{#if currentUser}}
-        <li><a href="/profile/{{currentUser.username}}" >
+        <li class="active"><a href="/profile/{{currentUser.username}}" >
           {{currentUser.profile.nombre}}
         </a></li>
         {{/if}}
