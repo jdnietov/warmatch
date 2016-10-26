@@ -27,3 +27,4 @@ aldeed:simple-schema
 aldeed:collection2
 accounts-password
 accounts-ui
+session
