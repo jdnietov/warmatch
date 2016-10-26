@@ -27,6 +27,6 @@ img.logo {
   width: 200px;
 }
 
-input {
-  color: rgb(35, 35, 35);
+input, select {
+  color: rgb(45, 45, 45);
 }
