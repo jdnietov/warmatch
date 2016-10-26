@@ -8,10 +8,6 @@ import '/client/createMatch/createMatch.html';
 import '/client/profile/profile.html';
 
 Router.configure({
-  layoutTemplate: 'app-layout'
-});
-
-Router.configure({
   layoutTemplate: "application-layout"
 });
 
@@ -44,4 +40,9 @@ Router.route('/profile/:_username', function () {
       return Meteor.users.findOne({username:this.params._username});
     }
   });
+});
+Router.route('/createMatch',function(){
+  this.render('createMatch',{
+    to:'main'
+  })
 });

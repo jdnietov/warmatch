@@ -9,6 +9,25 @@ Template.profile.helpers({
   },
   isEditing: function(){
     return Session.get("editing");
+  },
+  deportes: function(profile){
+    var deportes ="";
+    if(profile.futbol){
+      deportes += "Futbol ";
+    }
+    if(profile.basquetball){
+      deportes += "Basquetball ";
+    }
+    if(profile.baseball){
+      deportes += "Baseball ";
+    }
+    if(profile.volleyball){
+      deportes += "Volleyball ";
+    }
+    if(profile.tenis){
+      deportes += "Tenis";
+    }
+    return deportes;
   }
 });
 
@@ -20,7 +39,7 @@ Template.profile.events({
     var userId = Meteor.user()._id;
     var img = $('#img_src').val()
     var data = Meteor.user().profile;
-    data.img_src = img;
+    data.foto = img;
     Meteor.users.update({_id:userId}, {$set: {profile: data}});
     Session.set("editing",false);
   },
