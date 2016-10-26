@@ -35,3 +35,16 @@ img.logo {
 input, select {
   color: rgb(45, 45, 45);
 }
+
+#page-title {
+  font-family: Airstrike;
+}
+
+@font-face {
+    font-family: Airstrike;
+    src: url("/fonts/airstrike.ttf");
+}
+
+button a {
+  color: white;
+}

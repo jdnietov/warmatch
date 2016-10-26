@@ -20,8 +20,3 @@ nav.navbar.navbar-inverse button {
 nav.navbar.navbar-inverse button span {
   color: white;
 }
-
-@font-face {
-    font-family: Airstrike;
-    src: url("/fonts/airstrike.ttf");
-}
