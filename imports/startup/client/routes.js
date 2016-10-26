@@ -27,16 +27,25 @@ Router.route('/', function () {
     });
   }
 });
+
+// TODO redirect to dashboard if there is a user
+// and tries to go to login or register
+
+// render login
 Router.route('/login',function(){
   this.render('login',{
     to: 'main'
   })
 });
+
+// render register
 Router.route('/register',function(){
   this.render('register',{
     to: 'main'
   })
 });
+
+// render username's profile
 Router.route('/profile/:_username', function () {
   this.render('profile',{
     to:'main',
@@ -44,4 +53,11 @@ Router.route('/profile/:_username', function () {
       return Meteor.users.findOne({username:this.params._username});
     }
   });
+});
+
+// render createMatch page
+Router.route('/createMatch', function() {
+  this.render('createMatch', {
+    to: 'main'
+  })
 });
