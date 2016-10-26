@@ -1,5 +1,4 @@
 import { Template } from 'meteor/templating';
-import { Tracker } from 'meteor/tracker';
 
 import { OpenMatches } from '/imports/api/open-matches.js';
 import '/imports/ui/matchFragment.js';
@@ -9,7 +8,7 @@ import './dashboard.html';
 
 Template.dashboard.helpers({
   matchList() {
-    return OpenMatches.find({});
+    return OpenMatches.find({}, {sort: {createdAt: -1}});
   },
 });
 

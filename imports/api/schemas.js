@@ -18,7 +18,8 @@ Schemas.OpenMatch = new SimpleSchema({
   title: {type: String},
   sport: {type: String},
   place: {type: String},
-  date: {type: String}
+  date: {type: String},
+  createdAt: {type: Date}
 });
 
 export const SportSchema = Schemas.Sport;

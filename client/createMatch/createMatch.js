@@ -23,7 +23,8 @@ Template.createMatch.events({
       title: _title,
       sport: _sport,
       place: _place,
-      date: _date
+      date: _date,
+      createdAt: new Date()
     });
 
     console.log("Inserted!");
