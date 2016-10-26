@@ -4,11 +4,20 @@ import { Tracker } from 'meteor/tracker';
 import './login.html';
 
 Template.login.events({
-  'submit form': function(event){
+  'submit form'(event, instance) {
     event.preventDefault();
-    var username = $('[name=username]').val();
-    var password = $('[name=password]').val();
-    Meteor.loginWithPassword(username,password);
-    Router.go('/');
+
+    const target = event.target;
+    var username = target.username.value;
+    var password = target.password.value;
+
+    Meteor.loginWithPassword(username,password,function(error){
+      if(error){
+        window.alert(error.reason);
+      }
+      else{
+        Router.go('/');
+      }
+    });
   }
 });
