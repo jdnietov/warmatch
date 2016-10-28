@@ -8,10 +8,6 @@ import '/client/createMatch/createMatch.html';
 import '/client/profile/profile.html';
 
 Router.configure({
-  layoutTemplate: 'app-layout'
-});
-
-Router.configure({
   layoutTemplate: "application-layout"
 });
 
@@ -50,6 +46,12 @@ Router.route('/register',function(){
   })
 });
 
+Router.route('/nosotros',function(){
+  this.render('nosotros',{
+    to: 'main'
+  })
+});
+
 // render username's profile
 Router.route('/profile/:_username', function () {
   if(this.params._username!="errorNotFound"){
@@ -61,7 +63,7 @@ Router.route('/profile/:_username', function () {
     });
   }
   else{
-    this.render('user-not-found',{
+    this.render('not-found', {
       to:'main'
     });
   }

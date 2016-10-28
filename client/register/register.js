@@ -12,22 +12,12 @@ Template.register.events({
     var nombre = $('[name=nombre]').val();
     var apellido = $('[name=apellido]').val();
     var foto = $('[name=foto]').val();
-    var deportes = "";
-    if($('[name=futbol]').prop("checked")){
-      deportes += "Futbol, ";
-    }
-    if($('[name=basquetball]').prop("checked")){
-      deportes += "Basquetball, ";
-    }
-    if($('[name=baseball]').prop("checked")){
-      deportes += "Baseball, ";
-    }
-    if($('[name=volleyball]').prop("checked")){
-      deportes += "Volleyball, ";
-    }
-    if($('[name=tenis]').prop("checked")){
-      deportes += "Tenis";
-    }
+    var futbol = $('[name=futbol]').prop("checked");
+    var basquetball = $('[name=basquetball]').prop("checked");
+    var baseball = $('[name=baseball]').prop("checked");
+    var voleyball = $('[name=volleyball]').prop("checked");
+    var tenis = $('[name=tenis]').prop("checked");
+
     Accounts.createUser({
       username: username,
       email: email,
@@ -35,8 +25,19 @@ Template.register.events({
       profile: {
         nombre: nombre,
         apellido: apellido,
-        deportes: deportes,
-        img_src: foto
+        futbol: futbol,
+        basquetball: basquetball,
+        baseball: baseball,
+        voleyball: voleyball,
+        tenis: tenis,
+        foto: foto
+      }
+    }, function(error){
+      if(error){
+        window.alert(error.reason);
+      }
+      else{
+        Router.go('/');
       }
     }, function(error){
       if(error){

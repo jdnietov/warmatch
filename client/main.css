@@ -1,4 +1,9 @@
 /* CSS declarations go here */
+*{
+  font-family: Jura;
+  letter-spacing: 0.03em;
+}
+
 body{
   padding-top: 50px;
   background-color: rgb(35, 35, 35);
@@ -17,6 +22,9 @@ button.btn.btn-success {
   background-color: #EC3642;
   border-color: transparent;
 }
+button.btn.btn-success:active{
+  background-color: #AB222B;
+}
 
 button.btn.btn-success:active {
   border-radius: 0px;
@@ -29,7 +37,9 @@ p {
 }
 
 img.logo {
-  width: 200px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 150px;
 }
 
 input, select {
@@ -47,4 +57,15 @@ input, select {
 
 button a {
   color: white;
+}
+
+.dracula{
+  padding: 100px 500px;
+  text-align: center;
+}
+
+
+@font-face {
+    font-family: Jura;
+    src: url("/fonts/jura.otf");
 }

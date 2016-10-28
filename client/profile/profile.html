@@ -2,7 +2,7 @@
   <div id="profile" class="container-fluid">
     <div class="row">
       <div id="left" class="col-md-4">
-        <img src={{profile.img_src}} alt="">
+        <img src={{profile.foto}} alt="">
         {{#if currentUser}}
           {{#if allowed username}}
             {{#if isEditing}}
@@ -20,8 +20,8 @@
         </div>
       </div>
       <div id="right" class="col-md-8"></div>
-        <h1>{{profile.nombre}} {{profile.apellido}} {{img_src}}</h1><br>
-        <h4>{{profile.deportes}}</h4>
+        <h1>{{profile.nombre}} {{profile.apellido}}</h1><br>
+        <h4>{{deportes profile}}</h4>
         <hr>
         <h4>Equipos:</h4><br>
         <h4>Partidas recientes:</h4><br>
@@ -30,6 +30,6 @@
   </div>
 </template>
 
-<template name="user-not-found">
-  <h2>Usuario no encontrado :(</h2>
+<template name="not-found">
+  <h1>User not found :(</h1>
 </template>
