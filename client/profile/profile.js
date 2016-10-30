@@ -4,13 +4,13 @@ import './profile.html';
 Session.set("editing",false);
 
 Template.profile.helpers({
-  allowed: function(username){
+  allowed: username => {
     return username===Meteor.user().username;
   },
-  isEditing: function(){
+  isEditing: () => {
     return Session.get("editing");
   },
-  deportes: function(profile){
+  deportes: profile => {
     var deportes ="";
     if(profile.futbol){
       deportes += "Futbol ";
@@ -45,5 +45,9 @@ Template.profile.events({
   },
   'click .cancelar': function(event){
     Session.set("editing",false);
+  },
+
+  'click #btn-challenge'(event, instance) {
+    Router.go('/createMatch');
   }
 })
