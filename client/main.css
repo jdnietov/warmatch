@@ -1,6 +1,6 @@
 /* CSS declarations go here */
 *{
-  font-family: Jura;
+  font-family: CodeProLight;
   letter-spacing: 0.03em;
 }
 
@@ -10,7 +10,8 @@ body{
   color: white;
 }
 
-a, strong, h1, h2 {
+a, strong, h1, h2, button {
+  font-family: CodePro;
   color: #EC3642;
 }
 
@@ -50,11 +51,6 @@ input, select {
   font-family: Airstrike;
 }
 
-@font-face {
-    font-family: Airstrike;
-    src: url("/fonts/airstrike.ttf");
-}
-
 button a {
   color: white;
 }
@@ -64,8 +60,22 @@ button a {
   text-align: center;
 }
 
+@font-face {
+    font-family: Airstrike;
+    src: url("/fonts/airstrike.ttf");
+}
 
 @font-face {
     font-family: Jura;
     src: url("/fonts/jura.otf");
+}
+
+@font-face {
+    font-family: CodePro;
+    src: url("/fonts/code-pro.ttf");
+}
+
+@font-face {
+    font-family: CodeProLight;
+    src: url("/fonts/code-pro-light.ttf");
 }
