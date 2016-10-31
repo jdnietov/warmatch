@@ -28,3 +28,5 @@ aldeed:collection2
 accounts-password
 accounts-ui
 session
+ostrio:files
+ostrio:autoform-files
