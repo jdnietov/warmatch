@@ -10,7 +10,7 @@ body{
   color: white;
 }
 
-a, strong, h1, h2, button {
+a, strong, h1, h2, button, input {
   font-family: CodePro;
   color: #EC3642;
 }

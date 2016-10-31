@@ -1,0 +1,24 @@
+#register form {
+  margin: auto;
+  text-align: center;
+  padding: 30px;
+  border: 1px solid white;
+  width: 500px;
+}
+
+#register label {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+#register h1 {
+  text-align: center;
+}
+
+#register input[type="text"], input[type="password"], input[type="email"] {
+  width: 200px;
+}
+
+#register button {
+  margin-top: 10px;
+}
