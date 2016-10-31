@@ -13,6 +13,7 @@ Template.navbar.events({
     event.preventDefault();
     var user = $('[id=search]').val();
     if(Meteor.users.findOne({username:user})){
+      console.log("a");
       Router.go('/profile/'+$('[id=search]').val());
     }
     else{

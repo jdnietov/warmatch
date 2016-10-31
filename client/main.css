@@ -10,7 +10,7 @@ body{
   color: white;
 }
 
-a, strong, h1, h2, button, input {
+a, strong, h1, h2, button {
   font-family: CodePro;
   color: #EC3642;
 }
@@ -44,12 +44,18 @@ img.logo {
 }
 
 input, select {
+  font-family: CodePro;
   color: rgb(45, 45, 45);
 }
 
 .page-title {
   font-family: Airstrike;
 }
+
+input[type="text"], input[type="password"], input[type="email"] {
+  width: 200px;
+}
+
 
 button a {
   color: white;

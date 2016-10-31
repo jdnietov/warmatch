@@ -15,10 +15,6 @@
   text-align: center;
 }
 
-#register input[type="text"], input[type="password"], input[type="email"] {
-  width: 200px;
-}
-
 #register button {
   margin-top: 10px;
 }
