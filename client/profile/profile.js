@@ -49,5 +49,10 @@ Template.profile.events({
 
   'click #btn-challenge'(event, instance) {
     Router.go('/createMatch');
+  },
+
+  'submit #img-form'(event, instance) {
+    event.preventDefault();
+    console.log("img submitted");
   }
 })

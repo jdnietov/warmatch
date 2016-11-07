@@ -11,6 +11,12 @@
   width: 200px;
   height: 200px;
 }
-.info{
+
+.info {
   margin-top: 20px;
+}
+
+#submit-img-preview {
+  width: 200px;
+  height: 150px;  
 }
