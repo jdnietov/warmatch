@@ -22,6 +22,8 @@ Schemas.OpenMatch = new SimpleSchema({
   createdAt: {type: Date}
 });
 
+
+
 export const SportSchema = Schemas.Sport;
 export const MatchSchema = Schemas.Match;
 export const OpenMatchSchema = Schemas.OpenMatch;

@@ -41,13 +41,18 @@ Router.route('/login',function(){
 
 // render register
 Router.route('/register',function(){
-  this.render('register',{
-    to: 'main'
-  })
+  if(!Meteor.user()){
+    this.render('register',{
+      to:'main'
+    });
+  }
+  else{
+    Router.go('/');
+  }
 });
 
-Router.route('/nosotros',function(){
-  this.render('nosotros',{
+Router.route('/about',function(){
+  this.render('about',{
     to: 'main'
   })
 });

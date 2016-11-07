@@ -9,11 +9,11 @@ Template.register.events({
     var username = $('[name=username]').val();
     var email = $('[name=email]').val();
     var password = $('[name=password]').val();
-    var nombre = $('[name=nombre]').val();
-    var apellido = $('[name=apellido]').val();
-    var foto = $('[name=foto]').val();
-    var futbol = $('[name=futbol]').prop("checked");
-    var basquetball = $('[name=basquetball]').prop("checked");
+    var name = $('[name=name]').val();
+    var lastName = $('[name=lastName]').val();
+    var photo = $('[name=photo]').val();
+    var football = $('[name=football]').prop("checked");
+    var basketball = $('[name=basketball]').prop("checked");
     var baseball = $('[name=baseball]').prop("checked");
     var voleyball = $('[name=volleyball]').prop("checked");
     var tenis = $('[name=tenis]').prop("checked");
@@ -23,14 +23,14 @@ Template.register.events({
       email: email,
       password: password,
       profile: {
-        nombre: nombre,
-        apellido: apellido,
-        futbol: futbol,
-        basquetball: basquetball,
+        name: name,
+        lastName: lastName,
+        football: football,
+        basketball: basketball,
         baseball: baseball,
         voleyball: voleyball,
         tenis: tenis,
-        foto: foto
+        photo: photo
       }
     }, function(error){
       if(error){

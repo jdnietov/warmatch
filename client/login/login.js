@@ -6,7 +6,6 @@ import './login.html';
 Template.login.events({
   'submit form'(event, instance) {
     event.preventDefault();
-
     const target = event.target;
     var username = target.username.value;
     var password = target.password.value;
