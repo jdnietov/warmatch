@@ -29,4 +29,8 @@ accounts-password
 accounts-ui
 session
 ostrio:files
+<<<<<<< HEAD
 jasny:bootstrap
+=======
+ostrio:autoform-files
+>>>>>>> master

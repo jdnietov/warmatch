@@ -10,3 +10,14 @@ export const Images = new FilesCollection({
     }
   }
 });
+
+// if (Meteor.isClient) {
+//   Meteor.subscribe('files.images.all');
+// }
+//
+// if (Meteor.isServer) {
+//   Meteor.publish('files.images.all', function () {
+//     return Images.collection.find({});
+//   });
+// }
+>>>>>>> master

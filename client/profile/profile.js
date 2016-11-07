@@ -1,3 +1,5 @@
+// import { Posts } from '/imports/api/posts.js';
+
 import './profile.css';
 import './profile.html';
 
