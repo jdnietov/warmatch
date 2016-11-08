@@ -20,4 +20,3 @@ export const Images = new FilesCollection({
 //     return Images.collection.find({});
 //   });
 // }
->>>>>>> master
