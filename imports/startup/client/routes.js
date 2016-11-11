@@ -80,3 +80,9 @@ Router.route('/createMatch', function() {
     to: 'main'
   })
 });
+
+Router.route('/temp', function(){
+  this.render('uploadForm', {
+    to: 'main'
+  })
+});
