@@ -10,9 +10,18 @@ Schemas.Sport = new SimpleSchema({
 });
 
 Schemas.Match = new SimpleSchema({
-  _id: {type: Number},
   playerOne: {type: String},
   playerTwo: {type: String},
+  sport: {
+    type: String,
+    label: "Deporte",
+    // allowedValues: ['Fútbol', 'Basquetball', 'Tenis', 'Baseball']
+  },
+  place: {
+    type: String,
+    label: "Lugar de encuentro"
+  },
+  message: {type: String},
   date: {type: Date}
 });
 

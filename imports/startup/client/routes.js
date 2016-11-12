@@ -1,5 +1,4 @@
 import { Meteor } from 'meteor/meteor';
-
 import '/client/home/home.html';
 import '/client/dashboard/dashboard.html';
 import '/client/login/login.html';
@@ -24,9 +23,6 @@ Router.route('/', function () {
   }
 });
 
-// TODO redirect to dashboard if there is a user
-// and tries to go to login or register
-
 // render login
 Router.route('/login',function(){
   if(!Meteor.user()){
@@ -41,9 +37,13 @@ Router.route('/login',function(){
 
 // render register
 Router.route('/register',function(){
-  this.render('register',{
-    to: 'main'
-  })
+  if(!Meteor.user()) {
+    this.render('register',{
+      to: 'main'
+    });
+  } else {
+    Router.go('/');
+  }
 });
 
 Router.route('/nosotros',function(){

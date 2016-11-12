@@ -1,6 +1,6 @@
 import { Template } from 'meteor/templating';
-
 import { OpenMatches } from '/imports/api/open-matches.js';
+
 import '/imports/ui/matchFragment.js';
 
 import './dashboard.css';

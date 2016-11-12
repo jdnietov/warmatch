@@ -10,6 +10,14 @@ body{
   color: white;
 }
 
+label, h4.modal-title, div.modal-body > p, table {
+  color: rgb(45, 45, 45);
+}
+
+td.day {
+  font-family: CodePro;
+}
+
 a, strong, h1, h2, button {
   font-family: CodePro;
   color: #EC3642;
@@ -23,7 +31,7 @@ button.btn.btn-success {
   background-color: #EC3642;
   border-color: transparent;
 }
-button.btn.btn-success:active{
+button.btn.btn-success:active, td.active {
   background-color: #AB222B;
 }
 
@@ -48,17 +56,30 @@ input, select {
   color: rgb(45, 45, 45);
 }
 
+label {
+  margin-top: 10px;
+}
+
 .page-title {
   font-family: Airstrike;
+  font-size: 40px;
 }
 
 input[type="text"], input[type="password"], input[type="email"] {
   width: 200px;
 }
 
-
 button a {
   color: white;
+}
+
+button a:active {
+  color: white;
+}
+
+h4.modal-title {
+  font-family: CodePro;
+  color: #AB222B;
 }
 
 .dracula{
