@@ -101,6 +101,20 @@ Schemas.Post = new SimpleSchema({
   }
 });
 
+Schemas.Statistic = new SimpleSchema({
+	name: {type: String},
+	value: {type: Number}
+})
+
+Schemas.Team = new SimpleSchema({
+	name: {type: String},
+	description: {type: String},
+	sport: {type: String},
+	logo: {type: String},
+	statistics: {type: [Schemas.Statistic]}
+})
+
 export const MatchSchema = Schemas.Match;
 export const OpenMatchSchema = Schemas.OpenMatch;
 export const PostSchema = Schemas.Post;
+export const TeamSchema = Schemas.Team;

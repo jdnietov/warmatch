@@ -1,0 +1,22 @@
+<template name="createTeam">
+  <div id="createTeam">
+    <h2><span class="page-title">WARMATCH </span>  Team</h2>
+    <img src="/img/bskt.jpg" alt="" />
+    <form>
+      <p>Un nombre para tu equipo:</p>
+      <input type="text" name="name" placeholder="Nombre para tu equipo"><br>
+      <p>Una descripcion para tu equipo:</p>
+      <input type="text" name="description" placeholder="Descripción para tu equipo"><br>
+      <p>Selecciona un deporte:</p>
+      <select name="sport" id="sport-select">
+        <option value="football">Fútbol</option>
+        <option value="basket">Basketball</option>
+        <option value="base">Baseball</option>
+        <option value="volley">Volleyball</option>
+      </select><br>
+      <button id="btn-login" type="submit" class="btn btn-success">
+        Crear
+      </button>
+    </form>
+  </div>
+</template>

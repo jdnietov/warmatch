@@ -76,6 +76,14 @@ Router.route('/createMatch', function() {
     to: 'main'
   })
 });
+
+// render createTeam page
+Router.route('/createTeam', function() {
+	this.render('createTeam', {
+		to: 'main'
+	})
+})
+
 // render teams page
 Router.route('/team', function () {
 	this.render('team', {
