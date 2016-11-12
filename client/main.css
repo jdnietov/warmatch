@@ -4,6 +4,10 @@
   letter-spacing: 0.03em;
 }
 
+legend, label {
+  font-family: CodeProLight;
+}
+
 input{
   font-color: black;
 }
