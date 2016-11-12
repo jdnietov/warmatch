@@ -1,3 +1,5 @@
+import { Template } from 'meteor/templating';
+
 import './profile.css';
 import './profile.html';
 
@@ -10,24 +12,24 @@ Template.profile.helpers({
   isEditing: () => {
     return Session.get("editing");
   },
-  deportes: profile => {
-    var deportes ="";
-    if(profile.futbol){
-      deportes += "Futbol ";
+  sports: profile => {
+    var sports ="";
+    if(profile.football){
+      sports += "Fútbol ";
     }
-    if(profile.basquetball){
-      deportes += "Basquetball ";
+    if(profile.basketball){
+      sports += "Basquetball ";
     }
     if(profile.baseball){
-      deportes += "Baseball ";
+      sports += "Baseball ";
     }
     if(profile.volleyball){
-      deportes += "Volleyball ";
+      sports += "Volleyball ";
     }
     if(profile.tenis){
-      deportes += "Tenis";
+      sports += "Tenis";
     }
-    return deportes;
+    return sports;
   }
 });
 

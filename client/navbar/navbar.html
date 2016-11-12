@@ -7,7 +7,7 @@
       <ul class="nav navbar-nav">
         {{#if currentUser}}
         <li class="active"><a href="/profile/{{currentUser.username}}" >
-          {{currentUser.profile.nombre}}
+          {{currentUser.profile.name}} {{currentUser.profile.email}}
         </a></li>
         {{/if}}
         <li><a href="#">Partidas</a></li>

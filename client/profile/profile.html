@@ -2,7 +2,7 @@
   <div id="profile" class="container-fluid">
     <div class="row">
       <div id="left" class="col-md-4">
-        <img src={{profile.foto}} alt="">
+        <img src={{profile.photo}} alt="">
         {{#if currentUser}}
           {{#if allowed username}}
             {{#if isEditing}}
@@ -22,8 +22,8 @@
         </div>
       </div>
       <div id="right" class="col-md-8"></div>
-        <h1>{{profile.nombre}} {{profile.apellido}}</h1><br>
-        <h4>{{deportes profile}}</h4>
+        <h1>{{profile.name}} {{profile.lastName}} {{email}}</h1><br>
+        <h4>{{sports profile}}</h4>
         <hr>
         <h4>Equipos:</h4><br>
         <h4>Partidas recientes:</h4><br>
