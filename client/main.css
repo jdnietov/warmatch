@@ -1,7 +1,11 @@
 /* CSS declarations go here */
 *{
-  font-family: CodeProLight;
+  font-family: Jura;
   letter-spacing: 0.03em;
+}
+
+input{
+  font-color: black;
 }
 
 body{

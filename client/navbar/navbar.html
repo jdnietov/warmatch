@@ -7,12 +7,12 @@
       <ul class="nav navbar-nav">
         {{#if currentUser}}
         <li class="active"><a href="/profile/{{currentUser.username}}" >
-          {{currentUser.profile.nombre}}
+          {{currentUser.profile.name}} {{currentUser.profile.email}}
         </a></li>
         {{/if}}
         <li><a href="#">Partidas</a></li>
         <li><a href="#">Equipos</a></li>
-        <li><a href="/nosotros">¿Quiénes somos?</a></li>
+        <li><a href="/about">¿Quiénes somos?</a></li>
         {{#if currentUser}}
         <li><a href="#" class="logout">Logout</a></li>
         {{else}}

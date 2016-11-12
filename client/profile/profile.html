@@ -2,7 +2,10 @@
   <div id="profile" class="container-fluid">
     <div class="row">
       <div id="left" class="col-md-4">
-        <img src={{profile.foto}} alt=""> {{#if currentUser}} {{#if allowed username}} {{#if isEditing}}
+        <img src={{profile.photo}} alt="">
+        {{#if currentUser}}
+          {{#if allowed username}}
+            {{#if isEditing}}
         <input type="text" id="img_src" placeholder="URL de la foto">
         <br>
         <br>
@@ -22,28 +25,27 @@
             </form>
           </div>
         </div>
-        {{else}}
+            {{else}}
         <button class="btn btn-success añadir-foto">Cambiar foto</button>
-        {{/if}} {{else}}
+            {{/if}}
+          {{else}}
         <button id="btn-challenge" class="btn btn-success" data-username="{{username}}">
           Retar
         </button>
-        {{/if}} {{/if}}
+          {{/if}}
+        {{/if}}
         <br>
         <div class="info">
           <h4>Estadísticas:</h4>
         </div>
       </div>
-      <div id="right" class="col-md-8"></div>
-      <h1>{{profile.nombre}} {{profile.apellido}}</h1>
-      <br>
-      <h4>{{deportes profile}}</h4>
-      <hr>
-      <h4>Equipos:</h4>
-      <br>
-      <h4>Partidas recientes:</h4>
-      <br>
-
+      <div id="right" class="col-md-8">
+        <h1>{{profile.name}} {{profile.lastName}} {{email}}</h1><br>
+        <h4>{{sports profile}}</h4>
+        <hr>
+        <h4>Equipos:</h4><br>
+        <h4>Partidas recientes:</h4><br>
+      </div>
     </div>
   </div>
 </template>

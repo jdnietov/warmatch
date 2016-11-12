@@ -1,8 +1,10 @@
 import { Session } from 'meteor/session';
 import { MatchSchema } from '/imports/api/schemas.js';
 import { Matches } from '/imports/api/matches.js';
+import { Template } from 'meteor/templating';
 
 import '/imports/ui/challengeModal.js';
+
 import './profile.css';
 import './profile.html';
 
@@ -17,24 +19,24 @@ Template.profile.helpers({
     return Session.get("editing");
   },
 
-  deportes: profile => {
-    var deportes ="";
-    // if(profile.futbol){
-    //   deportes += "Futbol ";
-    // }
-    if(profile.basquetball){
-      deportes += "Basquetball ";
+  sports: profile => {
+    var sports ="";
+    if(profile.football){
+      sports += "Fútbol ";
+    }
+    if(profile.basketball){
+      sports += "Basquetball ";
     }
     if(profile.baseball){
-      deportes += "Baseball ";
+      sports += "Baseball ";
     }
     if(profile.volleyball){
-      deportes += "Volleyball ";
+      sports += "Volleyball ";
     }
     if(profile.tenis){
-      deportes += "Tenis";
+      sports += "Tenis";
     }
-    return deportes;
+    return sports;
   },
 
   sportsOptions: () => {

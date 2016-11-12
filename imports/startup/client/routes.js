@@ -46,8 +46,9 @@ Router.route('/register',function(){
   }
 });
 
-Router.route('/nosotros',function(){
-  this.render('nosotros',{
+// render about page
+Router.route('/about',function(){
+  this.render('about',{
     to: 'main'
   })
 });
@@ -75,3 +76,16 @@ Router.route('/createMatch', function() {
     to: 'main'
   })
 });
+// render teams page
+Router.route('/team', function () {
+	this.render('team', {
+		to: 'main'
+	})
+})
+
+// render search page
+Router.route('/search', function () {
+	this.render('search', {
+		to: 'main'
+	})
+})
