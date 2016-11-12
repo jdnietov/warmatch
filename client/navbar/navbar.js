@@ -11,12 +11,11 @@ Template.navbar.events({
   },
   'submit form'(event, instance) {
     event.preventDefault();
-    var user = $('[id=search]').val();
-    if(Meteor.users.findOne({username:user})){
-      console.log("a");
-      Router.go('/profile/'+$('[id=search]').val());
+    var user = event.target.search.value;
+    if(Meteor.users.findOne({username:user})) {
+      Router.go('/profile/' + user);
     }
-    else{
+    else {
       Router.go('/profile/errorNotFound');
     }
   }
