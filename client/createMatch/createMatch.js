@@ -19,6 +19,11 @@ Template.createMatch.events({
     const _place = target.where.value;
     const _date = target.when.value;
 
+		console.log(_title);
+		console.log(_sport);
+		console.log(_place);
+		console.log(_date);
+
     OpenMatches.insert({
       title: _title,
       sport: _sport,

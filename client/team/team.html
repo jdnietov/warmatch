@@ -1,8 +1,31 @@
 <template name="team">
-	<div id="team" class="container-fluid">
-		<div class="row">
-			<div class="col-md-4">
-			</div>
-		</div>
-	</div>
+  <div id="team" class="container-fluid">
+    <div class="row">
+			{{#with team}}
+      <div id="left" class="col-md-4">
+        <img src={{logo}} alt="">
+        {{#if isEditing}}
+        <input type="text" id="log_src" placeholder="URL del logo"><br><br>
+        <button class="btn btn-success guardar-logo">Guardar</button>
+        <button class="btn btn-warning cancelar">Cancelar</button>
+        {{else}}
+        <button class="btn btn-success añadir-logo">Cambiar logo</button>
+        {{/if}}
+        <br>
+        <div class="info">
+          <h4>Estadísticas:</h4>
+        </div>
+      </div>
+      <div id="right" class="col-md-8">
+        <h1>{{name}}</h1><br>
+        <h4>Deporte: {{sport}}</h4>
+        <hr>
+        <h4>Descripción: {{description}}</h4><br>
+
+        <h4>Partidas recientes:</h4><br>
+				<hr>
+      </div>
+			{{/with}}
+    </div>
+  </div>
 </template>
