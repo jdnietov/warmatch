@@ -28,7 +28,7 @@ button.btn.btn-success {
 	background-color: #EC3642;
 	border-color: transparent;
  }
- 
+
 button.btn.btn-success:active, td.active {background-color: #AB222B;}
 
 button.btn.btn-success:active {
@@ -67,6 +67,20 @@ button a:active {color: white;}
 	padding: 100px 500px;
 	text-align: center;
  }
+
+.logo-modal-header {
+ text-align: center;
+ background-color: #AB222B;
+ content: "WARMATCH";
+ color: white;
+ font-family: Airstrike;
+ font-size: 24px;
+}
+
+.signature {
+	font-family: CodePro;
+	color: #EC3642;
+}
 
 @font-face {
 	font-family: Airstrike;

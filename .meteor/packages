@@ -35,3 +35,6 @@ accounts-password
 accounts-ui
 session
 ostrio:files
+tsega:bootstrap3-datetimepicker
+aldeed:autoform-bs-datetimepicker
+msavin:mongol

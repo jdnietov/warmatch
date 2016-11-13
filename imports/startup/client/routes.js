@@ -3,7 +3,7 @@ import '/client/home/home.html';
 import '/client/dashboard/dashboard.html';
 import '/client/login/login.html';
 import '/client/register/register.html';
-import '/client/createMatch/createMatch.html';
+import '/client/openMatch/openMatch.html';
 import '/client/profile/profile.html';
 
 Router.configure({
@@ -71,8 +71,8 @@ Router.route('/profile/:_username', function () {
 });
 
 // render createMatch page
-Router.route('/createMatch', function() {
-  this.render('createMatch', {
+Router.route('/openMatch', function() {
+  this.render('openMatch', {
     to: 'main'
   })
 });
