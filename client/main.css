@@ -78,8 +78,10 @@ button a:active {color: white;}
 }
 
 .signature {
+	background-color: white;
 	font-family: CodePro;
 	color: #EC3642;
+	padding: 3px;
 }
 
 @font-face {
