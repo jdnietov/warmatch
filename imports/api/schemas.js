@@ -65,21 +65,15 @@ Schemas.Match = new SimpleSchema({
   playerTwo: {type: String},
   sport: {
     type: String,
-    label: "Deporte",
-    // allowedValues: ['Fútbol', 'Basquetball', 'Tenis', 'Baseball']
+    label: "Deporte"
   },
-  place: {
-    type: String,
-    label: "Lugar de encuentro"
-  },
+  place: {type: String},
   message: {type: String},
-  date: {type: Date}
+  date: {type: String}
 });
 
 Schemas.OpenMatch = new SimpleSchema({
-  title: {
-    type: String
-  },
+  title: {type: String},
   sport: {
     type: String,
     label: "Deporte"

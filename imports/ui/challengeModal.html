@@ -7,9 +7,11 @@
         </div>
 
         <div class="modal-body">
-          {{#autoForm collection="Match" id="matchForm"}}
+          {{#autoForm collection="Match" doc=this id="matchForm" type="insert"}}
           <fieldset>
-            <legend>Create a match</legend>
+            <legend>Desafío a {{getChallengedName}}</legend>
+            {{> afFieldInput name="playerOne" type="hidden" value=currentUser.username}}
+            {{> afFieldInput name="playerTwo" type="hidden" value=getChallengedName}}
             {{> afFormGroup name="sport" type="select" options=sportsOptions}}
             <label for="place">¿Dónde quieres jugar?</label><br>
             {{> afFieldInput name="place" type="text" placeholder="Lugar de encuentro"}}
@@ -18,12 +20,13 @@
             <label for="message">Envía aquí un mensaje al equipo</label><br>
             {{> afFieldInput name="message" type="textarea"}}
 
-            <button style="margin-bottom: 10px;" type="submit" class="btn btn-success">Aceptar</button>
-            <button style="margin-bottom: 10px;" type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+            <button type="submit" class="btn btn-success">Aceptar</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
           </fieldset>
           {{/autoForm}}
-        </div>
 
+          <!-- {{> quickForm collection="Match" id="matchForm" type="insert"}} -->
+        </div>
       </div>
     </div>
   </div>

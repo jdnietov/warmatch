@@ -12,5 +12,9 @@ Template.challengeModal.helpers({
       {label: "Fútbol", value: "football"},
       {label: "Volleyball", value: "volley"}
     ];
+  },
+
+  getChallengedName: () => {
+    return Session.get("challengedName");
   }
 });
