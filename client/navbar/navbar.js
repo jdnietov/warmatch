@@ -3,6 +3,43 @@ import { Template } from 'meteor/templating';
 import './navbar.css';
 import './navbar.html';
 
+Template.navbar.onCreated(
+  function(){
+    this.Auxlog = new ReactiveVar("");
+    this.Auxregist = new ReactiveVar("");
+    this.Auxabout = new ReactiveVar("");
+  }
+);
+
+Template.navbar.helpers({
+  'activeLogin': function(){
+    if(Router.current().route.getName() == 'login'){
+      Template.instance().Auxlog.set("active");
+      Template.instance().Auxregist.set("");
+      Template.instance().Auxabout.set("");
+    }else if(Router.current().route.getName() == 'register'){
+      Template.instance().Auxlog.set("");
+      Template.instance().Auxregist.set("active");
+      Template.instance().Auxabout.set("");
+    }else if(Router.current().route.getName() == 'about'){
+      Template.instance().Auxlog.set("");
+      Template.instance().Auxregist.set("");
+      Template.instance().Auxabout.set("active");
+    }else if(Router.current().route.getName() == undefined){
+      Template.instance().Auxlog.set("");
+      Template.instance().Auxregist.set("");
+      Template.instance().Auxabout.set("");
+    }
+    return Template.instance().Auxlog.get();
+  },
+  'activeRegister': function(){
+    return Template.instance().Auxregist.get();
+  },
+  'activeAbout': function(){
+    return Template.instance().Auxabout.get();
+  }
+});
+
 Template.navbar.events({
   'click .logout'(event, instance) {
     event.preventDefault();
