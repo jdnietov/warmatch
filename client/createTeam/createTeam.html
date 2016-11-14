@@ -1,22 +1,27 @@
 <template name="createTeam">
-  <div id="createTeam">
-    <h2><span class="page-title">WARMATCH </span>  Team</h2>
-    <img src="/img/bskt.jpg" alt="" />
-    <form>
-      <p>Un nombre para tu equipo:</p>
-      <input type="text" name="name" placeholder="Nombre para tu equipo"><br>
-      <p>Una descripcion para tu equipo:</p>
-      <input type="text" name="description" placeholder="Descripción para tu equipo"><br>
-      <p>Selecciona un deporte:</p>
-      <select name="sport" id="sport-select">
-        <option value="football">Fútbol</option>
-        <option value="basket">Basketball</option>
-        <option value="base">Baseball</option>
-        <option value="volley">Volleyball</option>
-      </select><br>
-      <button id="btn-login" type="submit" class="btn btn-success">
-        Crear
-      </button>
-    </form>
+  <div id="createTeam" class="container-fluid">
+		<div class="row">
+			<div id="right" class="col-md-8">
+				<form>
+				  <h2><span class="page-title">WARMATCH </span>  Team</h2>
+		      <label for="tea-name" >Un nombre de tu equipo:</label><br>
+		      <input type="text" name="name" id="tea-name" placeholder="Nombre de tu equipo"><br>
+		      <label for="tea-description">Una descripcion de tu equipo:</label><br>
+		      <input type="text" name="description" id="tea-description" placeholder="Descripción de tu equipo"><br>
+					<label for="tea-logo">Url del logo</label><br>
+					<input type="text" name="logo" id="tea-logo" placeholder="Url del logo"><br>
+		      <label for="sport-select">Selecciona un deporte:</label><br>
+		      <select name="sport" id="sport-select">
+		        <option value="football">Fútbol</option>
+		        <option value="basket">Basketball</option>
+		        <option value="base">Baseball</option>
+		        <option value="volley">Volleyball</option>
+		      </select><br><br>
+		      <button id="btn-login" type="submit" class="btn btn-success">
+		        Crear
+		      </button>
+				</form>
+			</div>
+		</div>
   </div>
 </template>
