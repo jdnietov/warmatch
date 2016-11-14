@@ -9,7 +9,7 @@ import './dashboard.html';
 
 Template.dashboard.helpers({
   matchList() {
-    return OpenMatches.find({}, {sort: {createdAt: 1}});
+    return OpenMatches.find({}, {sort: {createdAt: -1}});
   },
 });
 

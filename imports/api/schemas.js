@@ -79,7 +79,8 @@ Schemas.OpenMatch = new SimpleSchema({
     label: "Deporte"
   },
   place: {type: String},
-  date: {type: String}
+  date: {type: String},
+  createdAt: {type: Date}
 });
 
 Schemas.Post = new SimpleSchema({

@@ -12,5 +12,9 @@ Template.openMatchModal.helpers({
       {label: "Fútbol", value: "football"},
       {label: "Volleyball", value: "volley"}
     ];
+  },
+
+  newDate: () => {
+    return new Date();
   }
 });

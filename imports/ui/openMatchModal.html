@@ -23,7 +23,7 @@
                     {{> afFieldInput name="place" type="text"}}
                     <label>Dinos cuándo será:</label>
                     {{> afFieldInput name="date" type="bootstrap-datepicker" placeholder="Fecha" buttonClasses="glyphicon glyphicon-calendar"}}
-
+                    {{> afFieldInput name="createdAt" type="hidden" value=newDate}}
                     <button type="submit" class="btn btn-success">Publicar</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
                   </fieldset>
