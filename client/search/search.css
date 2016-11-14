@@ -1,0 +1,33 @@
+#search {
+  margin-top: 20px;
+}
+
+#teamFragment {
+  margin-top: 20px;
+  border: 1px solid grey;
+  padding: 10px;
+  width: 1000px;
+}
+
+#logo, #data {
+  display: inline;
+}
+
+#logo {
+  float: left;
+  margin-left: 30px;
+  margin-right: 40px;
+  text-align: center;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+#logo img {
+  background-repeat: no-repeat;
+  border-radius: 50%;
+
+  width: 100px;
+  height: 100px;
+
+  margin: auto;
+}

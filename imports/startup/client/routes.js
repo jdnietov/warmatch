@@ -4,6 +4,7 @@ import '/client/dashboard/dashboard.html';
 import '/client/login/login.html';
 import '/client/register/register.html';
 import '/client/profile/profile.html';
+import '/client/search/search.html';
 
 Router.configure({
   layoutTemplate: "application-layout"
@@ -83,9 +84,11 @@ Router.route('/team', function () {
 	})
 })
 
+
 // render search page
-Router.route('/search', function () {
+Router.route('/search/:_searchValue', function () {
 	this.render('search', {
-		to: 'main'
+		to: 'main',
+		data: {searchValue: this.params._searchValue}
 	})
 })

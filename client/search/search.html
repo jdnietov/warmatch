@@ -1,27 +1,48 @@
 <template name="search">
 	<div id="search">
-		<form class="search" method="get">
-			<br>Buscar en
-			<select class="" name="searchAt">
-				<option selected value="0">Elige una opción</option>
-				<option value="1">Equipos</option>
-				<option value="2">Usuarios</option>
-				<!-- Tal vez? -->
-				<option value="3">Partidos</option>
-				<!-- Si no esta registrado muestra la lista de publicos.
-							Y si esta registrado primero la de privados y luego la misma de publicos-->
-			</select>
-			por
-			<select class="" name="searchtype">
-				<option selected value="0">Elige una opción</option>
-				<option value="1">Nombre</option>
-				<option value="2">Deporte</option>
-				<!-- Tal vez? -->
-				<option value="3">Ubicación</option>
-			</select>
-			<input type="search" name="searchText">
-			<input type="submit" name="Buscar" value="Buscar" disabled>
-		</form>
+		<div class="row">
+			<div class="col-md-3">
+				<form class="search" method="get">
+					<p>Buscar en</p>
+					<select class="" name="searchAt">
+						<option selected value="0">Elige una opción</option>
+						<option value="1">Equipos</option>
+						<option value="2">Usuarios</option>
+						<!-- Tal vez? -->
+						<option value="3">Partidos</option>
+						<!-- Si no esta registrado muestra la lista de publicos.
+									Y si esta registrado primero la de privados y luego la misma de publicos-->
+					</select>
+					<p>por</p>
+					<select class="" name="searchtype">
+						<option selected value="0">Elige una opción</option>
+						<option value="1">Nombre</option>
+						<option value="2">Deporte</option>
+						<!-- Tal vez? -->
+						<option value="3">Ubicación</option>
+					</select>
+					<input type="search" name="searchText">
+					<input type="submit" name="Buscar" value="Buscar" disabled>
+				</form>
+			</div>
+			<div class="col-md-9">
+				{{#each teamList searchValue}}
+				<div id="teamFragment" class="container">
+					<div id="logo">
+						<img src={{logo}} alt="">
+					</div>
+					<div id="data">
+						{{logear name}}
+						{{logear sport}}
+						{{logear description}}
+		        <h3>{{name}}</h3>
+		        <h6>Deporte: {{sport}}</h6>
+		        <h6>Descripción: {{description}}</h6>
+					</div>
+				</div>
+				{{/each}}
+			</div>
+		</div>
 	</div>
 </template>
 
