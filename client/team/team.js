@@ -6,7 +6,7 @@ import './team.css';
 import './team.html';
 
 Session.set("editing",false);
-var equipoABuscar = "equipo1";
+var equipoABuscar = "equipo12";
 
 
 

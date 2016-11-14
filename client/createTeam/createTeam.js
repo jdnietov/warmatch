@@ -9,7 +9,7 @@ Template.createTeam.events({
     event.preventDefault();
 
     const target = event.target;
-
+/*
     const _name = target.name.value;
 		const _description = target.description.value
     const _sport = target.sport.value;
@@ -20,14 +20,19 @@ Template.createTeam.events({
 		console.log(_description);
 		console.log(_sport);
 		console.log(_logo);
-		console.log(_statistics);
+		console.log(_statistics);*/
 
     Teams.insert({
-      name: _name,
-			description: _description,
-      sport: _sport,
-			logo: _logo,
-			statistics: _statistics
+      name: target.name.value,
+			description: target.description.value,
+      sport: target.sport.value,
+			logo: target.logo.value,
+			statistics: [
+				{name: "Partidos jugados", value: 0},
+				{name: "Partidos ganados", value: 0},
+				{name: "Partidos perdidos", value: 0},
+				{name: "Partidos empatados", value: 0}
+			]
     });
 
     console.log("Inserted!");
