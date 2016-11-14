@@ -14,73 +14,42 @@ Template.register.helpers({
 Template.register.events({
   'submit form': function(event){
     event.preventDefault();
-    var username = $('[name=username]').val();
-    var email = $('[name=email]').val();
-    var password = $('[name=password]').val();
-    var name = $('[name=name]').val();
-    var lastName = $('[name=lastName]').val();
-    var photo = $('[name=photo]').val();
-    var football = $('[name=football]').prop("checked");
-    var basketball = $('[name=basketball]').prop("checked");
-    var baseball = $('[name=baseball]').prop("checked");
-    var volleyball = $('[name=volleyball]').prop("checked");
-    var tenis = $('[name=tenis]').prop("checked");
-
-
-
-    if(!(football || basketball || baseball || volleyball || tenis)){
-      Session.set("error","Debes elegir un deporte")
-    }
-    else if(username.length<6){
-      Session.set("error","El nombre de usuario debe tener por lo menos 6 caracteres")
-    }
-    else if(password.length<6){
-      Session.set("error","La contraseña debe tener por lo menos 6 caracteres")
-    }
-    else if(Meteor.users.findOne({'profile.email': email})){
-      Session.set("error","El email esta en uso");
-    }
-    else{
-      Accounts.createUser({
+    const target = event.target;
+    var username = target.username.value;
+    var email = target.email.value;
+    var password = target.password.value;
+    var name = target.name.value;
+    var lastName = target.lastName.value;
+    var photo = target.photo.value;
+    var phone = target.phone.value;
+    var sports = [];
+    if(target.football.checked) sports.push("Fútbol");
+    if(target.basketball.checked) sports.push("Baloncesto");
+    if(target.baseball.checked) sports.push("Béisbol");
+    if(target.volleyball.checked) sports.push("Vóleibol");
+    if(target.tenis.checked) sports.push("Tenis");
+    console.log(sports);
+    Accounts.createUser({
         username: username,
         password: password,
+        email: email,
         profile: {
-          email: email,
           name: name,
           lastName: lastName,
-          football: football,
-          basketball: basketball,
-          baseball: baseball,
-          volleyball: volleyball,
-          tenis: tenis,
+          sports: sports,
+          phone: phone,
           photo: photo,
           createdAt: new Date()
         }
-      }, function(error){
-        if(error){
-          console.log(error.reason);
-          switch(error.reason){
-            case 'Username already exists.':
-              reason = 'El nombre de usuario ya existe';
-              break;
-            case 'Name is required':
-              reason = 'Nombre requerido';
-              break;
-            case 'Last name is required':
-              reason = 'Apellido requerido';
-              break;
-            case 'Photo is required':
-              reason = 'Foto requerida';
-              break;
-          }
-          Session.set("error", reason);
-        }
-        else{
-          console.log(email);
-          Session.set("error",null);
-          Router.go('/');
-        }
-      });
-    }
+    }, function(error){
+      if(error){
+        console.log(error.reason);
+        Session.set("error", error.reason);
+      }
+      else{
+        Session.set("error",null);
+        Router.go('/');
+      }
+    });
   }
 });

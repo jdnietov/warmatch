@@ -46,19 +46,24 @@ Template.navbar.events({
     Meteor.logout();
     Router.go('/');
   },
-	/*
-	'submit form'(event, instance) {
-    event.preventDefault();
-    var user = event.target.search.value;
-    if(Meteor.users.findOne({username:user})) {
-      Router.go('/profile/' + user);
-    }
-    else {
-      Router.go('/profile/errorNotFound');
-    }
-  }*/
   'submit form'(event, instance) {
-    event.preventDefault();
-    Router.go('/search/' + event.target.search.value);
+    if(event.target.id=="searchbox"){
+      event.preventDefault();
+      Router.go('/search/' + event.target.search.value);}
+    else if(event.target.id=="login"){
+      event.preventDefault();
+      const target = event.target;
+      var username = target.username.value;
+      var password = target.password.value;
+
+      Meteor.loginWithPassword(username,password,function(error){
+        if(error){
+          window.alert(error.reason);
+        }
+        else{
+          Router.go('/');
+        }
+      });
+    }
   }
 });

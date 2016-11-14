@@ -22,24 +22,12 @@ Template.profile.helpers({
 
   sports: profile => {
     var sports ="";
-    if(profile.football){
-      sports += "Fútbol ";
-    }
-    if(profile.basketball){
-      sports += "Basquetball ";
-    }
-    if(profile.baseball){
-      sports += "Baseball ";
-    }
-    if(profile.volleyball){
-      sports += "Volleyball ";
-    }
-    if(profile.tenis){
-      sports += "Tenis";
+    for(key in profile.sports){
+      sports += profile.sports[key];
+      sports += " ";
     }
     return sports;
   },
-
   sportsOptions: () => {
     return [
         {label: "Basketball", value: "basket"},
