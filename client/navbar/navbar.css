@@ -3,6 +3,10 @@ a.navbar-brand{
   color: #EC3642;
 }
 
+img.brand-img {
+  width: 25px;
+}
+
 nav.navbar.navbar-inverse {
   border-color: transparent;
 }
