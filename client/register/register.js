@@ -28,8 +28,21 @@ Template.register.events({
     if(target.baseball.checked) sports.push("Béisbol");
     if(target.volleyball.checked) sports.push("Vóleibol");
     if(target.tenis.checked) sports.push("Tenis");
-    console.log(sports);
-    Accounts.createUser({
+
+    if(sports.length==0){
+      Session.set("error","Debes seleccionar al menos un deporte");
+    }
+    else if(name.length<3){
+      Session.set("error","Nombre inválido");
+    }
+    else if(lastName.length<3){
+      Session.set("error","Apellido inválido");
+    }
+    else if(phone.length<7 || phone.length>10 || isNaN(phone)){
+      Session.set("error","Teléfono inválido");
+    }
+    else{
+      Accounts.createUser({
         username: username,
         password: password,
         email: email,
@@ -41,15 +54,16 @@ Template.register.events({
           photo: photo,
           createdAt: new Date()
         }
-    }, function(error){
-      if(error){
-        console.log(error.reason);
-        Session.set("error", error.reason);
-      }
-      else{
-        Session.set("error",null);
-        Router.go('/');
-      }
-    });
+      }, function(error){
+        if(error){
+          console.log(error.reason);
+          Session.set("error", error.reason);
+        }
+        else{
+          Session.set("error",null);
+          Router.go('/');
+        }
+      });
+    }
   }
 });
