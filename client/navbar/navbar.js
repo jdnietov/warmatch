@@ -9,7 +9,8 @@ Template.navbar.events({
     Meteor.logout();
     Router.go('/');
   },
-  'submit form'(event, instance) {
+	/*
+	'submit form'(event, instance) {
     event.preventDefault();
     var user = event.target.search.value;
     if(Meteor.users.findOne({username:user})) {
@@ -18,5 +19,9 @@ Template.navbar.events({
     else {
       Router.go('/profile/errorNotFound');
     }
+  }*/
+  'submit form'(event, instance) {
+    event.preventDefault();
+    Router.go('/search/' + event.target.search.value);
   }
 });
