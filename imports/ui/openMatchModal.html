@@ -1,0 +1,41 @@
+<template name="openMatchModal">
+  <div class="modal fade">
+    <div id="open-match-dialog" class="modal-dialog">
+      <div class="modal-content">
+        <div class="logo-modal-header modal-header">
+          WARMATCH
+        </div>
+
+        <div class="modal-body">
+          <div class="modal-sided container-fluid">
+            <div class="row">
+              <div class="left-side col-md-4">
+                <p class="signature">Foto por Adam Pretty&trade;.</p>
+              </div>
+              <div class="right-side col-md-8">
+                {{#autoForm collection="OpenMatch" doc=this id="openMatchForm" type="insert"}}
+                  <fieldset>
+                    <legend>WARMATCH: Crear un partido abierto</legend>
+                    <label>Nombre del evento</label>
+                    {{> afFieldInput name="title" type="text"}}
+                    {{> afFormGroup name="sport" type="select" options=sportsOptions}}
+                    <label>¿Dónde será el partido?</label>
+                    {{> afFieldInput name="place" type="text"}}
+                    <label>Dinos cuándo será:</label>
+                    {{> afFieldInput name="date" type="bootstrap-datepicker" placeholder="Fecha" buttonClasses="glyphicon glyphicon-calendar"}}
+
+                    <button type="submit" class="btn btn-success">Publicar</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                  </fieldset>
+                {{/autoForm}}
+                <!-- {{> quickForm collection="OpenMatch" id="openMatchForm" type="insert"}} -->
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</template>

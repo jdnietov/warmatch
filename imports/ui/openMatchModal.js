@@ -1,10 +1,10 @@
 import { Template } from 'meteor/templating';
-import { Matches } from '/imports/api/matches.js';
+import { OpenMatches } from '/imports/api/open-matches.js';
 
-import './challengeModal.css';
-import './challengeModal.html';
+import './openMatchModal.css';
+import './openMatchModal.html';
 
-Template.challengeModal.helpers({
+Template.openMatchModal.helpers({
   sportsOptions: () => {
     return [
       {label: "Basketball", value: "basket"},

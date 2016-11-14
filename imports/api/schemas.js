@@ -59,6 +59,7 @@ Schemas.User = new SimpleSchema({
 
 Meteor.users.attachSchema(Schemas.User);
 
+// TODO add createdAt
 Schemas.Match = new SimpleSchema({
   playerOne: {type: String},
   playerTwo: {type: String},
@@ -76,11 +77,15 @@ Schemas.Match = new SimpleSchema({
 });
 
 Schemas.OpenMatch = new SimpleSchema({
-  title: {type: String},
-  sport: {type: String},
+  title: {
+    type: String
+  },
+  sport: {
+    type: String,
+    label: "Deporte"
+  },
   place: {type: String},
-  date: {type: String},
-  createdAt: {type: Date}
+  date: {type: String}
 });
 
 Schemas.Post = new SimpleSchema({

@@ -1,116 +1,105 @@
-/* CSS declarations go here */
-*{
-  font-family: Jura;
-  letter-spacing: 0.03em;
-}
+* {
+	font-family: Jura;
+	letter-spacing: 0.03em;
+ }
 
-legend, label {
-  font-family: CodeProLight;
-}
+legend, label {font-family: CodeProLight;}
 
-input{
-  font-color: black;
-}
+input {font-color: black;}
 
-body{
-  padding-top: 50px;
-  background-color: rgb(35, 35, 35);
-  color: white;
-}
+body {
+	background-color: rgb(35, 35, 35);
+	color: white;
+	padding-top: 50px;
+ }
 
-label, h4.modal-title, div.modal-body > p, table {
-  color: rgb(45, 45, 45);
-}
+input, label, h4.modal-title, div.modal-body > p, table {color: rgb(45, 45, 45);}
 
-td.day {
-  font-family: CodePro;
-}
+td.day {font-family: CodePro;}
 
 a, strong, h1, h2, button {
-  font-family: CodePro;
-  color: #EC3642;
-}
+	color: #EC3642;
+	font-family: CodePro;
+ }
 
-h1 {
-  font-size: 60px;
-}
+h1 {font-size: 60px;}
 
 button.btn.btn-success {
-  background-color: #EC3642;
-  border-color: transparent;
-}
-button.btn.btn-success:active, td.active {
-  background-color: #AB222B;
-}
+	background-color: #EC3642;
+	border-color: transparent;
+ }
+
+button.btn.btn-success:active, td.active {background-color: #AB222B;}
 
 button.btn.btn-success:active {
-  border-radius: 0px;
-  background-color: #B33039;
+	background-color: #B33039;
   border-color: transparent;
+  border-radius: 0px;
 }
 
-p {
-  margin-top: 10px;
-}
+p {margin-top: 10px;}
 
 img.logo {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  width: 150px;
-}
+	margin-bottom: 10px;
+	margin-top: 10px;
+	width: 150px;
+ }
 
 input, select {
-  font-family: Jura;
-  color: rgb(45, 45, 45);
-}
+	color: rgb(45, 45, 45);
+	font-family: Jura;
+ }
 
-label {
-  margin-top: 10px;
-}
+label {margin-top: 10px;}
 
 .page-title {
-  font-family: Airstrike;
-  font-size: 40px;
+	font-family: Airstrike;
+	font-size: 40px;
+ }
+
+input[type="text"], input[type="password"], input[type="email"] {width: 200px;}
+
+button a {color: white;}
+
+button a:active {color: white;}
+
+.dracula {
+	padding: 100px 500px;
+	text-align: center;
+ }
+
+.logo-modal-header {
+ text-align: center;
+ background-color: #AB222B;
+ content: "WARMATCH";
+ color: white;
+ font-family: Airstrike;
+ font-size: 24px;
 }
 
-input[type="text"], input[type="password"], input[type="email"] {
-  width: 200px;
-}
-
-button a {
-  color: white;
-}
-
-button a:active {
-  color: white;
-}
-
-h4.modal-title {
-  font-family: CodePro;
-  color: #AB222B;
-}
-
-.dracula{
-  padding: 100px 500px;
-  text-align: center;
-}
-
-@font-face {
-    font-family: Airstrike;
-    src: url("/fonts/airstrike.ttf");
-}
-
-@font-face {
-    font-family: Jura;
-    src: url("/fonts/jura.otf");
+.signature {
+	background-color: white;
+	font-family: CodePro;
+	color: #EC3642;
+	padding: 3px;
 }
 
 @font-face {
-    font-family: CodePro;
-    src: url("/fonts/code-pro.ttf");
-}
+	font-family: Airstrike;
+	src: url("/fonts/airstrike.ttf");
+ }
 
 @font-face {
-    font-family: CodeProLight;
-    src: url("/fonts/code-pro-light.ttf");
-}
+	font-family: Jura;
+	src: url("/fonts/jura.otf");
+ }
+
+@font-face {
+	font-family: CodePro;
+	src: url("/fonts/code-pro.ttf");
+ }
+
+@font-face {
+	font-family: CodeProLight;
+	src: url("/fonts/code-pro-light.ttf");
+ }

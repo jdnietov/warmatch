@@ -3,7 +3,6 @@ import '/client/home/home.html';
 import '/client/dashboard/dashboard.html';
 import '/client/login/login.html';
 import '/client/register/register.html';
-import '/client/createMatch/createMatch.html';
 import '/client/profile/profile.html';
 
 Router.configure({
@@ -68,13 +67,6 @@ Router.route('/profile/:_username', function () {
       to:'main'
     });
   }
-});
-
-// render createMatch page
-Router.route('/createMatch', function() {
-  this.render('createMatch', {
-    to: 'main'
-  })
 });
 
 // render createTeam page

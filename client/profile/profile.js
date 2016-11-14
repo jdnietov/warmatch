@@ -41,29 +41,22 @@ Template.profile.helpers({
 
   sportsOptions: () => {
     return [
-        {label: "2013", value: "2013"},
-        {label: "2014", value: "2014"},
-        {label: "2015", value: "2015"}
+        {label: "Basketball", value: "basket"},
+        {label: "Baseball", value: "base"}
     ];
   },
 
   getMatchSchema: () => {
     return MatchSchema;
-  },
-
-  getProfileUsername: user => {
-    console.log(user);
-    console.log(Meteor.user().username);
-    return "jugador";
   }
 });
 
 Template.profile.events({
-  'click .añadir-foto': function(event){
+  'click .add-pic'(event, instance) {
     Session.set("editing",true);
   },
 
-  'click .guardar-foto': function(event){
+  'click .save-pic'(event, instance) {
     var userId = Meteor.user()._id;
     var img = $('#img_src').val()
     var data = Meteor.user().profile;

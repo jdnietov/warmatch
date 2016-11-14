@@ -1,0 +1,31 @@
+#open-match-dialog {
+  width: 800px;
+}
+
+#open-match-dialog .modal-body {
+  padding: 0px;
+}
+
+#openMatchForm button {
+  margin-top: 15px;
+  margin-bottom: 20px;
+}
+
+.left-side {
+  /* TODO change photo to .jpeg, which is free */
+  background-image: url('/img/openmatchmodal.jpg');
+  background-repeat: no-repeat;
+  float: none;
+  display: table-cell;
+  width: 250px;
+  vertical-align: bottom;
+  text-align: right;
+  background-position: 41% 0%;
+}
+
+.right-side {
+  padding-top: 15px;
+  padding-left: 25px;
+  float: none;
+  display: table-cell;
+}

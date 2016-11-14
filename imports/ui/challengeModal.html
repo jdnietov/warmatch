@@ -10,7 +10,7 @@
           {{#autoForm collection="Match" id="matchForm"}}
           <fieldset>
             <legend>Create a match</legend>
-            {{> afFormGroup type="select-radio" name="sport" options=sportsOptions}}
+            {{> afFormGroup name="sport" type="select" options=sportsOptions}}
             <label for="place">¿Dónde quieres jugar?</label><br>
             {{> afFieldInput name="place" type="text" placeholder="Lugar de encuentro"}}
             <label for="date">¿Cuándo?</label><br>
@@ -18,8 +18,8 @@
             <label for="message">Envía aquí un mensaje al equipo</label><br>
             {{> afFieldInput name="message" type="textarea"}}
 
-            <button type="submit" class="btn btn-success">Aceptar</button>
-            <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+            <button style="margin-bottom: 10px;" type="submit" class="btn btn-success">Aceptar</button>
+            <button style="margin-bottom: 10px;" type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
           </fieldset>
           {{/autoForm}}
         </div>
