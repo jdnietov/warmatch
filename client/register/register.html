@@ -1,27 +1,68 @@
 
 <template name="register" style="color: black;">
-  <div id="register">
+  <div id="register" class="container">
     <h1>Regístrate en <span class="page-title">Warmatch!</span></h1>
+    <div class="col-md-6">
+      <h3>Ingresa tus datos:</h3>
+    </div>
+    <div class="col-md-6">
+      <h3>Elige tus deportes:</h3>
+    </div>
     <h4>{{error}}</h4>
     <form class="register">
-      <input type="checkbox" name="football">Fútbol
-      <input type="checkbox" name="basketball">Basquetball
-      <input type="checkbox" name="baseball">Baseball
-      <input type="checkbox" name="volleyball">Volleyball
-      <input type="checkbox" name="tenis">Tenis<br><br>
-      <label for="reg-username">Nombre de usuario: </label><br>
-      <input type="text" name="username" id="reg-username"><br>
-      <label for="reg-email">Email: </label><br>
-      <input type="email" name="email" id="reg-email"><br>
-      <label for="reg-password">Contraseña: </label><br>
-      <input type="password" name="password" id="reg-password"><br>
-      <label for="reg-name">Nombre: </label><br>
-      <input type="text" name="name" id="reg-name"><br>
-      <label for="reg-lastName">Apellido: </label><br>
-      <input type="text" name="lastName" id="reg-lastName"><br>
-      <label for="reg-photo">URL de la foto: </label><br>
-      <input type="text" name="photo" id="reg-photo"><br>
-      <input type="submit">
+      <div class="row">
+        <div class="form-group col-md-3">
+          <label for="reg-name">Nombre:</label>
+          <input type="text" class="form-control" name="name" id="reg-name" placeholder="Nombre">
+        </div>
+        <div class="form-group col-md-3">
+          <label for="reg-lastName">Apellido:</label>
+          <input type="text" name="lastName" class="form-control" id="reg-lastName" placeholder="Apellido">
+        </div>
+        <div class="form-group col-md-2 col-md-offset-1">
+          <label>
+            <input type="checkbox" name="football">  Futból
+          </label>
+          <label>
+            <input type="checkbox" name="basketball">  Basquetbol
+          </label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-md-3">
+          <label for="reg-username">Nombre de usuario:</label>
+          <input type="text" name="username" id="reg-username" class="form-control" placeholder="Nombre de usuario">
+        </div>
+        <div class="form-group col-md-3">
+          <label for="reg-email">Email:</label>
+          <input type="email" name="email" id="reg-email" class="form-control" placeholder="Email">
+        </div>
+        <div class="form-group col-md-2 col-md-offset-1">
+          <label>
+            <input type="checkbox" name="baseball">  Baseball
+          </label>
+          <label>
+            <input type="checkbox" name="volleyball">  Volleyball
+          </label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-md-3">
+          <label for="reg-password">Contraseña:</label>
+          <input type="password" name="password" id="reg-password" class="form-control" placeholder="Contraseña">
+        </div>
+        <div class="form-group col-md-3">
+          <label for="reg-password">Url de Foto:</label>
+          <input type="text" name="photo" class="form-control" id="reg-photo" placeholder="URL">
+        </div>
+        <div class="form-group col-md-2 col-md-offset-1">
+          <label>
+            <input type="checkbox" name="tenis">  Tenis
+          </label>
+        </div>
+      </div>
+      <br>
+      <button class="btn btn-success" type="submit">Registrar</button>
     </form>
   </div>
 </template>
