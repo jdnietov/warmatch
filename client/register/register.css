@@ -1,9 +1,10 @@
 #register form {
   margin: auto;
-  text-align: center;
   padding: 30px;
   border: 1px solid white;
-  width: 500px;
+}
+.center{
+  text-align: center;
 }
 
 #register label {
