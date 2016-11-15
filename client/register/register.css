@@ -10,14 +10,11 @@
 #register label {
   margin-top: 5px;
   margin-bottom: 5px;
+  color: white;
 }
 
 #register h1 {
   text-align: center;
-}
-
-#register button {
-  margin-top: 10px;
 }
 
 input {
