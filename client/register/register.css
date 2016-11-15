@@ -1,6 +1,9 @@
 #register form {
   margin: auto;
-  padding: 30px;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	padding-left: 100px;
+	padding-right: 100px;
   border: 1px solid white;
 }
 .center{
@@ -19,4 +22,12 @@
 
 input {
   color: #ff0000;
+}
+
+#title1 {
+	text-align: center;
+}
+
+#title2 {
+	text-align: center;
 }
