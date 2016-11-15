@@ -22,9 +22,19 @@
       <div class="col-md-9">
         <h2>Novedades en <span class="page-title">Warmatch</span></h2>
         <p>Publica tu propio juego abierto!</p>
-        <button class="btn btn-success">Comienza</button>
-
-        <p>Aquí van los componentes que muestran los juegos.</p>
+        <button class="btn btn-success">Crear March</button>
+				<hr>
+				<h3>Equipos</h3>
+				{{#each registerList}}
+					{{#if notShown teamName}}
+						{{#with show teamName}}
+							{{> teamFragment}}
+						{{/with}}
+						{{alreadyShown}}
+					{{/if}}
+				{{/each}}
+				<hr>
+				<h3>Matches</h3>
         {{#each matchList}}
           {{> matchFragment}}
         {{/each}}
@@ -33,4 +43,19 @@
     </div>
   </div>
 
+</template>
+
+
+<!-- Lo saqué de 'imports/ui/teamFragment.html' por errores -->
+<template name="teamFragment">
+  <div id="teamFragment" class="container">
+    <div id="logo">
+      <img src="{{logo}}" alt="team logo"/>
+    </div>
+    <div id="data">
+      <h4><strong>{{name}}</strong></h4>
+      <p>{{sport}}</p>
+			<p>{{description}}</p>
+    </div>
+  </div>
 </template>

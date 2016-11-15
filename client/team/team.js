@@ -7,7 +7,7 @@ import './team.css';
 import './team.html';
 
 Session.set("editing",false);
-var equipoABuscar = "Equipo 5";
+var equipoABuscar = "equipo1";
 
 
 
@@ -21,7 +21,6 @@ Template.team.helpers({
   },
 
 	registerList: function() {
-		console.log(RegisterTURs.find({teamName: equipoABuscar}).count());
 		return RegisterTURs.find({teamName: equipoABuscar});
 	},
 
