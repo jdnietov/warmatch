@@ -1,4 +1,4 @@
-<template name="search">
+<template name="search2">
 	<div id="search">
 		<div class="row">
 			<div class="col-md-3">
@@ -45,6 +45,50 @@
 		</div>
 	</div>
 </template>
+
+<template name="search">
+  <div id="search" class="container-fluid">
+    <div class="row">
+      <div class="col-md-3 sidebar">
+        <ul class="nav nav-sidebar">
+          <li class="active">
+            <a href="#dropdowns">
+              Novedades
+              <span class="glyphicon glyphicon-chevron-right"></span>
+            </a>
+          </li>
+          <li>
+            <a href="#ongoing">
+              Partidas en curso
+              <span class="glyphicon glyphicon-chevron-right"></span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-9">
+        <h2>Busqueda de {{val}}</h2>
+        {{#each profileList val}}
+					{{> searchCard}}
+        {{/each}}
+      </div>
+
+    </div>
+  </div>
+
+</template>
+
+<template name="searchCard">
+  <div id="searchCard" class="container">
+    <div id="photo">
+      <img src={{profile.photo}} alt=""/>
+    </div>
+    <div id="info">
+      <h3>{{profile.name}} {{profile.lastName}}</h3>
+      <h4>{{username}}</h4>
+    </div>
+  </div>
+</template>
+
 
 <!--
 <template name="search">

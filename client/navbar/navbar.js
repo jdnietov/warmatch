@@ -49,7 +49,8 @@ Template.navbar.events({
   'submit form'(event, instance) {
     if(event.target.id=="searchbox"){
       event.preventDefault();
-      Router.go('/search/' + event.target.search.value);}
+      Router.go('/search/' + event.target.search.value.toLowerCase());
+    }
     else if(event.target.id=="login"){
       event.preventDefault();
       const target = event.target;

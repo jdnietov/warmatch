@@ -89,6 +89,6 @@ Router.route('/team', function () {
 Router.route('/search/:_searchValue', function () {
 	this.render('search', {
 		to: 'main',
-		data: {searchValue: this.params._searchValue}
+		data: function(){return {val: this.params._searchValue};}
 	})
 })
