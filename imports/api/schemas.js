@@ -57,7 +57,20 @@ Schemas.Team = new SimpleSchema({
 	statistics: {type: [Schemas.Statistic]}
 })
 
+Schemas.Role = new SimpleSchema({
+	name: {type: String},
+	description: {type: String}
+})
+
+Schemas.RegisterTUR = new SimpleSchema({
+	teamName: {type: String},
+	userName: {type: String},
+	roleName: {type: String}
+})
+
 export const MatchSchema = Schemas.Match;
 export const OpenMatchSchema = Schemas.OpenMatch;
 export const PostSchema = Schemas.Post;
 export const TeamSchema = Schemas.Team;
+export const RoleSchema = Schemas.Role;
+export const RegisterTURSchema = Schemas.RegisterTUR;

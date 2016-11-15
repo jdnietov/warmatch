@@ -1,5 +1,6 @@
 import { Template } from 'meteor/templating';
 import { Teams } from '/imports/api/teams.js';
+import { RegisterTURs } from '/imports/api/registerTURs.js';
 
 import './createTeam.css';
 import './createTeam.html';
@@ -34,6 +35,20 @@ Template.createTeam.events({
 				{name: "Partidos empatados", value: 0}
 			]
     });
+
+		/*
+		console.log("new RegisterTURs add");
+		console.log("teamName: "+target.name.value);
+		console.log("userName: "+Meteor.user().username);
+		console.log("roleName: "+"Administrator");
+		*/
+
+
+		RegisterTURs.insert({
+			teamName: target.name.value,
+			userName: Meteor.user().username,
+			roleName: "Administrador"
+		})
 
     console.log("Inserted!");
     Router.go('/')
