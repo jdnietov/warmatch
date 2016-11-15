@@ -1,12 +1,13 @@
 import { Session } from 'meteor/session';
 import { Template } from 'meteor/templating';
-import { Teams } from '/imports/api/teams.js';
+import { Teams } from '/imports/api/teams.js'
+import { RegisterTURs } from '/imports/api/registerTURs.js';
 
 import './team.css';
 import './team.html';
 
 Session.set("editing",false);
-var equipoABuscar = "equipo12";
+var equipoABuscar = "Equipo 5";
 
 
 
@@ -17,7 +18,16 @@ Template.team.helpers({
 
   isEditing: function() {
     return Session.get("editing");
-  }
+  },
+
+	registerList: function() {
+		console.log(RegisterTURs.find({teamName: equipoABuscar}).count());
+		return RegisterTURs.find({teamName: equipoABuscar});
+	},
+
+	member: function(_userName) {
+		return Meteor.users.findOne({username: _userName});
+	}
 });
 
 Template.team.events({

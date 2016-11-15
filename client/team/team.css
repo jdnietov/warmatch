@@ -1,0 +1,25 @@
+#members {
+	margin-top: 20px;
+  border: 1px solid white;
+  padding: 10px;
+  width: 400px;
+}
+
+#photo {
+  float: left;
+  margin-left: 20px;
+  margin-right: 30px;
+  text-align: center;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+#photo img {
+  background-repeat: no-repeat;
+  border-radius: 50%;
+
+  width: 100px;
+  height: 100px;
+
+  margin: auto;
+}

@@ -30,5 +30,29 @@
       </div>
 			{{/with}}
     </div>
-  </div>
+		<div id="twoLists" class="row">
+			<div class="col-md-4 container">
+				<div id="members">
+					{{#each registerList}}
+					{{#with member userName}}
+					<div id="photo">
+						<img src={{profile.photo}} alt="">
+					</div>
+					{{/with}}
+					<p>{{roleName}}</p>
+					{{#with member userName}}
+					<p>{{username}}</p>
+					<p>{{profile.name}} {{profile.lastName}}</p>
+					{{/with}}
+					{{/each}}
+				</div>
+			</div>
+			<div id="desc" class="col-md-8">
+				<div id="matches">
+					<p>Matches</p>
+					<p>Aun no implementado</p>
+				</div>
+			</div>
+	  </div>
+	</div>
 </template>
