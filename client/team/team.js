@@ -7,13 +7,13 @@ import './team.css';
 import './team.html';
 
 Session.set("editing",false);
-var equipoABuscar = "equipo1";
+Session.set("teamName", "");
 
 
 
 Template.team.helpers({
 	team: function() {
-		return Teams.findOne({name: equipoABuscar});
+		return Teams.findOne({name: Session.get("teamName")});
 	},
 
   isEditing: function() {
@@ -21,12 +21,18 @@ Template.team.helpers({
   },
 
 	registerList: function() {
-		return RegisterTURs.find({teamName: equipoABuscar});
+		return RegisterTURs.find({teamName: Session.get("teamName")}); 
 	},
 
 	member: function(_userName) {
 		return Meteor.users.findOne({username: _userName});
+	},
+
+	setTeamName: function(_teamName) {
+		console.log(_teamName);
+		Session.set("teamName", _teamName);
 	}
+
 });
 
 Template.team.events({
@@ -42,5 +48,5 @@ Template.team.events({
 
   'click .cancelar': function(event){
     Session.set("editing",false);
-  },
+  }
 });

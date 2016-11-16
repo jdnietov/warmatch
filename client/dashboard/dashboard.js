@@ -41,7 +41,14 @@ Template.dashboard.helpers({
 });
 
 Template.dashboard.events({
-  'click button'(event, instance) {
+  'click #btn-createMatch'(event, instance) {
     Modal.show('openMatchModal');
+  },
+
+	'click #btn-seeTeam'(event, instance) {
+    console.log(event.target.dataset.teamName);
+		Router.go('/team/' + event.target.dataset.teamName);
   }
+
+
 });

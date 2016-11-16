@@ -78,9 +78,10 @@ Router.route('/createTeam', function() {
 })
 
 // render teams page
-Router.route('/team', function () {
-	this.render('team', {
-		to: 'main'
+Router.route('/team/:_teamName', function () {
+	this.render('team', { 
+		to: 'main',
+		data: {value: this.params._teamName}
 	})
 })
 

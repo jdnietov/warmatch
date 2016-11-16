@@ -22,7 +22,7 @@
       <div class="col-md-9">
         <h2>Novedades en <span class="page-title">Warmatch</span></h2>
         <p>Publica tu propio juego abierto!</p>
-        <button class="btn btn-success">Crear March</button>
+        <button id="btn-createMatch" class="btn btn-success" data-username="{{profile.name}}">Crear Match</button>
 				<hr>
 				<h3>Equipos</h3>
 				{{#each registerList}}
@@ -57,5 +57,7 @@
       <p>{{sport}}</p>
 			<p>{{description}}</p>
     </div>
+		<button id="btn-seeTeam" class="btn btn-success" data-teamName="{{name}}">
+			Ver equipo</button>
   </div>
 </template>
