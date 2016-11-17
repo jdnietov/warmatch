@@ -30,8 +30,8 @@ Template.profile.helpers({
   },
   sportsOptions: () => {
     return [
-        {label: "Basketball", value: "basket"},
-        {label: "Baseball", value: "base"}
+      {label: "Basketball", value: "basket"},
+      {label: "Baseball", value: "base"}
     ];
   },
 

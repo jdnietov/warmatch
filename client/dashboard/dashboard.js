@@ -24,7 +24,6 @@ Template.dashboard.helpers({
 	},
 
 	notShown: function(teamName) {
-		console.log(Session.get("lastShown"));
 		if(teamName == Session.get("lastShown")){
 			return false;
 		}
@@ -41,14 +40,11 @@ Template.dashboard.helpers({
 });
 
 Template.dashboard.events({
-  'click #btn-createMatch'(event, instance) {
+  'click #btn-createMatch': function(event, instance) {
     Modal.show('openMatchModal');
   },
 
-	'click #btn-seeTeam'(event, instance) {
-    console.log(event.target.dataset.teamName);
-		Router.go('/team/' + event.target.dataset.teamName);
+	'click #btn-seeTeam': function(event, instance) {
+		Router.go('/team/' + this.name);
   }
-
-
 });

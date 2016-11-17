@@ -32,19 +32,10 @@
 			{{/with}}
     </div>
 		<div id="twoLists" class="row">
-			<div class="col-md-4 container">
+			<div class="col-md-4">
 				<div id="members">
 					{{#each registerList}}
-					{{#with member userName}}
-					<div id="photo">
-						<img src={{profile.photo}} alt="">
-					</div>
-					{{/with}}
-					<p>{{roleName}}</p>
-					{{#with member userName}}
-					<p>{{username}}</p>
-					<p>{{profile.name}} {{profile.lastName}}</p>
-					{{/with}}
+						{{> userFragment}}
 					{{/each}}
 				</div>
 			</div>
@@ -56,4 +47,22 @@
 			</div>
 	  </div>
 	</div>
+</template>
+
+<template name="userFragment">
+  <div id="userFragment" class="container">
+		<div id="photo">
+			{{#with member userName}}
+			<img src={{profile.photo}} alt="">
+			{{/with}}
+		</div>
+		<div>
+			<p>{{roleName}}</p>
+			{{#with member userName}}
+			<p>{{username}}</p>
+			<p>{{profile.name}} {{profile.lastName}}</p>
+			<button id="btn-seeUser" class="btn btn-success">Ver</button>
+			{{/with}}
+		</div>
+  </div>
 </template>

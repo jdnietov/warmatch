@@ -9,8 +9,6 @@ import './team.html';
 Session.set("editing",false);
 Session.set("teamName", "");
 
-
-
 Template.team.helpers({
 	team: function() {
 		return Teams.findOne({name: Session.get("teamName")});
@@ -21,18 +19,19 @@ Template.team.helpers({
   },
 
 	registerList: function() {
-		return RegisterTURs.find({teamName: Session.get("teamName")}); 
-	},
-
-	member: function(_userName) {
-		return Meteor.users.findOne({username: _userName});
+		return RegisterTURs.find({teamName: Session.get("teamName")});
 	},
 
 	setTeamName: function(_teamName) {
-		console.log(_teamName);
 		Session.set("teamName", _teamName);
 	}
 
+});
+
+Template.userFragment.helpers({
+	member: function(_userName) {
+		return Meteor.users.findOne({username: _userName});
+	}
 });
 
 Template.team.events({
@@ -48,5 +47,9 @@ Template.team.events({
 
   'click .cancelar': function(event){
     Session.set("editing",false);
-  }
+  },
+
+	'click #btn-seeUser': function(event, instance) {
+		Router.go('/profile/' + this.username);
+	}
 });
