@@ -6,10 +6,10 @@
           <img class="brand-img" align="left" src="warmatch-logo.png" alt=""> Warmatch</a>
       </div>
       {{#if currentUser}}
-        <form class="navbar-form" id="searchbox" action="">
-          <input id="search" type="text" placeholder="Buscar usuario">
-          <button type="submit"><span class="glyphicon glyphicon-search"></span></button>
-        </form>
+      <form method="post" class="navbar-form navbar-left" id="searchbox" action="">
+        <input type="text" class="form-control input-sm" placeholder="Buscar usuario">
+        <button type="submit"><span class="glyphicon glyphicon-search"></span></button>
+      </form>
 
         <ul class="nav navbar-nav">
           <li class="active"><a href="/profile/{{currentUser.username}}" >
@@ -32,7 +32,7 @@
             <div class="form-group">
                 <input type="password" class="form-control input-sm" name="password" placeholder="Contraseña">
             </div>
-            <button type="submit" class="btn btn-default btn-sm">Entrar</button>
+            <input type="submit" class="btn btn-danger btn-sm" value="Entrar">
         </form>
       {{/if}}
     </div>
