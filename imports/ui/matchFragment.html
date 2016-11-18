@@ -1,16 +1,17 @@
 <template name="matchFragment">
-  <div id="matchFragment" class="container">
-    <div id="photo">
-      <img src="/img/bskt.jpg" alt="Just testing."/>
-      <h6><strong>Marcador:</strong><p>Pendiente</p></h6>
-    </div>
-    <div id="desc">
-      <h4><strong>{{title}}</strong></h4>
-      <p>{{sport}} | Amistoso</p>
-      <h6><strong>Retador: </strong>Equipo 1</h6>
-      <h6><strong>Juega con: </strong>Equipo 2</h6>
-      <h6><strong>Lugar: </strong>{{place}}</h6>
-      <h6><strong>Fecha: </strong>{{date}}</h6>
+  <div id="matchFragment" class="container-fluid">
+    <div class="row">
+      <div id="desc" class="col-md-8">
+        <h4><strong>{{title}}</strong></h4>
+        <p>{{sport}} | Amistoso</p>
+        <h6><strong>Retador: </strong>Equipo 1</h6>
+        <h6><strong>Juega con: </strong>Equipo 2</h6>
+        <h6><strong>Lugar: </strong>{{place}}</h6>
+        <h6><strong>Fecha: </strong>{{date}}</h6>
+      </div>
+      <div style="background-image: url('/img/bskt.jpg'); background-repeat: no-repeat;" id="photo" class="col-md-4">
+        <!-- <h6><strong>Marcador:</strong><p>Pendiente</p></h6> -->
+      </div>
     </div>
   </div>
 </template>
