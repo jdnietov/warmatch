@@ -1,5 +1,5 @@
 import { Mongo } from 'meteor/mongo';
-import { TeamSchema } from '/imports/api/schemas.js';
+import { TeamSchema } from './schemas.js';
 
 Team = new Mongo.Collection('teams');
 Team.attachSchema(TeamSchema);

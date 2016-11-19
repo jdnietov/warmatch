@@ -2,10 +2,13 @@ import { Meteor } from 'meteor/meteor';
 import '/imports/api/matches.js';
 import '/imports/api/open-matches.js';
 import '/imports/api/teams.js';
+import '/imports/api/registerTURs.js';
 //import { Teams } from '/imports/api/teams.js';
 
 Meteor.startup(() => {
-  // code to run on server at startup
+  Meteor.publish("allUsers", function () {
+  return Meteor.users.find({});
+  });
 });
 
 /*

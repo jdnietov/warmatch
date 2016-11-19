@@ -1,5 +1,5 @@
 import { Mongo } from 'meteor/mongo';
-import { MatchSchema } from '/imports/api/schemas.js';
+import { MatchSchema } from './schemas.js';
 
 Match = new Mongo.Collection('matches');
 Match.attachSchema(MatchSchema);

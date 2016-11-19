@@ -1,9 +1,13 @@
 #register form {
   margin: auto;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	padding-left: 100px;
+	padding-right: 100px;
+  /*border: 1px solid white;*/
+}
+.center{
   text-align: center;
-  padding: 30px;
-  border: 1px solid white;
-  width: 500px;
 }
 
 #register label {
@@ -18,4 +22,12 @@
 
 input {
   color: #ff0000;
+}
+
+#title1 {
+	text-align: center;
+}
+
+#title2 {
+	text-align: center;
 }
