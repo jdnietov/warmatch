@@ -29,18 +29,42 @@ Template.register.events({
     if(target.volleyball.checked) sports.push("Vóleibol");
     if(target.tenis.checked) sports.push("Tenis");
 
-    if(sports.length==0){
+    if(name.length<3){
+      Session.set("error","El nombre debe tener 3 carácteres mínimo");
+    }
+
+    else if(!validateString(name)){
+      Session.set("error","El nombre solo puede contener letras");
+    }
+
+    else if(lastName.length<3){
+      Session.set("error","El apellido debe tener 3 carácteres mínimo");
+    }
+
+    else if(!validateString(lastName)){
+      Session.set("error","El apellido solo puede contener letras");
+    }
+
+    else if(username.length<6){
+      Session.set("error","El usuario debe tener 6 carácteres mínimo");
+    }
+
+    else if(!validateEmail(email)){
+      Session.set("error","El correo eléctronico no es válido");
+    }
+
+    else if(password.length<6){
+      Session.set("error","La contraseña debe tener 6 carácteres mínimo");
+    }
+
+    else if(sports.length==0){
       Session.set("error","Debes seleccionar al menos un deporte");
     }
-    else if(name.length<3){
-      Session.set("error","Nombre inválido");
-    }
-    else if(lastName.length<3){
-      Session.set("error","Apellido inválido");
-    }
+
     else if(phone.length<7 || phone.length>10 || isNaN(phone)){
       Session.set("error","Teléfono inválido");
     }
+
     else{
       Accounts.createUser({
         username: username,
@@ -56,7 +80,6 @@ Template.register.events({
         }
       }, function(error){
         if(error){
-          console.log(error.reason);
           Session.set("error", error.reason);
         }
         else{
@@ -67,3 +90,13 @@ Template.register.events({
     }
   }
 });
+
+function validateEmail(email) {
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
+}
+
+function validateString(string) {
+  var re = /^[a-zA-Z]+$/;
+  return re.test(string);
+}
