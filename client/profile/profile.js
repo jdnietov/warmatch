@@ -2,6 +2,7 @@ import { Session } from 'meteor/session';
 import { MatchSchema } from '/imports/api/schemas.js';
 import { Matches } from '/imports/api/matches.js';
 import { Template } from 'meteor/templating';
+import { ImagesCol } from '/imports/api/images.js';
 
 import '/imports/ui/challengeModal.js';
 
@@ -18,6 +19,12 @@ Template.profile.helpers({
 
   isEditing: () => {
     return Session.get("editing");
+  },
+
+  photoUrl: profile => {
+    var imageId = profile.photo;
+    var image = ImagesCol.findOne({_id:imageId});
+    return image;
   },
 
   sports: profile => {
@@ -41,31 +48,39 @@ Template.profile.helpers({
 });
 
 Template.profile.events({
-  'click .add-pic'(event, instance) {
+  'click .add-pic':function(event, instance) {
     Session.set("editing",true);
   },
 
-  'click .save-pic'(event, instance) {
-    var userId = Meteor.user()._id;
-    var img = $('#img_src').val()
-    var data = Meteor.user().profile;
-    data.foto = img;
-    Meteor.users.update({_id:userId}, {$set: {profile: data}});
-    Session.set("editing",false);
+  'change .myFileInput': function(event, template) {
+    FS.Utility.eachFile(event, function(file) {
+      ImagesCol.insert(file, function (err, fileObj) {
+        var fileId = fileObj._id;
+        Session.set('fileId', fileId);
+        console.log("algo");
+      });
+    });
   },
 
   'click .cancelar': function(event){
     Session.set("editing",false);
   },
 
-  'click #btn-challenge'(event, instance) {
+  'click #btn-challenge': function(event, instance) {
     var name = event.target.dataset.username;
     Session.set("challengedName", name);
     Modal.show('challengeModal');
   },
 
-  'submit #img-form'(event, instance) {
+  'submit .imgForm':function(event, instance) {
     event.preventDefault();
-    console.log("img submitted");
+    console.log("algo");
+    var userId = Meteor.user()._id;
+    console.log(userId);
+    var img = Session.get('fileId');
+    var data = Meteor.user().profile;
+    data.photo=img;
+    Meteor.users.update({_id:userId}, {$set: {profile: data}});
+    Session.set("editing",false);
   }
 });

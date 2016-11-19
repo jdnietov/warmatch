@@ -38,3 +38,5 @@ ostrio:files
 tsega:bootstrap3-datetimepicker
 aldeed:autoform-bs-datetimepicker
 msavin:mongol
+cfs:standard-packages
+cfs:filesystem

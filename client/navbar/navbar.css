@@ -19,6 +19,7 @@ nav.navbar.navbar-inverse form {
 nav.navbar.navbar-inverse button {
   border-color: transparent;
   background-color: #EC3642;
+  height: 28px;
 }
 
 nav.navbar.navbar-inverse button span {

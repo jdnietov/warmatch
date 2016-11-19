@@ -1,5 +1,6 @@
 import { Template } from 'meteor/templating';
 import { Tracker } from 'meteor/tracker';
+import { ImagesCol } from '/imports/api/images.js';
 
 import './register.html';
 
@@ -12,6 +13,15 @@ Template.register.helpers({
 })
 
 Template.register.events({
+  'change .myFileInput': function(event, template) {
+    console.log("algo");
+    FS.Utility.eachFile(event, function(file) {
+      ImagesCol.insert(file, function (err, fileObj) {
+        var fileId = fileObj._id;
+        Session.set('fileId', fileId);
+      });
+    });
+  },
   'submit form': function(event){
     event.preventDefault();
     const target = event.target;
@@ -20,7 +30,7 @@ Template.register.events({
     var password = target.password.value;
     var name = target.name.value;
     var lastName = target.lastName.value;
-    var photo = target.photo.value;
+    var photo = Session.get('fileId');
     var phone = target.phone.value;
     var sports = [];
     if(target.football.checked) sports.push("Fútbol");
@@ -63,6 +73,9 @@ Template.register.events({
 
     else if(phone.length<7 || phone.length>10 || isNaN(phone)){
       Session.set("error","Teléfono inválido");
+    }
+    else if(photo.length<1){
+      Session.set("error","Añade una foto");
     }
 
     else{

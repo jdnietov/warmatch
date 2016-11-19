@@ -10,11 +10,3 @@ Meteor.startup(() => {
   return Meteor.users.find({});
   });
 });
-
-/*
-Meteor.publish("searchOnTeams", function(searchValue){
-	if (!searchValue) {
-		return Teams.find({});
-	}
-	return Tems.find({ $text: {$search: searchValue}});
-});*/
