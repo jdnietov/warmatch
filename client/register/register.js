@@ -33,6 +33,8 @@ Template.register.events({
     var photo = Session.get('fileId');
     var phone = target.phone.value;
     var sports = [];
+    var matchRequests = [];
+    var sentRequests = [];
     if(target.football.checked) sports.push("Fútbol");
     if(target.basketball.checked) sports.push("Baloncesto");
     if(target.baseball.checked) sports.push("Béisbol");
@@ -89,7 +91,9 @@ Template.register.events({
           sports: sports,
           phone: phone,
           photo: photo,
-          createdAt: new Date()
+          createdAt: new Date(),
+          matchRequests: matchRequests,
+          sentRequests: sentRequests
         }
       }, function(error){
         if(error){

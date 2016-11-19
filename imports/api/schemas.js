@@ -4,8 +4,9 @@ var Schemas = {};
 
 // TODO add createdAt
 Schemas.Match = new SimpleSchema({
-  playerOne: {type: String},
-  playerTwo: {type: String},
+  open_id: {type: String},
+  challenger: {type: String},
+  challenged: {type: String},
   sport: {
     type: String,
     label: "Deporte"
