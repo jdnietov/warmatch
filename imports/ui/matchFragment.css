@@ -1,34 +1,19 @@
 #matchFragment {
   margin-top: 20px;
   border: 1px solid grey;
-  padding: 10px;
   width: 1000px;
 }
 
-#photo, #desc {
-  display: inline;
+#desc {
+  display: table-cell;
+  padding: 20px;
+  padding-bottom: 0px;
 }
 
 #photo {
-  float: left;
-  margin-left: 30px;
-  margin-right: 40px;
+  display: table-cell;
   text-align: center;
   margin-top: auto;
   margin-bottom: auto;
-}
-
-#photo img {
-  background-repeat: no-repeat;
-  border-radius: 50%;
-
-  width: 100px;
-  height: 100px;
-
-  margin: auto;
-}
-
-#desc .col-md-8 {
-  display: inline;
-  background-color: red;
+  height: 200px;
 }
