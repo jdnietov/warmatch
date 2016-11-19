@@ -26,24 +26,6 @@ Schemas.OpenMatch = new SimpleSchema({
   createdAt: {type: Date}
 });
 
-Schemas.Post = new SimpleSchema({
-  title: {
-    type: String,
-    max: 60
-  },
-  picture: {
-    type: String,
-    autoform: {
-      afFieldInput: {
-        type: 'fileUpload',
-        collection: 'Images',
-        uploadTemplate: 'uploadField', // <- Optional
-        previewTemplate: 'uploadPreview' // <- Optional
-      }
-    }
-  }
-});
-
 Schemas.Statistic = new SimpleSchema({
 	name: {type: String},
 	value: {type: Number}

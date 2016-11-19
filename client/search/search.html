@@ -1,4 +1,4 @@
-<template name="search">
+<template name="search2">
 	<div id="search">
 		<div class="row">
 			<div class="col-md-3">
@@ -46,7 +46,7 @@
 	</div>
 </template>
 
-<template name="search2">
+<template name="search">
   <div id="search" class="container-fluid">
     <div class="row">
       <div class="col-md-3 sidebar">
@@ -66,15 +66,17 @@
         </ul>
       </div>
       <div class="col-md-9">
-        <h2>Busqueda de {{val}}</h2>
+        <h3>Perfiles</h3>
         {{#each profileList val}}
-					{{> searchCard}}
+					<a href="/profile/{{username}}">{{> searchCard}}</a>
         {{/each}}
+				<h3>Equipos</h3>
+				{{#each teamList val}}
+					{{> teamCard}}
+				{{/each}}
       </div>
-
     </div>
   </div>
-
 </template>
 
 <template name="searchCard">
@@ -87,6 +89,18 @@
       <h4>{{username}}</h4>
     </div>
   </div>
+</template>
+
+<template name="teamCard">
+	<div id="teamCard" class="container">
+		<div id="photo">
+			<img src="" alt=""/>
+		</div>
+		<div id="info">
+			<h3>{{name}}</h3>
+			<h4>{{sport}}</h4>
+		</div>
+	</div>
 </template>
 
 

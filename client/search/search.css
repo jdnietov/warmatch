@@ -66,3 +66,7 @@
   display: inline;
   background-color: red;
 }
+
+a:hover{
+  color: white;
+}
