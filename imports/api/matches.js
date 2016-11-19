@@ -12,9 +12,6 @@ Meteor.methods({
   'matches.send-invite'(challenged, open_id) {
     check(challenged, String);
 
-    console.log(challenged);
-    console.log(open_id);
-
     if(! this.userId) {
       throw new Meteor.Error('not-authorized');
     }

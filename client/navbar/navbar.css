@@ -25,3 +25,26 @@ nav.navbar.navbar-inverse button {
 nav.navbar.navbar-inverse button span {
   color: white;
 }
+
+.user-photo {
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  overflow: hidden;
+  display: table-cell;
+}
+
+.user-photo img {
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+}
+
+#user-info {
+  background-color: #080808;
+  padding-left: 10px;
+}
+
+#user-info a {
+  display: table-cell;
+}

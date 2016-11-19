@@ -1,4 +1,5 @@
 import { Template } from 'meteor/templating';
+import { ImagesCol } from '/imports/api/images.js';
 
 import './navbar.css';
 import './navbar.html';
@@ -37,7 +38,12 @@ Template.navbar.helpers({
   },
   'activeAbout': function(){
     return Template.instance().Auxabout.get();
-  }
+  },
+  photoUrl: profile => {
+    var imageId = profile.photo;
+    var image = ImagesCol.findOne({_id:imageId});
+    return image;
+  },
 });
 
 Template.navbar.events({
