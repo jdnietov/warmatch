@@ -36,9 +36,13 @@
               {{/if}}
               <span class="caret"></span></button>
             <ul class="dropdown-menu">
+              {{#if invites}}
               {{#each getRequests}}
                 {{> requestFragment request=this}}
               {{/each}}
+              {{else}}
+                <li><a href="#">No tienes retos pendientes.</a></li>
+              {{/if}}
             </ul>
           </div>
         </li>

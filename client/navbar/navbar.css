@@ -44,6 +44,7 @@ nav.navbar.navbar-inverse button span {
 
 ul.dropdown-menu {
   width: 350px;
+  margin-top: 10px;
 }
 
 #user-info {
