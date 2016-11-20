@@ -1,13 +1,13 @@
-.request-info {
+.request-photo {
   color: rgb(35, 35, 35);
 }
 
-.request-info h4 {
+.request-photo h4 {
   font-family: CodePro;
   color: #AB222B;
 }
 
-.request-info div.col-xs-3 {
+.request-photo div.col-xs-3 {
   background-repeat: no-repeat;
   width: 70px;
   height: 50px;
@@ -15,15 +15,21 @@
   background-position: 41% 0%;
 }
 
-.request-info div.col-xs-9 {
+.request-photo div.col-xs-9 {
   padding-bottom: 10px;
 }
 
-.request-info p {
+.request-photo p {
   font-style: italic;
 }
 
 .request-item {
   margin: 5px;
   border: 1px solid grey;
+}
+
+#btn-discard {
+  background-color: transparent;
+  color: #AB222B;
+  border: 1px solid #AB222B;
 }
