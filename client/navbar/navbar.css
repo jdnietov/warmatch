@@ -6,6 +6,10 @@ img.brand-img {
   width: 25px;
 }
 
+#search {
+  width: 300px;
+}
+
 nav.navbar.navbar-inverse {
   border-color: transparent;
 }

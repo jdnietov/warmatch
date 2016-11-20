@@ -10,6 +10,7 @@ import './profile.css';
 import './profile.html';
 
 Session.set("editing",false);
+Session.set('fileId',undefined);
 
 Template.profile.helpers({
   allowed: username => {
@@ -24,15 +25,6 @@ Template.profile.helpers({
     var imageId = profile.photo;
     var image = ImagesCol.findOne({_id:imageId});
     return image;
-  },
-
-  sports: profile => {
-    var sports ="";
-    for(key in profile.sports){
-      sports += profile.sports[key];
-      sports += " ";
-    }
-    return sports;
   },
   sportsOptions: () => {
     return [
@@ -56,7 +48,6 @@ Template.profile.events({
       ImagesCol.insert(file, function (err, fileObj) {
         var fileId = fileObj._id;
         Session.set('fileId', fileId);
-        console.log("algo");
       });
     });
   },
@@ -71,11 +62,10 @@ Template.profile.events({
 
   'submit .imgForm':function(event, instance) {
     event.preventDefault();
-    console.log("algo");
     var userId = Meteor.user()._id;
-    console.log(userId);
     var img = Session.get('fileId');
     var data = Meteor.user().profile;
+    ImagesCol.remove({_id:data.photo}, true);
     data.photo=img;
     Meteor.users.update({_id:userId}, {$set: {profile: data}});
     Session.set("editing",false);
