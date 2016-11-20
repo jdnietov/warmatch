@@ -18,6 +18,7 @@ Schemas.Match = new SimpleSchema({
 
 Schemas.OpenMatch = new SimpleSchema({
   title: {type: String},
+  creator: {type: String},
   sport: {
     type: String,
     label: "Deporte"
