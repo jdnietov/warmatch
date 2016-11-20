@@ -1,0 +1,29 @@
+.request-info {
+  color: rgb(35, 35, 35);
+}
+
+.request-info h4 {
+  font-family: CodePro;
+  color: #AB222B;
+}
+
+.request-info div.col-xs-3 {
+  background-repeat: no-repeat;
+  width: 70px;
+  height: 50px;
+  margin-top: 5px;
+  background-position: 41% 0%;
+}
+
+.request-info div.col-xs-9 {
+  padding-bottom: 10px;
+}
+
+.request-info p {
+  font-style: italic;
+}
+
+.request-item {
+  margin: 5px;
+  border: 1px solid grey;
+}

@@ -7,7 +7,10 @@ import '/client/profile/profile.html';
 import '/client/explore/explore.html'
 
 Router.configure({
-  layoutTemplate: "application-layout"
+  layoutTemplate: "application-layout",
+  waitOn: function(){
+    return Meteor.loggingIn();
+  }
 });
 
 Router.route('/', function () {

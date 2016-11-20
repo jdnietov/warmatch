@@ -50,8 +50,12 @@ nav.navbar.navbar-inverse button span {
   display: table-cell;
 }
 
+#matches-info button.btn.btn-primary.dropdown-toggle {
+  margin-top: 8px;
+  background-color: transparent;
+}
 
-#matches-info a div {
+#matches-info button.btn.btn-primary.dropdown-toggle div {
   display: inline-block;
   background-color: #B33039;
   border-radius: 100%;
@@ -76,4 +80,32 @@ nav.navbar.navbar-inverse button span {
   max-width: 190px;
   color: black;
   margin: 40px;
+
+}
+
+#user-dropdown div {
+  display: inline;
+}
+
+#user-dropdown a {
+  margin-left: 10px;
+  color: white;
+  text-decoration: none;
+  display: inline;
+}
+
+#user-dropdown button {
+  display: inline-block;
+  padding: 0px;
+  background-color: transparent;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+#options {
+  width: 200px;
+}
+
+#options li a {
+  color: rgb(35, 35, 35);
 }

@@ -1,16 +1,16 @@
 <template name="matchFragment">
-  <div id="matchFragment" class="container-fluid">
+  <div id="matchFragment" class="container">
     <div class="row">
-      <div id="desc" class="col-md-8">
+      <div id="mf-desc" class="col-md-8">
         <h4><strong>{{title}}</strong></h4>
+        <hr>
         <p>{{sport}} | Amistoso</p>
-        <h6><strong>Retador: </strong>Equipo 1</h6>
-        <h6><strong>Juega con: </strong>Equipo 2</h6>
+        <h6><strong>Creado por: </strong>usuario</h6>
         <h6><strong>Lugar: </strong>{{place}}</h6>
         <h6><strong>Fecha: </strong>{{date}}</h6>
       </div>
-      <div style="background-image: url('/img/bskt.jpg'); background-repeat: no-repeat;" id="photo" class="col-md-4">
-        <!-- <h6><strong>Marcador:</strong><p>Pendiente</p></h6> -->
+
+      <div style="background-image: url('/img/bskt.jpg');" id="mf-photo" class="col-md-4">
       </div>
     </div>
   </div>

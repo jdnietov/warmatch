@@ -1,9 +1,13 @@
 import { Template } from 'meteor/templating';
 import { ImagesCol } from '/imports/api/images.js';
+import { Matches } from '/imports/api/matches.js';
+
+import '/imports/ui/requestFragment.js';
 
 import './navbar.css';
 import './navbar.html';
 
+<<<<<<< HEAD
 Meteor.subscribe('allUsers');
 
 Template.navbar.onCreated(
@@ -14,33 +18,9 @@ Template.navbar.onCreated(
   }
 );
 
+=======
+>>>>>>> 684fa9d2f34b30564ce044443ca2f4b48f372267
 Template.navbar.helpers({
-  'activeLogin': function(){
-    if(Router.current().route.getName() == 'login'){
-      Template.instance().Auxlog.set("active");
-      Template.instance().Auxregist.set("");
-      Template.instance().Auxabout.set("");
-    }else if(Router.current().route.getName() == 'register'){
-      Template.instance().Auxlog.set("");
-      Template.instance().Auxregist.set("active");
-      Template.instance().Auxabout.set("");
-    }else if(Router.current().route.getName() == 'about'){
-      Template.instance().Auxlog.set("");
-      Template.instance().Auxregist.set("");
-      Template.instance().Auxabout.set("active");
-    }else if(Router.current().route.getName() == undefined){
-      Template.instance().Auxlog.set("");
-      Template.instance().Auxregist.set("");
-      Template.instance().Auxabout.set("");
-    }
-    return Template.instance().Auxlog.get();
-  },
-  'activeRegister': function(){
-    return Template.instance().Auxregist.get();
-  },
-  'activeAbout': function(){
-    return Template.instance().Auxabout.get();
-  },
   photoUrl: profile => {
     var imageId = profile.photo;
     var image = ImagesCol.findOne({_id:imageId});
@@ -49,6 +29,7 @@ Template.navbar.helpers({
   invites: () => {
     return Meteor.user().profile.matchRequests.length;
   },
+<<<<<<< HEAD
   userList: function(){
     var val = Session.get("search");
     if(val && val.length>0)var regExx = "^"+val;
@@ -58,6 +39,10 @@ Template.navbar.helpers({
   },
   focus: function(){
     return Session.get("focus");
+=======
+  getRequests: () => {
+    return Meteor.user().profile.matchRequests;
+>>>>>>> 684fa9d2f34b30564ce044443ca2f4b48f372267
   }
 });
 
