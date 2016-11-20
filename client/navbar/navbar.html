@@ -12,7 +12,7 @@
       </form>
 
       <ul class="nav navbar-nav">
-        <li id="user-info" class="active">
+        <li id="user-info">
           <div class="user-photo" alt="">
             {{#with photoUrl currentUser.profile}}
             <img src="{{this.url}}" alt=""> {{/with}}
@@ -22,21 +22,29 @@
           </a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li id="matches-info">
-          <a href="#">Partidas
-            {{#if invites}}
-            <div>
-              {{invites}}
-            </div>
-            {{/if}}
-          </a>
+        <li>
+          <div id="matches-info" class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+              Partidas
+              {{#if invites}}
+              <div>
+                {{invites}}
+              </div>
+              {{/if}}
+              <span class="caret"></span></button>
+            <ul class="dropdown-menu">
+              {{#each getRequests}}
+                {{> requestInfo request=this}}
+              {{/each}}
+            </ul>
+          </div>
         </li>
         <li><a href="#">Equipos</a></li>
         <li><a href="#" class="logout">Logout</a></li>
       </ul>
       {{else}}
       <ul class="nav navbar-nav">
-        <li class="{{activeAbout}}"><a href="/about">¿Quiénes somos?</a></li>
+        <li><a href="/about">¿Quiénes somos?</a></li>
       </ul>
       <form class="navbar-form navbar-right" role="login" id="login">
         <div class="form-group">
@@ -50,4 +58,8 @@
       {{/if}}
     </div>
   </nav>
+</template>
+
+<template name="requestInfo">
+  <li><a href="#">{{getRequestInfo request}}</a></li>
 </template>

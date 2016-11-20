@@ -46,8 +46,12 @@ nav.navbar.navbar-inverse button span {
   display: table-cell;
 }
 
+#matches-info button.btn.btn-primary.dropdown-toggle {
+  margin-top: 8px;
+  background-color: transparent;
+}
 
-#matches-info a div {
+#matches-info button.btn.btn-primary.dropdown-toggle div {
   display: inline-block;
   background-color: #B33039;
   border-radius: 100%;

@@ -9,7 +9,7 @@ Match.attachSchema(MatchSchema);
 export const Matches = Match;
 
 Meteor.methods({
-  'matches.send-invite'(challenged, open_id) {
+  'matches.send-invite'(challenged, local_id) {
     check(challenged, String);
 
     if(! this.userId) {
@@ -19,7 +19,7 @@ Meteor.methods({
     // send notification to challenged
     var matches = Meteor.users.findOne({username: challenged}).profile.matchRequests;
     var match_id = Match.find({
-      open_id: open_id},
+      local_id: local_id},
       {sort: {createdAt: -1}}).fetch()[0]._id;
     matches.push(match_id);
 

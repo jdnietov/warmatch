@@ -4,7 +4,7 @@ import { Matches } from '/imports/api/matches.js';
 import './challengeModal.css';
 import './challengeModal.html';
 
-Session.set("random-id", Random.id());
+var random = Random.id();
 
 Template.challengeModal.helpers({
   sportsOptions: () => {
@@ -17,7 +17,7 @@ Template.challengeModal.helpers({
   },
 
   getOpenID: () => {
-    return Session.get("random-id");
+    return random;
   },
 
   getChallengedName: () => {
@@ -35,6 +35,6 @@ Template.challengeModal.helpers({
 
 Template.challengeModal.events({
   'submit #matchForm'(event, instance) {
-    Meteor.call('matches.send-invite', Session.get("challengedName"), Session.get("random-id"));
+    Meteor.call('matches.send-invite', Session.get("challengedName"), random);
   }
 });
