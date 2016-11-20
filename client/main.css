@@ -81,11 +81,20 @@ button a:active {color: white;}
  font-size: 24px;
 }
 
+ul.dropdown-menu {
+  width: 350px;
+  margin-top: 10px;
+}
+
 .signature {
 	background-color: white;
 	font-family: CodePro;
 	color: #EC3642;
 	padding: 3px;
+}
+
+.nav .open > a {
+  background-color: transparent;
 }
 
 @font-face {

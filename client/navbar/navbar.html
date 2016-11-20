@@ -16,13 +16,23 @@
       </form>
       <ul class="nav navbar-nav navbar-right">
         <li id="user-info" class="active">
-          <div class="user-photo" alt="">
-            {{#with photoUrl currentUser.profile}}
-            <img src="{{this.url}}" alt=""> {{/with}}
+          <div id="user-dropdown" class="dropdown">
+            <div class="user-photo" alt="">
+              {{#with photoUrl currentUser.profile}}
+              <img src="{{this.url}}" alt=""> {{/with}}
+            </div>
+            <a href="/profile/{{currentUser.username}}">
+                {{currentUser.profile.name}}
+            </a>
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+              <span class="caret"></span></button>
+            <ul id="options" class="dropdown-menu">
+              <li><a href="/profile/{{currentUser.username}}">Mi perfil</a></li>
+              <li><a href="/createTeam">Crear un equipo</a></li>
+              <li><a href="#" class="logout">Logout</a></li>
+            </ul>
           </div>
-          <a href="/profile/{{currentUser.username}}">
-              {{currentUser.profile.name}}
-          </a></li>
+        </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
@@ -48,7 +58,6 @@
         </li>
         <li><a href="#">Equipos</a></li>
         <li><a href="/explore/%noquery%">Explorar</a></li>
-        <li><a href="#" class="logout">Logout</a></li>
       </ul>
       {{else}}
       <ul class="nav navbar-nav">

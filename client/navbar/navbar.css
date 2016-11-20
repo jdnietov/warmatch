@@ -42,11 +42,6 @@ nav.navbar.navbar-inverse button span {
   padding-left: 0px;
 }
 
-ul.dropdown-menu {
-  width: 350px;
-  margin-top: 10px;
-}
-
 #user-info {
   background-color: #080808;
 }
@@ -69,4 +64,31 @@ ul.dropdown-menu {
   width: 20px;
   height: 20px;
   text-align: center;
+}
+
+#user-dropdown div {
+  display: inline;
+}
+
+#user-dropdown a {
+  margin-left: 10px;
+  color: white;
+  text-decoration: none;
+  display: inline;
+}
+
+#user-dropdown button {
+  display: inline-block;
+  padding: 0px;
+  background-color: transparent;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+#options {
+  width: 200px;
+}
+
+#options li a {
+  color: rgb(35, 35, 35);
 }
