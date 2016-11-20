@@ -1,0 +1,20 @@
+<template name="requestFragment">
+  {{fetchRequestInfo request}}
+  <li class="request-item">
+    <div class="container-fluid">
+      <div class="request-info row">
+        {{#with photoUrl profile}}
+        <div class="user-photo col-xs-3">
+          <img src="{{this.url}}" alt="">
+        </div>
+        {{/with}}
+        <div class="col-xs-9">
+          <h4>{{name}} te ha retado!</h4>
+          <p>&quot;{{message}}&quot;</p>
+          <strong>Lugar: </strong> {{place}}<br>
+          <strong>Fecha: </strong> {{date}}<br>
+        </div>
+      </div>
+    </div>
+  </li>
+</template>

@@ -37,7 +37,7 @@
               <span class="caret"></span></button>
             <ul class="dropdown-menu">
               {{#each getRequests}}
-                {{> requestInfo request=this}}
+                {{> requestFragment request=this}}
               {{/each}}
             </ul>
           </div>
@@ -62,8 +62,4 @@
       {{/if}}
     </div>
   </nav>
-</template>
-
-<template name="requestInfo">
-  <li><a href="#">{{getRequestInfo request}}</a></li>
 </template>

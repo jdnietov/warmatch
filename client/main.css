@@ -22,6 +22,10 @@ a, strong, h1, h2, button {
 	font-family: CodePro;
  }
 
+ a:hover {
+	 color: #EC3642;
+ }
+
 h1 {font-size: 60px;}
 
 button.btn.btn-success {

@@ -2,6 +2,8 @@ import { Template } from 'meteor/templating';
 import { ImagesCol } from '/imports/api/images.js';
 import { Matches } from '/imports/api/matches.js';
 
+import '/imports/ui/requestFragment.js';
+
 import './navbar.css';
 import './navbar.html';
 
@@ -48,11 +50,5 @@ Template.navbar.events({
         }
       });
     }
-  }
-});
-
-Template.requestInfo.helpers({
-  getRequestInfo: request  => {
-    return Matches.find({_id: request}).fetch()[0].challenger;
   }
 });
