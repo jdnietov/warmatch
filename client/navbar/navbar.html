@@ -6,7 +6,15 @@
           <img class="brand-img" align="left" src="warmatch-logo.png" alt=""> Warmatch</a>
       </div>
       {{#if currentUser}}
-      <ul class="nav navbar-nav">
+      <form method="post" class="navbar-form navbar-left" id="searchbox" action="">
+        <div class="input-group input-group-sm">
+          <input type="text" class="form-control" id="search" name="search" placeholder="Buscar usuario">
+          <span class="input-group-btn">
+            <button class="btn btn-danger" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+          </span>
+        </div>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
         <li id="user-info" class="active">
           <div class="user-photo" alt="">
             {{#with photoUrl currentUser.profile}}
@@ -14,13 +22,8 @@
           </div>
           <a href="/profile/{{currentUser.username}}">
               {{currentUser.profile.name}}
-          </a></li>
-      </ul>
-      <form method="post" class="navbar-form navbar-left" id="searchbox" action="">
-        <input type="text" class="form-control input-sm" name="search" placeholder="Buscar usuario">
-        <button type="submit"><span class="glyphicon glyphicon-search"></span></button>
-      </form>      
-      <ul class="nav navbar-nav navbar-right">
+          </a>
+        </li>
         <li id="matches-info">
           <a href="#">Partidas
             {{#if invites}}
