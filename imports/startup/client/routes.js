@@ -59,6 +59,7 @@ Router.route('/profile/:_username', function () {
     this.render('profile',{
       to:'main',
       data:function(){
+        Session.set("challengedName", this.params._username);
         return Meteor.users.findOne({username:this.params._username});
       }
     });
@@ -79,7 +80,7 @@ Router.route('/createTeam', function() {
 
 // render teams page
 Router.route('/team/:_teamName', function () {
-	this.render('team', { 
+	this.render('team', {
 		to: 'main',
 		data: {value: this.params._teamName}
 	})

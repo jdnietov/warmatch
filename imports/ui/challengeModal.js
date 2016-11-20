@@ -24,6 +24,10 @@ Template.challengeModal.helpers({
     return Meteor.users.find({username: Session.get("challengedName")}).fetch()[0].profile.name;
   },
 
+  getChallengedUsername: () => {
+    return Session.get("challengedName");
+  },
+
   getNewDate: () => {
     return new Date();
   }
@@ -31,7 +35,6 @@ Template.challengeModal.helpers({
 
 Template.challengeModal.events({
   'submit #matchForm'(event, instance) {
-    // TODO this approach is horrible. Use midway relational collection
     Meteor.call('matches.send-invite', Session.get("challengedName"), Session.get("random-id"));
   }
 });

@@ -10,7 +10,6 @@ import './profile.css';
 import './profile.html';
 
 Session.set("editing",false);
-Session.set("challengedName", "");
 
 Template.profile.helpers({
   allowed: username => {
@@ -67,8 +66,6 @@ Template.profile.events({
   },
 
   'click #btn-challenge': function(event, instance) {
-    var name = event.target.dataset.username;
-    Session.set("challengedName", name);
     Modal.show('challengeModal');
   },
 

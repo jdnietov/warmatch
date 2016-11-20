@@ -23,7 +23,7 @@ Meteor.methods({
       {sort: {createdAt: -1}}).fetch()[0]._id;
     matches.push(match_id);
 
-    var user_id = Meteor.users.find({username: 'jdnietov'}).fetch()[0]._id;
+    var user_id = Meteor.users.find({username: challenged}).fetch()[0]._id;
     Meteor.users.update(user_id, {$set: {"profile.matchRequests": matches}});
   }
 });
