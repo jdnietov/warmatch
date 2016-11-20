@@ -5,6 +5,7 @@ import { ImagesCol } from '/imports/api/images.js';
 import './register.html';
 
 Session.set("error",null)
+Session.set('fileId',undefined);
 
 Template.register.helpers({
   error: function(){
@@ -14,7 +15,9 @@ Template.register.helpers({
 
 Template.register.events({
   'change .myFileInput': function(event, template) {
-    console.log("algo");
+    if(Session.get('fileId')){
+      ImagesCol.remove({_id:Session.get('fileId')}, true);
+    }
     FS.Utility.eachFile(event, function(file) {
       ImagesCol.insert(file, function (err, fileObj) {
         var fileId = fileObj._id;

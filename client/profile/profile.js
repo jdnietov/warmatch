@@ -10,6 +10,7 @@ import './profile.css';
 import './profile.html';
 
 Session.set("editing",false);
+Session.set('fileId',undefined);
 
 Template.profile.helpers({
   allowed: username => {
@@ -64,6 +65,7 @@ Template.profile.events({
     var userId = Meteor.user()._id;
     var img = Session.get('fileId');
     var data = Meteor.user().profile;
+    ImagesCol.remove({_id:data.photo}, true);
     data.photo=img;
     Meteor.users.update({_id:userId}, {$set: {profile: data}});
     Session.set("editing",false);
