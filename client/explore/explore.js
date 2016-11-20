@@ -4,34 +4,45 @@ import { ImagesCol } from '/imports/api/images.js';
 
 import './explore.css';
 import './explore.html';
+import '/client/navbar/navbar.html'
 
 Meteor.subscribe('allUsers');
 
+
 Template.explore.helpers({
-  userList: function(){
+  userList: function(val){
     var filter = Session.get("userFilter");
+    if(val)var regExx = "^"+val;
+    else var regExx = ".*";
     if(filter){
       var regEx = ".*"+filter+".*";
-      var query = Meteor.users.find({"profile.sportsString": {$regex : regEx, $options: 'i'}});
+      var query = Meteor.users.find(
+        {$and:[
+          {"profile.sportsString": {$regex : regEx, $options: 'i'}},
+          {$or: [{"profile.name": {$regex : regExx, $options: 'i'}},{"profile.apellido":{$regex : regExx, $options: 'i'}},{username: {$regex : regExx, $options: 'i'}}]}
+        ]}
+      ).fetch();
     }
     else{
-      var query = Meteor.users.find();
+      var query = Meteor.users.find({$or: [{"profile.name": {$regex : regExx, $options: 'i'}},{"profile.apellido":{$regex : regExx, $options: 'i'}},{username: {$regex : regExx, $options: 'i'}}]}).fetch();
     }
     return query;
   },
 
-  teamList: function(){
+  teamList: function(val){
     var filter = Session.get("userFilter");
+    var regExx = "^"+val;
     if(filter){
       var regEx = ".*"+filter+".*";
-      var query = Teams.find({sport: {$regex : regEx, $options: 'i'}});
+      var query = Teams.find({$and:[{name:{$regex : regExx}},{sport: {$regex : regEx, $options: 'i'}}]});
     }
     else{
-      var query = Teams.find();
+      var query = Teams.find({name: {$regex : regExx}});
     }
     return query;
   }
 });
+
 
 Template.explore.events({
   'click #filter': function(event){
@@ -39,5 +50,13 @@ Template.explore.events({
   },
   'click #clean': function(event){
     Session.set('userFilter',undefined);
+  }
+})
+
+Template.searchCard.helpers({
+	photoUrl: profile => {
+    var imageId = profile.photo;
+    var image = ImagesCol.findOne({_id:imageId});
+    return image;
   }
 })

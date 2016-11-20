@@ -42,3 +42,4 @@ cfs:standard-packages
 cfs:filesystem
 random
 barbatus:stars-rating
+meteorhacks:search-source

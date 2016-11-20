@@ -44,6 +44,9 @@ Template.navbar.helpers({
     var image = ImagesCol.findOne({_id:imageId});
     return image;
   },
+  activeSearch: () =>{
+    return Router.current().route.getName().includes("explore");
+  },
   invites: () => {
     return Meteor.user().profile.matchRequests.length;
   }
@@ -58,7 +61,7 @@ Template.navbar.events({
   'submit form'(event, instance) {
     if(event.target.id=="searchbox"){
       event.preventDefault();
-      Router.go('/search/' + event.target.search.value.toLowerCase());
+      Router.go('/explore/' + event.target.search.value.toLowerCase());
     }
     else if(event.target.id=="login"){
       event.preventDefault();

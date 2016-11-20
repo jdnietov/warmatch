@@ -4,7 +4,6 @@ import '/client/dashboard/dashboard.html';
 import '/client/login/login.html';
 import '/client/register/register.html';
 import '/client/profile/profile.html';
-import '/client/search/search.html';
 import '/client/explore/explore.html'
 
 Router.configure({
@@ -54,11 +53,24 @@ Router.route('/about',function(){
   })
 });
 
-Router.route('/explore',function(){
-  this.render('explore',{
-    to: 'main'
-  })
-});
+Router.route('/explore/:_searchValue', function () {
+	this.render('explore', {
+		to: 'main',
+		data: function(){
+      return {val: this.params._searchValue};
+    }
+	})
+})
+
+/*Router.route('/explore/:_searchValue', function () {
+	this.render('explore', {
+		to: 'main',
+		data: function(){
+      var params = this.params._searchValue.split("&&");
+      return {val: params[0], fil: params[1]};
+    }
+	})
+})*/
 
 // render username's profile
 Router.route('/profile/:_username', function () {
@@ -90,14 +102,5 @@ Router.route('/team/:_teamName', function () {
 	this.render('team', {
 		to: 'main',
 		data: {value: this.params._teamName}
-	})
-})
-
-
-// render search page
-Router.route('/search/:_searchValue', function () {
-	this.render('search', {
-		to: 'main',
-		data: function(){return {val: this.params._searchValue};}
 	})
 })
