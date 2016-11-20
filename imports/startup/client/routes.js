@@ -5,6 +5,7 @@ import '/client/login/login.html';
 import '/client/register/register.html';
 import '/client/profile/profile.html';
 import '/client/search/search.html';
+import '/client/explore/explore.html'
 
 Router.configure({
   layoutTemplate: "application-layout"
@@ -53,6 +54,12 @@ Router.route('/about',function(){
   })
 });
 
+Router.route('/explore',function(){
+  this.render('explore',{
+    to: 'main'
+  })
+});
+
 // render username's profile
 Router.route('/profile/:_username', function () {
   if(this.params._username!="errorNotFound"){
@@ -79,7 +86,7 @@ Router.route('/createTeam', function() {
 
 // render teams page
 Router.route('/team/:_teamName', function () {
-	this.render('team', { 
+	this.render('team', {
 		to: 'main',
 		data: {value: this.params._teamName}
 	})

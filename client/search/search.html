@@ -1,7 +1,7 @@
 <template name="search2">
 	<div id="search">
 		<div class="row">
-			<div class="col-md-3">
+			<div class="col-md-2">
 				<form class="search" method="get">
 					<p>Buscar en</p>
 					<select class="" name="searchAt">
@@ -49,7 +49,7 @@
 <template name="search">
   <div id="search" class="container-fluid">
     <div class="row">
-      <div class="col-md-3 sidebar">
+      <div class="col-md-2 sidebar">
         <ul class="nav nav-sidebar">
           <li class="active">
             <a href="#dropdowns">
@@ -65,15 +65,24 @@
           </li>
         </ul>
       </div>
-      <div class="col-md-9">
-        <h3>Perfiles</h3>
-        {{#each profileList val}}
-					<a href="/profile/{{username}}">{{> searchCard}}</a>
-        {{/each}}
-				<h3>Equipos</h3>
-				{{#each teamList val}}
-					{{> teamCard}}
-				{{/each}}
+      <div class="col-md-10">
+				<ul class="nav nav-tabs">
+          <li class="active"><a data-toggle="tab" href="#profiles">Perfiles</a></li>
+          <li><a data-toggle="tab" href="#teams">Equipos</a></li>
+        </ul>
+
+        <div class="tab-content">
+          <div id="profiles" class="tab-pane fade in active">
+            {{#each profileList val}}
+              <a href="/profile/{{username}}">{{> searchCard}}</a>
+            {{/each}}
+          </div>
+          <div id="teams" class="tab-pane fade">
+            {{#each teamList val}}
+    					{{> teamCard}}
+    				{{/each}}
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -82,7 +91,8 @@
 <template name="searchCard">
   <div id="searchCard" class="container">
     <div id="photo">
-      <img src={{profile.photo}} alt=""/>
+			{{#with photoUrl profile}}
+			<img src="{{this.url}}" alt=""> {{/with}}
     </div>
     <div id="info">
       <h3>{{profile.name}} {{profile.lastName}}</h3>
@@ -102,37 +112,3 @@
 		</div>
 	</div>
 </template>
-
-
-<!--
-<template name="search">
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-md-4">
-				Buscar en
-				<select class="" name="searchOptions1">
-					<option selected value="0">Elige una opción</option>
-					<option value="1">Equipos</option>
-					<option value="2">Usuarios</option>
--->
-					<!-- Tal vez? -->
-<!--
-					<option value="3">Partidos</option>
-					<!-- Si no esta registrado muestra la lista de publicos.
-								Y si esta registrado primero la de privados y luego la misma de publicos-->
-<!--
-				</select> por
-				<select class="" name="searchOptions2">
-					<option selected value="0">Elige una opción</option>
-					<option value="1">Nombre</option>
-					<option value="2">Deporte</option>
--->
-					<!-- Tal vez? -->
-<!--
-					<option value="3">Ubicación</option>
-				</select>
-			</div>
-		</div>
-	</div>
-</template>
--->

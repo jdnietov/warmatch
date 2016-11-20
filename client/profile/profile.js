@@ -26,15 +26,6 @@ Template.profile.helpers({
     var image = ImagesCol.findOne({_id:imageId});
     return image;
   },
-
-  sports: profile => {
-    var sports ="";
-    for(key in profile.sports){
-      sports += profile.sports[key];
-      sports += " ";
-    }
-    return sports;
-  },
   sportsOptions: () => {
     return [
       {label: "Basketball", value: "basket"},
@@ -57,7 +48,6 @@ Template.profile.events({
       ImagesCol.insert(file, function (err, fileObj) {
         var fileId = fileObj._id;
         Session.set('fileId', fileId);
-        console.log("algo");
       });
     });
   },
@@ -74,9 +64,7 @@ Template.profile.events({
 
   'submit .imgForm':function(event, instance) {
     event.preventDefault();
-    console.log("algo");
     var userId = Meteor.user()._id;
-    console.log(userId);
     var img = Session.get('fileId');
     var data = Meteor.user().profile;
     data.photo=img;

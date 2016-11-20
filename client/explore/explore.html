@@ -1,0 +1,53 @@
+<template name="explore">
+  <div id="explore" class="container-fluid">
+    <div class="row">
+      <div class="col-md-2 sidebar">
+        <ul class="nav nav-sidebar">
+          <li class="active">
+            <a href="#dropdowns">
+              Novedades
+              <span class="glyphicon glyphicon-chevron-right"></span>
+            </a>
+          </li>
+          <li>
+            <a href="#ongoing">
+              Partidas en curso
+              <span class="glyphicon glyphicon-chevron-right"></span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-10">
+        <ul class="nav nav-tabs">
+          <li class="active"><a data-toggle="tab" href="#profiles">Perfiles</a></li>
+          <li><a data-toggle="tab" href="#teams">Equipos</a></li>
+        </ul>
+
+        <div class="col-md-2 filter">
+          <ul class="nav nav-pills nav-stacked">
+            <li class="active"><a data-toggle="pill" href="#" id="clean">Todos</a></li>
+            <li><a data-toggle="pill" href="#" id="filter">Fútbol</a></li>
+            <li><a data-toggle="pill" href="#" id="filter">Baloncesto</a></li>
+            <li><a data-toggle="pill" href="#" id="filter">Vóleibol</a></li>
+            <li><a data-toggle="pill" href="#" id="filter">Béisbol</a></li>
+            <li><a data-toggle="pill" href="#" id="filter">Tenis</a></li>
+          </ul>
+        </div>
+
+        <div class="tab-content col-md-8">
+          <div id="profiles" class="tab-pane fade in active">
+            {{#each userList}}
+              <a href="/profile/{{username}}">{{> searchCard}}</a>
+            {{/each}}
+          </div>
+          <div id="teams" class="tab-pane fade">
+            {{#each teamList}}
+    					{{> teamCard}}
+    				{{/each}}
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</template>

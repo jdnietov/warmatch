@@ -37,6 +37,7 @@
   border: 1px solid grey;
   padding: 10px;
   width: 1000px;
+  height: 120px;
 }
 
 #photo, #desc {
@@ -69,4 +70,9 @@
 
 a:hover{
   color: white;
+}
+
+.nav-tabs > li.active > a{
+    background-color: black !important;
+    color: white !important;
 }
