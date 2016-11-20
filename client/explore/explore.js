@@ -19,12 +19,12 @@ Template.explore.helpers({
       var query = Meteor.users.find(
         {$and:[
           {"profile.sportsString": {$regex : regEx, $options: 'i'}},
-          {$or: [{"profile.name": {$regex : regExx, $options: 'i'}},{"profile.apellido":{$regex : regExx, $options: 'i'}},{username: {$regex : regExx, $options: 'i'}}]}
+          {$or: [{"profile.name": {$regex : regExx, $options: 'i'}},{username: {$regex : regExx, $options: 'i'}}]}
         ]}
       ).fetch();
     }
     else{
-      var query = Meteor.users.find({$or: [{"profile.name": {$regex : regExx, $options: 'i'}},{"profile.apellido":{$regex : regExx, $options: 'i'}},{username: {$regex : regExx, $options: 'i'}}]}).fetch();
+      var query = Meteor.users.find({$or: [{"profile.name": {$regex : regExx, $options: 'i'}},{username: {$regex : regExx, $options: 'i'}}]}).fetch();
     }
     return query;
   },

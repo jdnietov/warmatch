@@ -57,3 +57,19 @@ nav.navbar.navbar-inverse button span {
   height: 20px;
   text-align: center;
 }
+
+.panel-body{
+  margin-top: 1px;
+  max-width: 190px;
+  max-height: 200px;
+  overflow-y: scroll;
+  background-color: #232323;
+}
+
+#usercard{
+  min-height: 100px;
+  max-height: 100px;
+  max-width: 190px;
+  color: black;
+  margin: 40px;
+}
