@@ -22,7 +22,15 @@
           </a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Partidas</a></li>
+        <li id="matches-info">
+          <a href="#">Partidas
+            {{#if invites}}
+            <div>
+              {{invites}}
+            </div>
+            {{/if}}
+          </a>
+        </li>
         <li><a href="#">Equipos</a></li>
         <li><a href="/explore">Explorar</a></li>
         <li><a href="#" class="logout">Logout</a></li>

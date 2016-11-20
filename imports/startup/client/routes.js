@@ -66,6 +66,7 @@ Router.route('/profile/:_username', function () {
     this.render('profile',{
       to:'main',
       data:function(){
+        Session.set("challengedName", this.params._username);
         return Meteor.users.findOne({username:this.params._username});
       }
     });

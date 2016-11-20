@@ -44,6 +44,9 @@ Template.navbar.helpers({
     var image = ImagesCol.findOne({_id:imageId});
     return image;
   },
+  invites: () => {
+    return Meteor.user().profile.matchRequests.length;
+  }
 });
 
 Template.navbar.events({

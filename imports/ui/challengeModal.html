@@ -12,7 +12,7 @@
             <legend>Desafío a {{profile.name}}{{getChallengedName}}</legend>
             {{> afFieldInput name="open_id" type="hidden" value=getOpenID}}
             {{> afFieldInput name="challenger" type="hidden" value=currentUser.username}}
-            {{> afFieldInput name="challenged" type="hidden" value=getChallengedName}}
+            {{> afFieldInput name="challenged" type="hidden" value=getChallengedUsername}}
             {{> afFormGroup name="sport" type="select" options=sportsOptions}}
             <label for="place">¿Dónde quieres jugar?</label><br>
             {{> afFieldInput name="place" type="text" placeholder="Lugar de encuentro"}}
