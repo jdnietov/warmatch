@@ -1,17 +1,23 @@
 #matchFragment {
   margin-top: 20px;
   border: 1px solid grey;
-  width: 1000px;
+  background-color: white;
+  color: rgb(35, 35, 35);
+  border-radius: 10px;
 }
 
-#desc {
+#matchFragment hr {
+  border-color: #BBBBBB;
+}
+
+#mf-desc {
   display: table-cell;
   padding: 20px;
   padding-bottom: 0px;
 }
 
-#photo {
-  display: table-cell;
+#mf-photo {
+  display: inline-block;;
   text-align: center;
   margin-top: auto;
   margin-bottom: auto;

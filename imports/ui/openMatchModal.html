@@ -17,6 +17,7 @@
                   <fieldset>
                     <legend>WARMATCH: Crear un partido abierto</legend>
                     <label>Nombre del evento</label>
+                    {{> afFieldInput name="creator" type="hidden" value=currentUser.username}}
                     {{> afFieldInput name="title" type="text"}}
                     {{> afFormGroup name="sport" type="select" options=sportsOptions}}
                     <label>¿Dónde será el partido?</label>
