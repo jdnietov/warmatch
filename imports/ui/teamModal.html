@@ -1,0 +1,39 @@
+<template name="teamModal">
+  <div class="modal fade">
+    <div id="team-dialog" class="modal-dialog">
+      <div class="modal-content">
+        <div class="logo-modal-header modal-header">
+          WARMATCH
+        </div>
+
+        <div class="modal-body">
+          <div class="modal-sided container-fluid">
+            <div class="row">
+              <div class="left-side col-md-4">
+                <p class="signature">Foto por Adam Pretty&trade;.</p>
+              </div>
+              <div class="right-side col-md-8">
+                {{#autoForm collection="Team" doc=this id="teamForm" type="insert"}}
+                  <fieldset>
+                    <legend>WARMATCH: Crear un equipo</legend>
+                    <label>Nombre del equipo</label>
+                    {{> afFieldInput name="name" type="text"}}
+										<label>Descripción del equipo</label>
+                    {{> afFieldInput name="description" type="text"}}
+                    {{> afFormGroup name="sport" type="select" options=sportsOptions}}
+										{{> afFieldInput name="logo" type="hidden" value="Hola"}}
+										{{> afFieldInput name="statistics" type="hidden" value=statisticsList}}
+                    <button type="submit" class="btn btn-success" if="createTeam">Crear</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                  </fieldset>
+                {{/autoForm}}
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</template>

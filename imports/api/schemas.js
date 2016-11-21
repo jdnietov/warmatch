@@ -47,7 +47,10 @@ Schemas.Ratings = new SimpleSchema({
 Schemas.Team = new SimpleSchema({
 	name: {type: String},
 	description: {type: String},
-	sport: {type: String},
+	sport: {
+		type: String,
+		label: "Deporte"
+	},
 	logo: {type: String},
 	statistics: {type: [Schemas.Statistic]}
 })
