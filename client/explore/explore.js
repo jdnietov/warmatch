@@ -34,13 +34,10 @@ Template.explore.helpers({
     var regExx = "^"+val;
     if(filter){
       var regEx = ".*"+filter+".*";
-      var query = Teams.find({$and:[{name:{$regex : regExx}},{sport: {$regex : regEx, $options: 'i'}}]});
+      var query = Teams.find({sport: {$regex : regEx, $options: 'i'}});
     }
-    else{
-      if(val){
-        var query = Teams.find({name: {$regex : regExx}});
-      }
-      else var query = Teams.find();
+    else {
+      var query = Teams.find();
     }
     return query;
   }
