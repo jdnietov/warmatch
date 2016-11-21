@@ -5,6 +5,7 @@ import { RegisterTURs } from '/imports/api/registerTURs.js';
 import { Teams } from '/imports/api/teams.js';
 
 import '/imports/ui/openMatchModal.js';
+import '/imports/ui/teamModal.js';
 import '/imports/ui/matchFragment.js';
 import '/imports/ui/teamFragment.js';
 
@@ -43,5 +44,8 @@ Template.dashboard.helpers({
 Template.dashboard.events({
   'click #btn-createMatch': function(event, instance) {
     Modal.show('openMatchModal');
+  },
+	'click #btn-createTeam': function(event, instance) {
+    Modal.show('teamModal');
   }
 });
