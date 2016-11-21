@@ -13,7 +13,11 @@ Schemas.Match = new SimpleSchema({
   },
   place: {type: String},
   message: {type: String},
-  date: {type: String}
+  date: {type: String},
+  status: {
+    type: String,
+    allowedValues: ["accepted", "rejected", "pending"]
+  }
 });
 
 Schemas.OpenMatch = new SimpleSchema({
