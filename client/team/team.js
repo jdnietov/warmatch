@@ -31,8 +31,14 @@ Template.team.helpers({
 
 	setTeamName: function(_teamName) {
 		Session.set("teamName", _teamName);
+	},
+	isAdmin: () => {
+		return RegisterTURs.find({
+			userName: Meteor.user().username,
+			teamName: Session.get("teamName"),
+			roleName: "Administrador"
+		}).fetch().length != 0;
 	}
-
 });
 
 Template.userFragment.helpers({
