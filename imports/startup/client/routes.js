@@ -57,19 +57,13 @@ Router.route('/about',function(){
 });
 
 Router.route('/explore/:_searchValue', function () {
-  if(!Meteor.user()) {
-    this.render('home', {
-      to: 'main'
-    });
-  } else {
-  	this.render('explore', {
-  		to: 'main',
-  		data: function(){
-        return {val: this.params._searchValue};
-      }
+	this.render('explore', {
+		to: 'main',
+		data: function(){
+      return {val: this.params._searchValue};
     }
-  );
-}});
+	})
+})
 
 /*Router.route('/explore/:_searchValue', function () {
 	this.render('explore', {

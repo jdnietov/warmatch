@@ -1,40 +1,48 @@
 <template name="profile">
   <div id="profile" class="container">
     {{getUser username}}
-    <div id="user-container" class="row">
-      {{#with photoUrl profile}}
-      <div style="background-image: url(' {{this.url}} ');" class="col-md-3">
-      </div>
-      {{/with}}
-      <div class="col-md-9">
-        <h1>{{profile.name}}</h1>
-        {{#with getRating}}
+    <div id="profile-info">
+      <div class="row">
+        <div id="profile-pic" class="col-md-3">
+          {{#with photoUrl profile}}
+            <img src="{{this.url}}" alt=""/>
+          {{/with}}
+        </div>
+
+
+        <div id="right" class="col-md-9">
+          <h1>{{profile.name}}</h1>
+          {{#with getRating}}
           {{> starsRating id="displayStars" rating="{{this.mean}}" size="lg" mutable=false}}
-        {{/with}}
-        <h4>{{profile.sportsString}}</h4>
-        {{#if currentUser}}
-          {{#if allowed username}}
-            {{#if isEditing}}
+          {{/with}}
+          <h4>{{profile.sportsString}}</h4>
+          <hr>
+          {{#if currentUser}}
+            {{#if allowed username}}
+              {{#if isEditing}}
 
-        <button class="btn btn-warning cancelar">Cancelar</button>
-            <form class="imgForm">
-              <input type="file" accept="image/*" class="myFileInput">
-              <button type="submit" class="btn btn-success">Terminar</button>
-            </form>
+          <button class="btn btn-warning cancelar">Cancelar</button>
+              <form class="imgForm">
+                <input type="file" accept="image/*" class="myFileInput">
+                <button type="submit" class="btn btn-success">Terminar</button>
+              </form>
+              {{else}}
+          <button class="btn btn-success add-pic">Cambiar foto</button>
+              {{/if}}
             {{else}}
-        <button class="btn btn-success add-pic">Cambiar foto</button>
+          <button id="btn-challenge" class="btn btn-success" data-username="{{username}}">
+            Retar
+          </button>
             {{/if}}
-
-          {{else}}
-        <button id="btn-challenge" class="btn btn-success" data-username="{{username}}">
-          Retar
-        </button>
           {{/if}}
-        {{/if}}
+
+        </div>
       </div>
     </div>
     <hr>
-    <h4>Todavía no tienes ninguna actividad!</h4>
+    <div id="profile-activity">
+      <h4>Todavía no existe actividad de este usuario.</h4>
+    </div>
   </div>
 </template>
 
