@@ -1,5 +1,6 @@
 import { Session } from 'meteor/session';
 import { Template } from 'meteor/templating';
+import { Matches } from '/imports/api/matches.js';
 import { OpenMatches } from '/imports/api/open-matches.js';
 import { RegisterTURs } from '/imports/api/registerTURs.js';
 import { Teams } from '/imports/api/teams.js';
@@ -37,11 +38,32 @@ Template.dashboard.helpers({
 
 	show: function(teamName) {
 		return Teams.findOne({name: teamName});
-	}
+	},
+
+  confirmedRequests: () => {
+    return Matches.find({
+      challenged: Meteor.user().username,
+      status: {$not: "pending"}
+    }).fetch();
+  }
 });
 
 Template.dashboard.events({
   'click #btn-createMatch': function(event, instance) {
     Modal.show('openMatchModal');
+  }
+});
+
+Template.notificationCard.helpers({
+  challengerName: request => {
+    return Meteor.users.find({username: request.challenger}).fetch()[0].profile.name;
+  },
+
+  notifStatus: request => {
+    var status = request.status;
+    if(status == "accepted") {
+      return "aceptado";
+    }
+    return "rechazado";
   }
 });

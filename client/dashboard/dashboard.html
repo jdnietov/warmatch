@@ -1,7 +1,7 @@
 <template name="dashboard">
-  <div id="dashboard" class="container-fluid">
+  <div id="dashboard" class="container">
     <div class="row">
-      <div class="col-md-2 sidebar">
+      <div class="col-md-3 sidebar">
         <ul class="nav nav-sidebar">
           <li class="active">
             <a href="#dropdowns">
@@ -19,11 +19,15 @@
         <p>Estás siguiendo novedades de <a href="">basquetball.</a></p>
         <a href="">Añadir otros deportes...</a>
       </div>
-      <div class="col-md-10">
+      <div class="col-md-9">
         <h2>Novedades en <span class="page-title">Warmatch</span></h2>
         <p>Publica tu propio juego abierto!</p>
         <button id="btn-createMatch" class="btn btn-success" data-username="{{profile.name}}">Crear Match</button>
 				<hr>
+        <h3>Actividad</h3>
+        {{#each confirmedRequests}}
+          {{> notificationCard request=this}}
+        {{/each}}
 				<h3>Equipos</h3>
 				{{#each registerList}}
 					{{#if notShown teamName}}
@@ -42,5 +46,15 @@
 
     </div>
   </div>
+</template>
 
+<template name="notificationCard">
+  <div class="notification-card">
+    <div class="nc-header">
+      <h4>Reto</h4>
+    </div>
+    <div class="nc-body">
+      <strong>{{challengerName request}}</strong> ha {{notifStatus request}} tu reto.
+    </div>
+  </div>
 </template>
