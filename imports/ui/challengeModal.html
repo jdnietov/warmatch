@@ -10,7 +10,7 @@
           {{#autoForm collection="Match" doc=this id="matchForm" type="insert"}}
           <fieldset>
             <legend>Desafío a {{profile.name}}{{getChallengedName}}</legend>
-            {{> afFieldInput name="open_id" type="hidden" value=getOpenID}}
+            {{> afFieldInput name="local_id" type="hidden" value=getLocalID}}
             {{> afFieldInput name="challenger" type="hidden" value=currentUser.username}}
             {{> afFieldInput name="challenged" type="hidden" value=getChallengedUsername}}
             {{> afFormGroup name="sport" type="select" options=sportsOptions}}
