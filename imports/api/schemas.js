@@ -33,6 +33,12 @@ Schemas.Statistic = new SimpleSchema({
 	value: {type: Number}
 })
 
+Schemas.Ratings = new SimpleSchema({
+  username: {type: String},
+  mean: {type: String},
+  rates: {type: [String]}
+});
+
 Schemas.Team = new SimpleSchema({
 	name: {type: String},
 	description: {type: String},
@@ -58,3 +64,4 @@ export const PostSchema = Schemas.Post;
 export const TeamSchema = Schemas.Team;
 export const RoleSchema = Schemas.Role;
 export const RegisterTURSchema = Schemas.RegisterTUR;
+export const RatingsSchema = Schemas.Ratings;

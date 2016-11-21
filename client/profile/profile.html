@@ -1,5 +1,6 @@
 <template name="profile">
   <div id="profile" class="container-fluid">
+    {{getUser username}}
     <div class="row">
       <div id="left" class="col-md-4">
         {{#with photoUrl profile}}
@@ -18,16 +19,26 @@
             {{else}}
         <button class="btn btn-success add-pic">Cambiar foto</button>
             {{/if}}
+            <div id="rate">
+              {{#with getRating}}
+              <h3>Calificación: {{this.mean}}</h3>
+              {{> starsRating id="displayStars" rating="{{this.mean}}" size="lg" mutable=false}}
+              {{/with}}
+            </div>
           {{else}}
         <button id="btn-challenge" class="btn btn-success" data-username="{{username}}">
           Retar
         </button>
+        <div id="rate">
+          {{#with getRating}}
+          <h3>Calificación: {{this.mean}}</h3>
+          {{> starsRating id="stars" rating="{{this.mean}}" size="lg" mutable=true}}
+          {{/with}}
+        </div>
           {{/if}}
         {{/if}}
         <br>
-        <div class="stars">
-          <h4>Calificacion:</h4>
-        </div>
+
       </div>
       <div id="right" class="col-md-8">
         <h1>{{profile.name}}</h1><br>
