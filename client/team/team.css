@@ -1,6 +1,72 @@
+#team h4 {
+	font-family: CodePro;
+	color: #AAAAAA;
+}
+
+#twoLists {
+	margin-top: 20px;
+}
+
+#team-header {
+  background-color: #AB222B;
+  color: white;
+  margin-top: 20px;
+  border-radius: 10px;
+}
+
+#team-header h4 {
+  color: white;
+}
+
+#team-pic {
+  height: 250px;
+}
+
+#team-pic img {
+  width: 250px;
+  height: 250px;
+}
+
+#team-info h1 {
+	color: white;
+	display: inline-block;
+}
+
+#team-info .img-holder {
+	margin-left: 20px;
+	margin-top: 0px;
+	display: inline-block;
+}
+
+#team-info .img-holder button {
+	display: inline-block;
+	margin-bottom: 30px;
+}
+
+#team-info .img-holder form {
+	display: inline-block;
+}
+
+#member-photo {
+  height: 120px;
+}
+
+#member-photo img {
+  background-repeat: no-repeat;
+
+  width: 100px;
+  height: 120px;
+
+  margin: auto;
+}
+
 #userFragment {
 	margin-top: 20px;
   border: 1px solid white;
-  padding: 10px;
-  width: 320px;
+	background-color: white;
+	color: rgb(35, 35, 35);
+	border-radius: 5px;
+  width: 340px;
+	margin-left: 0px;
+	padding-left: 0px;
 }

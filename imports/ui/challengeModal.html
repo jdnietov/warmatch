@@ -22,6 +22,7 @@
             <label for="message">Envía aquí un mensaje al equipo</label><br>
             {{> afFieldInput name="message" type="textarea"}}
             {{> afFieldInput name="createdAt" type="hidden" value=getNewDate}}
+            {{> afFieldInput name="confirmed" type="hidden" value="false"}}
 
             <button type="submit" class="btn btn-success">Aceptar</button>
             <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>

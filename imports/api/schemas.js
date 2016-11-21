@@ -17,7 +17,8 @@ Schemas.Match = new SimpleSchema({
   status: {
     type: String,
     allowedValues: ["accepted", "rejected", "pending"]
-  }
+  },
+  confirmed: {type: Boolean}
 });
 
 Schemas.OpenMatch = new SimpleSchema({
