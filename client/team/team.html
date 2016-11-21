@@ -4,9 +4,11 @@
     <div class="row">
 			{{#with team}}
       <div id="left" class="col-md-4">
-        {{#with photoUrl logo}}
-          <img src={{this.url}} alt=""/>
-        {{/with}}
+				<div id="photoTeam">
+	        {{#with photoUrl logo}}
+	          <img src={{this.url}} alt=""/>
+	        {{/with}}
+				</div>
         {{#if isEditing}}
           <button class="btn btn-warning cancelar">Cancelar</button>
               <form class="imgForm">
