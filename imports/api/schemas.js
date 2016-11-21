@@ -53,7 +53,7 @@ Schemas.Role = new SimpleSchema({
 })
 
 Schemas.RegisterTUR = new SimpleSchema({
-	teamName: {type: String},
+	teamId: {type: String},
 	userName: {type: String},
 	roleName: {type: String}
 })
