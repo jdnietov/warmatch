@@ -44,6 +44,9 @@ Template.profile.events({
   },
 
   'change .myFileInput': function(event, template) {
+    if(Session.get('fileId')){
+      ImagesCol.remove({_id:Session.get('fileId')}, true);
+    }
     FS.Utility.eachFile(event, function(file) {
       ImagesCol.insert(file, function (err, fileObj) {
         var fileId = fileObj._id;
@@ -70,6 +73,7 @@ Template.profile.events({
     data.photo=img;
     Meteor.users.update({_id:userId}, {$set: {profile: data}});
     }
-    Session.set("editing",false);}
+    Session.set("editing",false);
+  }
 
 });

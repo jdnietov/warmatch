@@ -42,7 +42,7 @@
           </div>
           <div id="teams" class="tab-pane fade">
             {{#each teamList val}}
-              {{> teamCard}}
+              <a href="/team/{{name}}">{{> teamCard}}</a>
     				{{/each}}
           </div>
         </div>
@@ -69,7 +69,9 @@
 <template name="teamCard">
 	<div id="teamCard" class="container">
 		<div id="photo">
-			<img src="" alt=""/>
+      {{#with photoUrl logo}}
+        <img src={{this.url}} alt=""/>
+      {{/with}}
 		</div>
 		<div id="info">
 			<h3>{{name}}</h3>

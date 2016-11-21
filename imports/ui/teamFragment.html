@@ -1,7 +1,9 @@
 <template name="teamFragment">
   <div id="teamFragment" class="container">
     <div id="logo">
-      <img src="{{logo}}" alt="team logo"/>
+      {{#with photoUrl logo}}
+        <img src={{this.url}} alt=""/>
+      {{/with}}
     </div>
     <div id="data">
       <h4><strong>{{name}}</strong></h4>

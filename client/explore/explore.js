@@ -37,7 +37,10 @@ Template.explore.helpers({
       var query = Teams.find({$and:[{name:{$regex : regExx}},{sport: {$regex : regEx, $options: 'i'}}]});
     }
     else{
-      var query = Teams.find({name: {$regex : regExx}});
+      if(val){
+        var query = Teams.find({name: {$regex : regExx}});
+      }
+      else var query = Teams.find();
     }
     return query;
   }
@@ -56,6 +59,14 @@ Template.explore.events({
 Template.searchCard.helpers({
 	photoUrl: profile => {
     var imageId = profile.photo;
+    var image = ImagesCol.findOne({_id:imageId});
+    return image;
+  }
+})
+
+Template.teamCard.helpers({
+  photoUrl: photo => {
+    var imageId = photo;
     var image = ImagesCol.findOne({_id:imageId});
     return image;
   }
