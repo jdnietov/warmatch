@@ -46,7 +46,6 @@ Template.explore.helpers({
 
 Template.explore.events({
   'click #filter': function(event){
-    $("#searchCard").fadeOut();
     Session.set('userFilter',event.target.text);
   },
   'click #clean': function(event){

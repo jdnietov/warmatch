@@ -53,6 +53,7 @@ Template.profile.events({
   },
 
   'click .cancelar': function(event){
+    event.preventDefault();
     Session.set("editing",false);
   },
 
@@ -64,10 +65,11 @@ Template.profile.events({
     event.preventDefault();
     var userId = Meteor.user()._id;
     var img = Session.get('fileId');
-    var data = Meteor.user().profile;
+    if(img){var data = Meteor.user().profile;
     ImagesCol.remove({_id:data.photo}, true);
     data.photo=img;
     Meteor.users.update({_id:userId}, {$set: {profile: data}});
-    Session.set("editing",false);
-  }
+    }
+    Session.set("editing",false);}
+
 });

@@ -7,7 +7,6 @@ import '/imports/ui/requestFragment.js';
 import './navbar.css';
 import './navbar.html';
 
-<<<<<<< HEAD
 Meteor.subscribe('allUsers');
 
 Template.navbar.onCreated(
@@ -18,8 +17,6 @@ Template.navbar.onCreated(
   }
 );
 
-=======
->>>>>>> 684fa9d2f34b30564ce044443ca2f4b48f372267
 Template.navbar.helpers({
   photoUrl: profile => {
     var imageId = profile.photo;
@@ -29,7 +26,6 @@ Template.navbar.helpers({
   invites: () => {
     return Meteor.user().profile.matchRequests.length;
   },
-<<<<<<< HEAD
   userList: function(){
     var val = Session.get("search");
     if(val && val.length>0)var regExx = "^"+val;
@@ -39,10 +35,9 @@ Template.navbar.helpers({
   },
   focus: function(){
     return Session.get("focus");
-=======
+  },
   getRequests: () => {
     return Meteor.user().profile.matchRequests;
->>>>>>> 684fa9d2f34b30564ce044443ca2f4b48f372267
   }
 });
 
