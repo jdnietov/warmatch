@@ -1,3 +1,29 @@
+#user-container {
+  background-color: white;
+  color: rgb(35, 35, 35);
+  margin-top: 30px;
+}
+
+#user-container h1 {
+  color: #AB222B;
+  display: inline-block;
+}
+
+#user-container div.col-md-3 {
+  height: 250px;
+  background-size: 100%;
+}
+
+#user-container div.col-md-9 {
+  padding-left: 30px;
+  padding-top: 15px;
+}
+
+#displayStars {
+  display: inline-block;
+  margin-left: 20px;
+}
+
 #left {
   text-align: center;
 }
@@ -18,5 +44,5 @@
 
 #submit-img-preview {
   width: 200px;
-  height: 150px;  
+  height: 150px;
 }
