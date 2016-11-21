@@ -38,6 +38,16 @@ Template.team.helpers({
 			teamName: Session.get("teamName"),
 			roleName: "Administrador"
 		}).fetch().length != 0;
+	},
+	isMember: () => {
+		console.log(RegisterTURs.find({
+			userName: Meteor.user().username,
+			teamName: Session.get("teamName"),
+		}).fetch().length != 0);
+		return RegisterTURs.find({
+			userName: Meteor.user().username,
+			teamName: Session.get("teamName"),
+		}).fetch().length != 0;
 	}
 });
 
