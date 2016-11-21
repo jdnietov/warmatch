@@ -24,7 +24,7 @@ Template.navbar.helpers({
     return image;
   },
   invites: () => {
-    return Meteor.user().profile.matchRequests.length;
+    return Match.find({challenged: Meteor.user().username}).fetch().length;
   },
   userList: function(){
     var val = Session.get("search");
@@ -37,7 +37,7 @@ Template.navbar.helpers({
     return Session.get("focus");
   },
   getRequests: () => {
-    return Meteor.user().profile.matchRequests;
+    return Match.find({challenged: Meteor.user().username}).fetch();
   }
 });
 

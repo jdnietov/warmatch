@@ -35,7 +35,6 @@ Template.challengeModal.helpers({
 
 Template.challengeModal.events({
   'submit #matchForm'(event, instance) {
-    Meteor.call('matches.send-invite', Session.get("challengedName"), random);
     Modal.hide('challengeModal');
   }
 });

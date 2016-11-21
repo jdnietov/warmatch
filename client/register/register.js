@@ -41,8 +41,6 @@ Template.register.events({
     var sportsString ="";
     var ratings = [];
     var meanRating = 0;
-    var matchRequests = [];
-    var sentRequests = [];
     if(target.football.checked) {sports.push("Fútbol");sportsString+="Fútbol ";}
     if(target.basketball.checked) {sports.push("Baloncesto");sportsString+="Baloncesto ";}
     if(target.baseball.checked) {sports.push("Béisbol");sportsString+="Béisbol ";}
@@ -109,8 +107,6 @@ Template.register.events({
           phone: phone,
           photo: photo,
           createdAt: new Date(),
-          matchRequests: matchRequests,
-          sentRequests: sentRequests
         }
       }, function(error){
         if(error){
