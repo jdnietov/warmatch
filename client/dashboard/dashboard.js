@@ -10,6 +10,7 @@ import '/imports/ui/teamFragment.js';
 
 import './dashboard.css';
 import './dashboard.html';
+Session.set('fileId',undefined);
 
 
 Session.set("lastShown", "");

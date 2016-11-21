@@ -1,6 +1,7 @@
 import { Template } from 'meteor/templating';
 import { Tracker } from 'meteor/tracker';
 import { ImagesCol } from '/imports/api/images.js';
+import { Ratings } from '/imports/api/ratings.js';
 
 import './register.html';
 
@@ -38,6 +39,8 @@ Template.register.events({
     var phone = target.phone.value;
     var sports = [];
     var sportsString ="";
+    var ratings = [];
+    var meanRating = 0;
     var matchRequests = [];
     var sentRequests = [];
     if(target.football.checked) {sports.push("Fútbol");sportsString+="Fútbol ";}
@@ -86,6 +89,15 @@ Template.register.events({
     }
 
     else{
+
+      Session.set('fileId',undefined);
+
+      Ratings.insert({
+        username: username,
+        rates: ratings,
+        mean: meanRating
+      });
+
       Accounts.createUser({
         username: username,
         password: password,

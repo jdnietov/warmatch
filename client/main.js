@@ -5,3 +5,4 @@ import { Session } from 'meteor/session';
 
 import './main.html';
 import '/imports/startup/client/routes.js';
+Session.set('fileId',undefined);
