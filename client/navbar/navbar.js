@@ -7,17 +7,34 @@ import '/imports/ui/requestFragment.js';
 import './navbar.css';
 import './navbar.html';
 
+Meteor.subscribe('allUsers');
+
+Template.navbar.onCreated(
+  function(){
+    this.Auxlog = new ReactiveVar("");
+    this.Auxregist = new ReactiveVar("");
+    this.Auxabout = new ReactiveVar("");
+  }
+);
+
 Template.navbar.helpers({
   photoUrl: profile => {
     var imageId = profile.photo;
     var image = ImagesCol.findOne({_id:imageId});
     return image;
   },
-  activeSearch: () =>{
-    return Router.current().route.getName().includes("explore");
-  },
   invites: () => {
     return Meteor.user().profile.matchRequests.length;
+  },
+  userList: function(){
+    var val = Session.get("search");
+    if(val && val.length>0)var regExx = "^"+val;
+    else var regExx = ".*";
+    var query = Meteor.users.find({$or: [{"profile.name": {$regex : regExx, $options: 'i'}},{"profile.apellido":{$regex : regExx, $options: 'i'}},{username: {$regex : regExx, $options: 'i'}}]}).fetch();
+    return query;
+  },
+  focus: function(){
+    return Session.get("focus");
   },
   getRequests: () => {
     return Meteor.user().profile.matchRequests;
@@ -50,5 +67,22 @@ Template.navbar.events({
         }
       });
     }
+  },
+  'keyup #searchbox': function(event){
+    Session.set("search",event.target.value);
+  },
+  'focus #searchbox': function(event){
+    Session.set("focus",true);
+  },
+  'blur #searchbox': function(event){
+    Session.set("focus",false);
   }
 });
+
+Template.userCard.helpers({
+	photoUrl: profile => {
+    var imageId = profile.photo;
+    var image = ImagesCol.findOne({_id:imageId});
+    return image;
+  }
+})

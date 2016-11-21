@@ -31,8 +31,9 @@ Template.register.events({
     var username = target.username.value;
     var email = target.email.value;
     var password = target.password.value;
-    var name = target.name.value;
+    var firstName = target.name.value;
     var lastName = target.lastName.value;
+    var name = firstName + " " + lastName;
     var photo = Session.get('fileId');
     var phone = target.phone.value;
     var sports = [];
@@ -45,11 +46,11 @@ Template.register.events({
     if(target.volleyball.checked) {sports.push("Vóleibol");sportsString+="Vóleibol ";}
     if(target.tenis.checked) {sports.push("Tenis");sportsString+="Tenis ";}
 
-    if(name.length<3){
+    if(firstName.length<3){
       Session.set("error","El nombre debe tener 3 carácteres mínimo");
     }
 
-    else if(!validateString(name)){
+    else if(!validateString(firstName)){
       Session.set("error","El nombre solo puede contener letras");
     }
 
@@ -91,7 +92,6 @@ Template.register.events({
         email: email,
         profile: {
           name: name,
-          lastName: lastName,
           sports: sports,
           sportsString: sportsString,
           phone: phone,

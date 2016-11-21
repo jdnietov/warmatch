@@ -1,11 +1,25 @@
 import { Template } from 'meteor/templating';
 import { Teams } from '/imports/api/teams.js';
 import { RegisterTURs } from '/imports/api/registerTURs.js';
+import { ImagesCol } from '/imports/api/images.js';
 
 import './createTeam.css';
 import './createTeam.html';
 
+Session.set("fileId",undefined);
+
 Template.createTeam.events({
+  'change .myFileInput': function(event, template) {
+    if(Session.get('fileId')){
+      ImagesCol.remove({_id:Session.get('fileId')}, true);
+    }
+    FS.Utility.eachFile(event, function(file) {
+      ImagesCol.insert(file, function (err, fileObj) {
+        var fileId = fileObj._id;
+        Session.set('fileId', fileId);
+      });
+    });
+  },
   'submit form'(event, instance) {
     event.preventDefault();
 
@@ -15,7 +29,7 @@ Template.createTeam.events({
       name: target.name.value,
 			description: target.description.value,
       sport: target.sport.value,
-			logo: target.logo.value,
+			logo: Session.get("fileId"),
 			statistics: [
 				{name: "Partidos jugados", value: 0},
 				{name: "Partidos ganados", value: 0},
@@ -31,6 +45,7 @@ Template.createTeam.events({
 			roleName: "Administrador"
 		})
     console.log("RegisterTURs Inserted!");
+    console.log(Session.get("fileId"));
 
     Router.go('/')
   }

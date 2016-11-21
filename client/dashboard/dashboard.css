@@ -6,22 +6,3 @@
   background-color: #EC3642;
   color: white;
 }
-
-#logo {
-  float: left;
-  margin-left: 30px;
-  margin-right: 40px;
-  text-align: center;
-  margin-top: auto;
-  margin-bottom: auto;
-}
-
-#logo img {
-  background-repeat: no-repeat;
-  border-radius: 50%;
-
-  width: 100px;
-  height: 100px;
-
-  margin: auto;
-}

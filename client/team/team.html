@@ -4,13 +4,17 @@
     <div class="row">
 			{{#with team}}
       <div id="left" class="col-md-4">
-        <img src={{logo}} alt="">
+        {{#with photoUrl logo}}
+          <img src={{this.url}} alt=""/>
+        {{/with}}
         {{#if isEditing}}
-        <input type="text" id="log_src" placeholder="URL del logo"><br><br>
-        <button class="btn btn-success guardar-logo">Guardar</button>
-        <button class="btn btn-warning cancelar">Cancelar</button>
+          <button class="btn btn-warning cancelar">Cancelar</button>
+              <form class="imgForm">
+                <input type="file" accept="image/*" class="myFileInput">
+                <button type="submit" class="btn btn-success">Terminar</button>
+              </form>
         {{else}}
-        <button class="btn btn-success añadir-logo">Cambiar logo</button>
+          <button class="btn btn-success añadir-logo">Cambiar logo</button>
         {{/if}}
         <br>
         <div class="info">
@@ -53,7 +57,9 @@
   <div id="userFragment" class="container">
 		<div id="photo">
 			{{#with member userName}}
-			<img src={{profile.photo}} alt="">
+        {{#with photoUrl profile}}
+          <img src={{this.url}} alt=""/>
+        {{/with}}
 			{{/with}}
 		</div>
 		<div>

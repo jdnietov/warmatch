@@ -19,12 +19,12 @@ Template.explore.helpers({
       var query = Meteor.users.find(
         {$and:[
           {"profile.sportsString": {$regex : regEx, $options: 'i'}},
-          {$or: [{"profile.name": {$regex : regExx, $options: 'i'}},{"profile.apellido":{$regex : regExx, $options: 'i'}},{username: {$regex : regExx, $options: 'i'}}]}
+          {$or: [{"profile.name": {$regex : regExx, $options: 'i'}},{username: {$regex : regExx, $options: 'i'}}]}
         ]}
       ).fetch();
     }
     else{
-      var query = Meteor.users.find({$or: [{"profile.name": {$regex : regExx, $options: 'i'}},{"profile.apellido":{$regex : regExx, $options: 'i'}},{username: {$regex : regExx, $options: 'i'}}]}).fetch();
+      var query = Meteor.users.find({$or: [{"profile.name": {$regex : regExx, $options: 'i'}},{username: {$regex : regExx, $options: 'i'}}]}).fetch();
     }
     return query;
   },
@@ -37,7 +37,10 @@ Template.explore.helpers({
       var query = Teams.find({$and:[{name:{$regex : regExx}},{sport: {$regex : regEx, $options: 'i'}}]});
     }
     else{
-      var query = Teams.find({name: {$regex : regExx}});
+      if(val){
+        var query = Teams.find({name: {$regex : regExx}});
+      }
+      else var query = Teams.find();
     }
     return query;
   }
@@ -56,6 +59,14 @@ Template.explore.events({
 Template.searchCard.helpers({
 	photoUrl: profile => {
     var imageId = profile.photo;
+    var image = ImagesCol.findOne({_id:imageId});
+    return image;
+  }
+})
+
+Template.teamCard.helpers({
+  photoUrl: photo => {
+    var imageId = photo;
     var image = ImagesCol.findOne({_id:imageId});
     return image;
   }

@@ -2,17 +2,24 @@ import { Session } from 'meteor/session';
 import { Template } from 'meteor/templating';
 import { Teams } from '/imports/api/teams.js'
 import { RegisterTURs } from '/imports/api/registerTURs.js';
+import { ImagesCol } from '/imports/api/images.js';
 
 import './team.css';
 import './team.html';
 
 Session.set("editing",false);
 Session.set("teamName", "");
+Session.set("fileId",undefined);
 
 Template.team.helpers({
 	team: function() {
 		return Teams.findOne({name: Session.get("teamName")});
 	},
+	photoUrl: photo => {
+    var imageId = photo;
+    var image = ImagesCol.findOne({_id:imageId});
+    return image;
+  },
 
   isEditing: function() {
     return Session.get("editing");
@@ -31,7 +38,12 @@ Template.team.helpers({
 Template.userFragment.helpers({
 	member: function(_userName) {
 		return Meteor.users.findOne({username: _userName});
-	}
+	},
+	photoUrl: profile => {
+    var imageId = profile.photo;
+    var image = ImagesCol.findOne({_id:imageId});
+    return image;
+  }
 });
 
 Template.team.events({
@@ -39,9 +51,27 @@ Template.team.events({
     Session.set("editing",true);
   },
 
-  'click .guardar-logo': function(event){
-    var log = $('#log_src').val();
-		Teams.update({_id: this._id}, {$set: {logo: log}});
+	'change .myFileInput': function(event, template) {
+    if(Session.get('fileId')){
+      ImagesCol.remove({_id:Session.get('fileId')}, true);
+    }
+    FS.Utility.eachFile(event, function(file) {
+      ImagesCol.insert(file, function (err, fileObj) {
+        var fileId = fileObj._id;
+        Session.set('fileId', fileId);
+      });
+    });
+  },
+
+	'submit .imgForm':function(event, instance) {
+    event.preventDefault();
+    var name = Session.get("teamName");
+		var team = Teams.findOne({name:name});
+    var img = Session.get('fileId');
+    if(img){
+	    ImagesCol.remove({_id:team.logo}, true);
+	    Teams.update({_id:team._id}, {$set: {logo: img}});
+    }
     Session.set("editing",false);
   },
 

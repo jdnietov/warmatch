@@ -6,7 +6,7 @@ import { Teams } from '/imports/api/teams.js';
 
 import '/imports/ui/openMatchModal.js';
 import '/imports/ui/matchFragment.js';
-//import '/imports/ui/teamFragment.js';
+import '/imports/ui/teamFragment.js';
 
 import './dashboard.css';
 import './dashboard.html';
@@ -42,9 +42,5 @@ Template.dashboard.helpers({
 Template.dashboard.events({
   'click #btn-createMatch': function(event, instance) {
     Modal.show('openMatchModal');
-  },
-
-	'click #btn-seeTeam': function(event, instance) {
-		Router.go('/team/' + this.name);
   }
 });
