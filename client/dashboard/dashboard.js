@@ -4,6 +4,7 @@ import { Matches } from '/imports/api/matches.js';
 import { OpenMatches } from '/imports/api/open-matches.js';
 import { RegisterTURs } from '/imports/api/registerTURs.js';
 import { Teams } from '/imports/api/teams.js';
+import { ReactiveVar } from 'meteor/reactive-var';
 
 import '/imports/ui/openMatchModal.js';
 import '/imports/ui/matchFragment.js';
@@ -42,8 +43,9 @@ Template.dashboard.helpers({
 
   confirmedRequests: () => {
     return Matches.find({
-      challenged: Meteor.user().username,
-      status: {$not: "pending"}
+      challenger: Meteor.user().username,
+      status: {$not: "pending"},
+      confirmed: false
     }).fetch();
   }
 });
@@ -54,9 +56,13 @@ Template.dashboard.events({
   }
 });
 
+Template.notificationCard.onCreated(function() {
+  this.match_id = new ReactiveVar("");
+})
+
 Template.notificationCard.helpers({
   challengerName: request => {
-    return Meteor.users.find({username: request.challenger}).fetch()[0].profile.name;
+    return Meteor.users.find({username: request.challenged}).fetch()[0].profile.name;
   },
 
   notifStatus: request => {
@@ -65,5 +71,17 @@ Template.notificationCard.helpers({
       return "aceptado";
     }
     return "rechazado";
+  },
+
+  matchId: request => {
+    Template.instance().match_id.set(request._id);
+    console.log(Template.instance().match_id.get());
+    return request._id;
+  }
+});
+
+Template.notificationCard.events({
+  'click .glyphicon.glyphicon-remove'(event, instance) {
+    Matches.update(instance.match_id.get(), {$set: {confirmed: true}});
   }
 });

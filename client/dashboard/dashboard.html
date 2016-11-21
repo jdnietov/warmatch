@@ -51,7 +51,7 @@
 <template name="notificationCard">
   <div class="notification-card">
     <div class="nc-header">
-      <h4>Reto</h4>
+      <h4>Reto <a data-match="{{matchId request}}" href="#"><span class="glyphicon glyphicon-remove"></span></a></h4>
     </div>
     <div class="nc-body">
       <strong>{{challengerName request}}</strong> ha {{notifStatus request}} tu reto.

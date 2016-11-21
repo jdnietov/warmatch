@@ -9,7 +9,7 @@
 #dashboard .col-md-9 {
   border-radius: 10px;
   background-color: rgb(45, 45, 45);
-  padding-bottom: 20px;  
+  padding-bottom: 20px;
 }
 
 .nav.nav-sidebar {
@@ -25,7 +25,7 @@
 .notification-card {
   margin: 10px;
   width: 200px;
-  height: 120px;
+  height: 100px;
   background-color: white;
   color: rgb(35, 35, 35);
   display: inline-block;
@@ -48,6 +48,12 @@
   text-align: center;
   padding-top: 6px;
 }
+
+.nc-header .glyphicon {
+  float: right;
+  padding-right: 10px;
+}
+
 
 .nc-body {
   padding: 15px;
