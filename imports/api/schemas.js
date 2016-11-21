@@ -52,7 +52,9 @@ Schemas.Team = new SimpleSchema({
 		label: "Deporte"
 	},
 	logo: {type: String},
-	statistics: {type: [Schemas.Statistic]}
+	statistics: {type: [Schemas.Statistic]},
+  // TODO add messages
+  requests: {type: [String]}
 })
 
 Schemas.Role = new SimpleSchema({

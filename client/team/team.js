@@ -3,6 +3,7 @@ import { Template } from 'meteor/templating';
 import { Teams } from '/imports/api/teams.js'
 import { RegisterTURs } from '/imports/api/registerTURs.js';
 import { ImagesCol } from '/imports/api/images.js';
+import { ReactiveVar } from 'meteor/reactive-var';
 
 import './team.css';
 import './team.html';
@@ -10,6 +11,8 @@ import './team.html';
 Session.set("editing",false);
 Session.set("teamName", "");
 Session.set("fileId",undefined);
+
+// TODO replace Session.get() with Reactive (or local) variables
 
 Template.team.helpers({
 	team: function() {
@@ -40,10 +43,6 @@ Template.team.helpers({
 		}).fetch().length != 0;
 	},
 	isMember: () => {
-		console.log(RegisterTURs.find({
-			userName: Meteor.user().username,
-			teamName: Session.get("teamName"),
-		}).fetch().length != 0);
 		return RegisterTURs.find({
 			userName: Meteor.user().username,
 			teamName: Session.get("teamName"),
@@ -97,5 +96,14 @@ Template.team.events({
 
 	'click #btn-seeUser': function(event, instance) {
 		Router.go('/profile/' + this.username);
+	},
+
+	'click #btn-apply'(event, instance) {
+		console.log("applying...");
+		var team = Teams.find({name: Session.get("teamName")}).fetch()[0];
+		var req = team.requests;
+		req.push(Meteor.user().username);
+
+		Teams.update(team._id, {$set: {requests: req}});
 	}
 });

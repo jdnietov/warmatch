@@ -46,17 +46,15 @@ Template.createTeam.events({
 				{name: "Partidos ganados", value: 0},
 				{name: "Partidos perdidos", value: 0},
 				{name: "Partidos empatados", value: 0}
-			]
+			],
+      requests: []
     });
-		console.log("Team "+target.name.value+" inserted!");
 
 		RegisterTURs.insert({
 			teamName: target.name.value,
 			userName: Meteor.user().username,
 			roleName: "Administrador"
 		})
-    console.log("RegisterTURs Inserted!");
-    console.log(Session.get("fileId"));
 
     Router.go('/')
   }

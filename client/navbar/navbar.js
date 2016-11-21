@@ -56,7 +56,14 @@ Template.navbar.events({
   'submit form'(event, instance) {
     if(event.target.id=="searchbox"){
       event.preventDefault();
-      Router.go('/explore/' + event.target.search.value.toLowerCase());
+      var query = event.target.search.value.toLowerCase();
+      if(query.length>0){
+        Router.go('/explore/' + event.target.search.value.toLowerCase());
+      }
+      else{
+        Router.go('/explore/%noquery%');
+      }
+
     }
     else if(event.target.id=="login"){
       event.preventDefault();
