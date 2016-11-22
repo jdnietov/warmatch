@@ -9,6 +9,15 @@ Template.teamFragment.helpers({
     var image = ImagesCol.findOne({_id:imageId});
     return image;
   },
+
+	numRequests: length => {
+		var len = length;
+		if(length == 1) {
+			len += " solicitud";
+		} else len += " solicitudes";
+		return len;
+	},
+
 });
 
 Template.teamFragment.events({
