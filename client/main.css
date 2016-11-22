@@ -97,6 +97,24 @@ ul.dropdown-menu {
   background-color: transparent;
 }
 
+.photo {
+  float: left;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: auto;
+  margin-right: 10px;
+}
+
+.photo img {
+  background-repeat: no-repeat;
+  border-radius: 50%;
+
+  width: 100px;
+  height: 100px;
+
+  margin: auto;
+}
+
 @font-face {
 	font-family: Airstrike;
 	src: url("/fonts/airstrike.ttf");

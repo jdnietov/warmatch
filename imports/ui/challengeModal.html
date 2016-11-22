@@ -13,6 +13,7 @@
             {{> afFieldInput name="local_id" type="hidden" value=getLocalID}}
             {{> afFieldInput name="challenger" type="hidden" value=currentUser.username}}
             {{> afFieldInput name="challenged" type="hidden" value=getChallengedUsername}}
+            {{> afFieldInput name="status" type="hidden" value="pending"}}
             {{> afFormGroup name="sport" type="select" options=sportsOptions}}
             <label for="place">¿Dónde quieres jugar?</label><br>
             {{> afFieldInput name="place" type="text" placeholder="Lugar de encuentro"}}
@@ -21,6 +22,7 @@
             <label for="message">Envía aquí un mensaje al equipo</label><br>
             {{> afFieldInput name="message" type="textarea"}}
             {{> afFieldInput name="createdAt" type="hidden" value=getNewDate}}
+            {{> afFieldInput name="confirmed" type="hidden" value="false"}}
 
             <button type="submit" class="btn btn-success">Aceptar</button>
             <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>

@@ -1,8 +1,60 @@
 #dashboard {
   margin-top: 20px;
+  /*padding-top: 20px;
+  padding-bottom: 50px;
+  padding-left: 20px;
+  padding-right: 20px;*/
+}
+
+#dashboard .col-md-9 {
+  border-radius: 10px;
+  background-color: rgb(45, 45, 45);
+  padding-bottom: 20px;
+}
+
+.nav.nav-sidebar {
+  background-color: white;
+  border-radius: 10px;
 }
 
 .nav.nav-sidebar li a:hover {
   background-color: #EC3642;
   color: white;
+}
+
+.notification-card {
+  margin: 10px;
+  width: 200px;
+  height: 100px;
+  background-color: white;
+  color: rgb(35, 35, 35);
+  display: inline-block;
+  border-radius: 12px;
+}
+
+.nc-header {
+  background-color: #AB222B;
+  width: 200px;
+  height: 30px;
+  display: block;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.nc-header h4 {
+  margin-top: 0px;
+  font-family: CodePro;
+  color: white;
+  text-align: center;
+  padding-top: 6px;
+}
+
+.nc-header .glyphicon {
+  float: right;
+  padding-right: 10px;
+}
+
+
+.nc-body {
+  padding: 15px;
 }

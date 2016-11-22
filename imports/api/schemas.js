@@ -13,7 +13,12 @@ Schemas.Match = new SimpleSchema({
   },
   place: {type: String},
   message: {type: String},
-  date: {type: String}
+  date: {type: String},
+  status: {
+    type: String,
+    allowedValues: ["accepted", "rejected", "pending"]
+  },
+  confirmed: {type: Boolean}
 });
 
 Schemas.OpenMatch = new SimpleSchema({
@@ -47,7 +52,9 @@ Schemas.Team = new SimpleSchema({
 		label: "Deporte"
 	},
 	logo: {type: String},
-	statistics: {type: [Schemas.Statistic]}
+	statistics: {type: [Schemas.Statistic]},
+  // TODO add messages
+  requests: {type: [String]}
 })
 
 Schemas.Role = new SimpleSchema({

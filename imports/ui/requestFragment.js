@@ -35,3 +35,13 @@ Template.requestFragment.helpers({
     return image;
   }
 });
+
+Template.requestFragment.events({
+  'click #btn-accept'(event, instance) {
+    Matches.update(match._id, {$set: {status: "accepted"}});
+  },
+
+  'click #btn-reject'(event, instance) {
+    Matches.update(match._id, {$set: {status: "rejected"}});
+  }
+});

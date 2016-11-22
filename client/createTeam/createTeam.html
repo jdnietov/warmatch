@@ -1,27 +1,32 @@
 <template name="createTeam">
-  <div id="createTeam" class="container-fluid">
-		<div class="row">
-			<div id="right" class="col-md-8">
-				<form>
-				  <h2><span class="page-title">WARMATCH </span>  Team</h2>
-		      <label for="tea-name" >Un nombre de tu equipo:</label><br>
-		      <input type="text" name="name" id="tea-name" placeholder="Nombre de tu equipo"><br>
-		      <label for="tea-description">Una descripcion de tu equipo:</label><br>
-		      <input type="text" name="description" id="tea-description" placeholder="Descripción de tu equipo"><br>
-					<label for="tea-logo">Logo</label><br>
-					<input type="file" name="logo" class="myFileInput" id="tea-logo" accept="image/*"><br>
-		      <label for="sport-select">Selecciona un deporte:</label><br>
-		      <select name="sport" id="sport-select">
-		        <option value="F'utbol">Fútbol</option>
-		        <option value="Baloncesto">Baloncesto</option>
-		        <option value="Béisbol">Béisbol</option>
-		        <option value="Vóleibol">Vóleibol</option>
-		      </select><br><br>
-		      <button id="btn-login" type="submit" class="btn btn-success">
-		        Crear
-		      </button>
-				</form>
-			</div>
-		</div>
+  <div id="createTeam" class="container">
+    <form>
+      <h2><span class="page-title">WARMATCH </span>  Team</h2>
+      <label for="tea-name">Un nombre de tu equipo:</label>
+      <br>
+      <input type="text" name="name" id="tea-name" placeholder="Nombre de tu equipo">
+      <br>
+      <label for="tea-description">Una descripcion de tu equipo:</label>
+      <br>
+      <input type="text" name="description" id="tea-description" placeholder="Descripción de tu equipo">
+      <br>
+      <label for="tea-logo">Logo</label>
+      <br>
+      <input type="file" name="logo" class="myFileInput" id="tea-logo" accept="image/*">
+      <br>
+      <label for="sport-select">Selecciona un deporte:</label>
+      <br>
+      <select name="sport" id="sport-select">
+        <option value="Fútbol">Fútbol</option>
+        <option value="Baloncesto">Baloncesto</option>
+        <option value="Béisbol">Béisbol</option>
+        <option value="Vóleibol">Vóleibol</option>
+      </select>
+      <br>
+      <br>
+      <button id="btn-login" type="submit" class="btn btn-success">
+        Crear
+      </button>
+    </form>
   </div>
 </template>

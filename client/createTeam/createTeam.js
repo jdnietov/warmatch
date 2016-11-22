@@ -8,6 +8,17 @@ import './createTeam.html';
 
 Session.set("fileId",undefined);
 
+Template.createTeam.helpers({
+  sportsOptions: () => {
+    return [
+      {label: "Basketball", value: "basket"},
+      {label: "Baseball", value: "base"},
+      {label: "Fútbol", value: "football"},
+      {label: "Volleyball", value: "volley"}
+    ];
+  },
+});
+
 Template.createTeam.events({
   'change .myFileInput': function(event, template) {
     if(Session.get('fileId')){
@@ -35,17 +46,15 @@ Template.createTeam.events({
 				{name: "Partidos ganados", value: 0},
 				{name: "Partidos perdidos", value: 0},
 				{name: "Partidos empatados", value: 0}
-			]
+			],
+      requests: []
     });
-		console.log("Team "+target.name.value+" inserted!");
 
 		RegisterTURs.insert({
 			teamName: target.name.value,
 			userName: Meteor.user().username,
 			roleName: "Administrador"
 		})
-    console.log("RegisterTURs Inserted!");
-    console.log(Session.get("fileId"));
 
     Router.go('/')
   }

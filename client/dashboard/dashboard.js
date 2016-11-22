@@ -1,8 +1,10 @@
 import { Session } from 'meteor/session';
 import { Template } from 'meteor/templating';
+import { Matches } from '/imports/api/matches.js';
 import { OpenMatches } from '/imports/api/open-matches.js';
 import { RegisterTURs } from '/imports/api/registerTURs.js';
 import { Teams } from '/imports/api/teams.js';
+import { ReactiveVar } from 'meteor/reactive-var';
 
 import '/imports/ui/openMatchModal.js';
 import '/imports/ui/teamModal.js';
@@ -38,7 +40,15 @@ Template.dashboard.helpers({
 
 	show: function(teamName) {
 		return Teams.findOne({name: teamName});
-	}
+	},
+
+  confirmedRequests: () => {
+    return Matches.find({
+      challenger: Meteor.user().username,
+      status: {$not: "pending"},
+      confirmed: false
+    }).fetch();
+  }
 });
 
 Template.dashboard.events({
@@ -47,5 +57,35 @@ Template.dashboard.events({
   },
 	'click #btn-createTeam': function(event, instance) {
     Modal.show('teamModal');
+  }
+});
+
+Template.notificationCard.onCreated(function() {
+  this.match_id = new ReactiveVar("");
+})
+
+Template.notificationCard.helpers({
+  challengerName: request => {
+    return Meteor.users.find({username: request.challenged}).fetch()[0].profile.name;
+  },
+
+  notifStatus: request => {
+    var status = request.status;
+    if(status == "accepted") {
+      return "aceptado";
+    }
+    return "rechazado";
+  },
+
+  matchId: request => {
+    Template.instance().match_id.set(request._id);
+    console.log(Template.instance().match_id.get());
+    return request._id;
+  }
+});
+
+Template.notificationCard.events({
+  'click .glyphicon.glyphicon-remove'(event, instance) {
+    Matches.update(instance.match_id.get(), {$set: {confirmed: true}});
   }
 });
