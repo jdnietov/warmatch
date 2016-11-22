@@ -1,6 +1,8 @@
 import { Template } from 'meteor/templating';
 import { ImagesCol } from '/imports/api/images.js';
+import { Teams } from '/imports/api/teams.js';
 import { Matches } from '/imports/api/matches.js';
+import { RegisterTURs } from '/imports/api/registerTURs.js';
 
 import '/imports/ui/requestFragment.js';
 
@@ -33,7 +35,20 @@ Template.navbar.helpers({
     var val = Session.get("search");
     if(val && val.length>0)var regExx = "^"+val;
     else var regExx = ".*";
-    var query = Meteor.users.find({$or: [{"profile.name": {$regex : regExx, $options: 'i'}},{"profile.apellido":{$regex : regExx, $options: 'i'}},{username: {$regex : regExx, $options: 'i'}}]}).fetch();
+    var query = Meteor.users.find({
+      $or: [{
+        "profile.name": {
+          $regex : regExx,
+          $options: 'i'
+      }}, {
+        "profile.apellido": {
+          $regex : regExx,
+          $options: 'i'
+        }},{
+          username: {
+            $regex : regExx,
+            $options: 'i'
+    }}]}).fetch();
     return query;
   },
   focus: function(){
@@ -91,11 +106,3 @@ Template.navbar.events({
     Session.set("focus",false);
   }
 });
-
-Template.userCard.helpers({
-	photoUrl: profile => {
-    var imageId = profile.photo;
-    var image = ImagesCol.findOne({_id:imageId});
-    return image;
-  }
-})
