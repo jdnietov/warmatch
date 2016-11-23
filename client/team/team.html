@@ -11,15 +11,9 @@
         <div id="team-info" class="col-md-9">
           <h1>{{name}}</h1>
           <div class="img-holder">
-            {{#if isAdmin}} {{#if isEditing}}
-            <button class="btn btn-warning cancelar">Cancelar</button>
-            <form class="imgForm">
-              <input type="file" accept="image/*" class="myFileInput">
-              <button type="submit" class="btn btn-success">Terminar</button>
-            </form>
-            {{else}}
-            <button class="btn btn-success añadir-logo">Cambiar logo</button>
-            {{/if}} {{/if}}
+            {{#if isAdmin}}
+              <button class="btn btn-success change-logo">Cambiar logo</button>
+            {{/if}}
             {{#if isMember}}
               {{#if isAdmin}}
               <button class="btn btn-success quit-group">

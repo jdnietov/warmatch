@@ -7,6 +7,7 @@ import { ReactiveVar } from 'meteor/reactive-var';
 
 import './team.css';
 import './team.html';
+import '/imports/ui/changeLogoModal.js'
 
 Session.set("editing",false);
 Session.set("teamName", "");
@@ -20,10 +21,6 @@ Template.team.helpers({
     var imageId = photo;
     var image = ImagesCol.findOne({_id:imageId});
     return image;
-  },
-
-  isEditing: function() {
-    return Session.get("editing");
   },
 
 	registerList: function() {
@@ -54,36 +51,8 @@ Template.team.helpers({
 });
 
 Template.team.events({
-  'click .añadir-logo': function(event){
-    Session.set("editing",true);
-  },
-
-	'change .myFileInput': function(event, template) {
-    if(Session.get('fileId')){
-      ImagesCol.remove({_id:Session.get('fileId')}, true);
-    }
-    FS.Utility.eachFile(event, function(file) {
-      ImagesCol.insert(file, function (err, fileObj) {
-        var fileId = fileObj._id;
-        Session.set('fileId', fileId);
-      });
-    });
-  },
-
-	'submit .imgForm':function(event, instance) {
-    event.preventDefault();
-    var name = Session.get("teamName");
-		var team = Teams.findOne({name:name});
-    var img = Session.get('fileId');
-    if(img){
-	    ImagesCol.remove({_id:team.logo}, true);
-	    Teams.update({_id:team._id}, {$set: {logo: img}});
-    }
-    Session.set("editing",false);
-  },
-
-  'click .cancelar': function(event){
-    Session.set("editing",false);
+  'click .change-logo': function(event){
+    Modal.show('changeLogoModal');
   },
 
 	'click #btn-seeUser': function(event, instance) {

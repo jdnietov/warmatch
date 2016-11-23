@@ -1,0 +1,19 @@
+<template name="changeLogoModal">
+  <div class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="logo-modal-header modal-header">
+          WARMATCH
+        </div>
+        <div class="modal-body changeLogoModal">
+          <form id="imgForm">
+            <legend>Cambia el logo de tu equipo</legend>
+            <input type="file" name="photo" class="myFileInput" id="changeLogo" accept="image/*">
+            <button type="submit" class="btn btn-success">Aceptar</button>
+            <button type="button" id="cancel" class="btn btn-warning" data-dismiss="modal">Cancelar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

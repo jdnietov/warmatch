@@ -7,6 +7,7 @@ import { starRatingService } from 'meteor/arkham:stars-rating-ui';
 
 import '/imports/ui/challengeModal.js';
 import '/imports/ui/rateModal.js';
+import '/imports/ui/changePicModal.js';
 
 import './profile.css';
 import './profile.html';
@@ -53,25 +54,8 @@ Template.profile.helpers({
 });
 
 Template.profile.events({
-  'click .add-pic':function(event, instance) {
-    Session.set("editing",true);
-  },
-
-  'change .myFileInput': function(event, template) {
-    if(Session.get('fileId')){
-      ImagesCol.remove({_id:Session.get('fileId')}, true);
-    }
-    FS.Utility.eachFile(event, function(file) {
-      ImagesCol.insert(file, function (err, fileObj) {
-        var fileId = fileObj._id;
-        Session.set('fileId', fileId);
-      });
-    });
-  },
-
-  'click .cancelar': function(event){
-    event.preventDefault();
-    Session.set("editing",false);
+  'click .change-pic':function(event, instance) {
+    Modal.show('changePicModal');
   },
 
   'click #btn-challenge': function(event, instance) {
@@ -80,19 +64,5 @@ Template.profile.events({
 
   'click #btn-rate': function(event, instance){
     Modal.show('rateModal');
-  },
-
-  'submit .imgForm':function(event, instance) {
-    event.preventDefault();
-    var userId = Meteor.user()._id;
-    var img = Session.get('fileId');
-    if(img){
-      var data = Meteor.user().profile;
-      ImagesCol.remove({_id:data.photo}, true);
-      data.photo=img;
-      Meteor.users.update({_id:userId}, {$set: {profile: data}});
-    }
-    Session.set("editing",false);
   }
-
 });

@@ -16,23 +16,14 @@
           <hr>
           {{#if currentUser}}
             {{#if allowed username}}
-              {{#if isEditing}}
-
-          <button class="btn btn-warning cancelar">Cancelar</button>
-              <form class="imgForm">
-                <input type="file" accept="image/*" class="myFileInput">
-                <button type="submit" class="btn btn-success">Terminar</button>
-              </form>
-              {{else}}
-          <button class="btn btn-success add-pic">Cambiar foto</button>
-              {{/if}}
+              <button class="btn btn-success change-pic">Cambiar foto</button>
             {{else}}
-          <button id="btn-challenge" class="btn btn-success" data-username="{{username}}">
-            Retar
-          </button>
-          <button id="btn-rate" class="btn btn-warning" data-username="{{username}}">
-            Calificar
-          </button>
+              <button id="btn-challenge" class="btn btn-success" data-username="{{username}}">
+                Retar
+              </button>
+              <button id="btn-rate" class="btn btn-warning" data-username="{{username}}">
+                Calificar
+              </button>
             {{/if}}
           {{/if}}
 
