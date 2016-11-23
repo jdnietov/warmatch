@@ -34,7 +34,7 @@
 #teamCard{
   margin: 10px;
   max-width: 500px;
-  border: solid 1px white;
+  border: groove 1px white;
 }
 
 #teamCard img{

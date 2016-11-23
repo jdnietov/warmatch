@@ -34,7 +34,10 @@ Template.explore.helpers({
     else{
       var query = Meteor.users.find({$or: [{"profile.name": {$regex : regExx, $options: 'i'}},{username: {$regex : regExx, $options: 'i'}}]}).fetch();
     }
-    return query;
+    for (var i=0; i<query.length; i++){
+      query[i].rating = starRatingService.getAverageRating(query[i].username).amount;
+    }
+    return query.sort(compare);
   },
 
   teamList: function(val){
@@ -83,3 +86,9 @@ Template.teamCard.helpers({
     else return description;
   }
 })
+
+function compare(a,b){
+  if(a.rating>b.rating) return -1;
+  else if(a.rating<b.rating) return 1;
+  return 0;
+}
