@@ -1,0 +1,11 @@
+#editForm #sports{
+  margin:auto;
+}
+
+.editProfileModal legend {
+  font-family: CodePro;
+}
+
+.editProfileModal button {
+  margin-top: 10px;
+}

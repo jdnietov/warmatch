@@ -1,0 +1,59 @@
+<template name="editProfileModal">
+  <div class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="logo-modal-header modal-header">
+          WARMATCH
+        </div>
+        <div class="modal-body editProfileModal">
+          <h3>{{error}}</h3>
+          <form id="editForm">
+            <legend>Edita los datos de tu perfil</legend>
+      			<div class="row">
+      				<div id="fields" class="col-md-12">
+      					<div class="row">
+      						<div class="form-group col-md-12">
+      		          <label for="reg-name">Nombre:</label>
+      		          <input class="form-control" name="name" id="edit-name" value="{{getUser.profile.name}}">
+      		        </div>
+      					</div>
+      					<div class="row">
+      						<div class="form-group col-md-12">
+      		          <label for="reg-phone">Numero de telefono:</label>
+      		          <input name="phone" class="form-control" id="edit-phone" value="{{getUser.profile.phone}}">
+      		        </div>
+      					</div>
+              </div>
+
+      				<div id="sports" class="row">
+                <legend>Deportes</legend>
+      					<div class="col-md-11">
+      	          <label>
+      	            <input type="checkbox" name="football" checked="{{football}}">  Fútbol
+      	          </label><br>
+      	          <label>
+      	            <input type="checkbox" name="basketball" checked="{{basket}}">  Baloncesto
+      	          </label><br>
+      	          <label>
+      	            <input type="checkbox" name="baseball" checked="{{baseball}}">  Béisbol
+      	          </label><br>
+      	          <label>
+      	            <input type="checkbox" name="volleyball" checked="{{volley}}">  Vóleibol
+      	          </label><br>
+      	          <label>
+      	            <input type="checkbox" name="tenis" checked="{{tenis}}">  Tenis
+      	          </label><br>
+      					</div>
+      				</div>
+      			</div>
+            <br>
+            <div class="center">
+              <button class="btn btn-success" type="submit">Aceptar</button>
+              <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

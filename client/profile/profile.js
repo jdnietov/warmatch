@@ -8,6 +8,7 @@ import { starRatingService } from 'meteor/arkham:stars-rating-ui';
 import '/imports/ui/challengeModal.js';
 import '/imports/ui/rateModal.js';
 import '/imports/ui/changePicModal.js';
+import '/imports/ui/editProfileModal.js';
 
 import './profile.css';
 import './profile.html';
@@ -60,5 +61,9 @@ Template.profile.events({
 
   'click #btn-rate': function(event, instance){
     Modal.show('rateModal');
+  },
+
+  'click .edit-profile': function(event, instance){
+    Modal.show('editProfileModal');
   }
 });

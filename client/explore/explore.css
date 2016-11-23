@@ -6,6 +6,12 @@
   margin-top: 20px;
 }
 
+#explore .col-md-10 {
+  border-radius: 10px;
+  background-color: rgb(45, 45, 45);
+  padding-bottom: 20px;
+}
+
 .nav-pills > li.active > a{
     background-color: black !important;
     color: white;
@@ -18,7 +24,7 @@
 
 #searchCard{
   margin: 10px;
-  max-width: 500px;
+  max-width: 760px;
   border: groove 1px white;
 }
 
@@ -33,7 +39,7 @@
 
 #teamCard{
   margin: 10px;
-  max-width: 500px;
+  max-width: 760px;
   border: groove 1px white;
 }
 

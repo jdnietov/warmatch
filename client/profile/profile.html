@@ -13,10 +13,12 @@
           <h1>{{profile.name}}</h1>
           <h2>{{> starsRatingBox id=username viewOnly=true}}</h2>
           <h4>{{profile.sportsString}}</h4>
+          <h4>{{profile.phone}}</h4>
           <hr>
           {{#if currentUser}}
             {{#if allowed username}}
               <button class="btn btn-success change-pic">Cambiar foto</button>
+              <button class="btn btn-success edit-profile">Editar perfil</button>
             {{else}}
               <button id="btn-challenge" class="btn btn-success" data-username="{{username}}">
                 Retar
