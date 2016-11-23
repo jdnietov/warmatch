@@ -63,12 +63,14 @@
   <div id="searchCard" class="container">
     <div class="photo">
 			{{#with photoUrl profile}}
-			<img src="{{this.url}}" alt=""> {{/with}}
+			<img src="{{this.url}}" alt="">
+      {{/with}}
     </div>
     <div id="info">
       <h3>{{profile.name}}</h3>
       <h4>{{username}}</h4>
 			<h4>{{profile.sportsString}}</h4>
+      <h4>{{>starsRatingBox id=username viewOnly=true class="rating"}}</h4>
     </div>
   </div>
 </template>
@@ -83,6 +85,7 @@
 		<div id="info">
 			<h3>{{name}}</h3>
 			<h4>{{sport}}</h4>
+      <h4>{{miniDescription description}}</h4>
 		</div>
 	</div>
 </template>

@@ -1,6 +1,7 @@
 import { Template } from 'meteor/templating';
 import { Teams } from '/imports/api/teams.js';
 import { ImagesCol } from '/imports/api/images.js';
+import { starRatingService } from 'meteor/arkham:stars-rating-ui';
 
 import './explore.css';
 import './explore.html';
@@ -12,10 +13,12 @@ Meteor.subscribe('allUsers');
 Template.explore.helpers({
   userList: function(val){
     var filter = Session.get("userFilter");
-    var temp = val.split("%20");
-    val = "";
-    for(var i=0; i<temp.length; i++){
-      val += temp[i];
+    if(val){
+      var temp = val.split("%20");
+      val = "";
+      for(var i=0; i<temp.length; i++){
+        val += temp[i];
+      }
     }
     if(val)var regExx = "^"+val;
     else var regExx = ".*";
@@ -72,5 +75,11 @@ Template.teamCard.helpers({
     var imageId = photo;
     var image = ImagesCol.findOne({_id:imageId});
     return image;
+  },
+  miniDescription: function(description){
+    if(description.length>30){
+      return description.slice(0,30) + "...";
+    }
+    else return description;
   }
 })

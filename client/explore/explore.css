@@ -19,9 +19,24 @@
 #searchCard{
   margin: 10px;
   max-width: 500px;
+  border: groove 1px white;
 }
+
+#searchCard .rating{
+  padding-left: 12px;
+}
+
+#searchCard img{
+  margin: 2px;
+}
+
 
 #teamCard{
   margin: 10px;
   max-width: 500px;
+  border: solid 1px white;
+}
+
+#teamCard img{
+  margin: 5px;
 }

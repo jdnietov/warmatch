@@ -32,10 +32,6 @@ Template.profile.helpers({
     return !result;
   },
 
-  isEditing: () => {
-    return Session.get("editing");
-  },
-
   photoUrl: profile => {
     var imageId = profile.photo;
     var image = ImagesCol.findOne({_id:imageId});
