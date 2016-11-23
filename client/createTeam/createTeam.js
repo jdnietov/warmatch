@@ -45,7 +45,7 @@ Template.createTeam.events({
 			roleName: "Administrador"
 		})
 
-    console.log(target.sport.value);
+    Session.set("fileId",undefined);
 
     Router.go('/')
   }

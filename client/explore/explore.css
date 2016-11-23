@@ -18,8 +18,10 @@
 
 #searchCard{
   margin: 10px;
+  max-width: 500px;
 }
 
 #teamCard{
   margin: 10px;
+  max-width: 500px;
 }
