@@ -29,11 +29,11 @@ Template.dashboard.helpers({
 			$or: [
 				{
       		challenger: Meteor.user().username,
-      		status: {$not: "pending"},
+      		status: "accepted",
 				},
 				{
       		challenged: Meteor.user().username,
-      		status: {$not: "pending"},
+      		status: "accepted",
 				}
     	]
 		}).fetch();
