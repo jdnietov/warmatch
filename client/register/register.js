@@ -1,7 +1,6 @@
 import { Template } from 'meteor/templating';
 import { Tracker } from 'meteor/tracker';
 import { ImagesCol } from '/imports/api/images.js';
-import { Ratings } from '/imports/api/ratings.js';
 
 import './register.html';
 
