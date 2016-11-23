@@ -38,8 +38,6 @@ Template.register.events({
     var phone = target.phone.value;
     var sports = [];
     var sportsString ="";
-    var ratings = [];
-    var meanRating = 0;
     if(target.football.checked) {sports.push("Fútbol");sportsString+="Fútbol ";}
     if(target.basketball.checked) {sports.push("Baloncesto");sportsString+="Baloncesto ";}
     if(target.baseball.checked) {sports.push("Béisbol");sportsString+="Béisbol ";}
@@ -88,12 +86,6 @@ Template.register.events({
     else{
 
       Session.set('fileId',undefined);
-
-      Ratings.insert({
-        username: username,
-        rates: ratings,
-        mean: meanRating
-      });
 
       Accounts.createUser({
         username: username,
