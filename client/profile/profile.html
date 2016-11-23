@@ -11,9 +11,7 @@
 
         <div id="right" class="col-md-9">
           <h1>{{profile.name}}</h1>
-          {{#with getRating}}
-          {{> starsRating id="displayStars" rating="{{this.mean}}" size="lg" mutable=false}}
-          {{/with}}
+          <h2>{{> starsRatingBox id=username viewOnly=true}}</h2>
           <h4>{{profile.sportsString}}</h4>
           <hr>
           {{#if currentUser}}
@@ -31,6 +29,9 @@
             {{else}}
           <button id="btn-challenge" class="btn btn-success" data-username="{{username}}">
             Retar
+          </button>
+          <button id="btn-rate" class="btn btn-warning" data-username="{{username}}">
+            Calificar
           </button>
             {{/if}}
           {{/if}}

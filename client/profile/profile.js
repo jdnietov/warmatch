@@ -3,9 +3,10 @@ import { MatchSchema } from '/imports/api/schemas.js';
 import { Matches } from '/imports/api/matches.js';
 import { Template } from 'meteor/templating';
 import { ImagesCol } from '/imports/api/images.js';
-import { Ratings } from '/imports/api/ratings.js';
+import { starRatingService } from 'meteor/arkham:stars-rating-ui';
 
 import '/imports/ui/challengeModal.js';
+import '/imports/ui/rateModal.js';
 
 import './profile.css';
 import './profile.html';
@@ -19,11 +20,6 @@ Template.profile.helpers({
   getUser: username =>{
     Session.set("username",username);
     Session.set('fileId',undefined);
-  },
-
-  getRating: ()=>{
-    var data = Ratings.findOne({username:Session.get("username")});
-    return data;
   },
 
   allowed: username => {
@@ -73,32 +69,6 @@ Template.profile.events({
     });
   },
 
-  'click #stars': function(event){
-    var username = Meteor.user().username;
-    var stars = $('#stars').data('userrating');
-    var data = Ratings.findOne({username:Session.get("username")});
-    var already = false;
-    var ratings = data.rates;
-    var mean = parseFloat(data.mean);
-    for(var i=0; i<ratings.length; i++){
-      if(ratings[i].includes(username)){
-        already = true;
-        var temp = ratings[i].split("&");
-        ratings[i] = temp[0]+"&"+stars;
-        console.log(temp);
-        mean = mean - parseFloat(temp[1])/ratings.length;
-        mean = mean + parseFloat(stars)/ratings.length;
-        break;
-      }
-    }
-    if(!already){
-      ratings.push(username+"&"+stars);
-      mean = mean + parseFloat(stars)/ratings.length;
-    }
-    console.log(mean);
-    Ratings.update({_id:data._id}, {$set: {rates: ratings , mean: mean}});
-  },
-
   'click .cancelar': function(event){
     event.preventDefault();
     Session.set("editing",false);
@@ -106,6 +76,10 @@ Template.profile.events({
 
   'click #btn-challenge': function(event, instance) {
     Modal.show('challengeModal');
+  },
+
+  'click #btn-rate': function(event, instance){
+    Modal.show('rateModal');
   },
 
   'submit .imgForm':function(event, instance) {

@@ -1,0 +1,16 @@
+<template name="rateModal">
+  <div class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="logo-modal-header modal-header">
+          WARMATCH
+        </div>
+        <div class="modal-body rateModal">
+          <legend>Califica a {{getProfileName}}</legend>
+          <h2>{{> starsRatingBox id=getUsername viewOnly=false class="prueba"}}</h2>
+          <button id="btn-rate" class="btn btn-success">Aceptar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

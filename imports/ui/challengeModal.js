@@ -6,6 +6,7 @@ import './challengeModal.html';
 
 var random = Random.id();
 
+
 Template.challengeModal.helpers({
   sportsOptions: () => {
     return [

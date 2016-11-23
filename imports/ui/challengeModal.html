@@ -9,7 +9,7 @@
         <div class="modal-body">
           {{#autoForm collection="Match" doc=this id="matchForm" type="insert"}}
           <fieldset>
-            <legend>Desafío a {{profile.name}}{{getChallengedName}}</legend>
+            <legend>Desafío a {{getChallengedName}}</legend>
             {{> afFieldInput name="local_id" type="hidden" value=getLocalID}}
             {{> afFieldInput name="challenger" type="hidden" value=currentUser.username}}
             {{> afFieldInput name="challenged" type="hidden" value=getChallengedUsername}}
