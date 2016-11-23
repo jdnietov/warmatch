@@ -8,6 +8,7 @@ import { ReactiveVar } from 'meteor/reactive-var';
 
 import '/imports/ui/openMatchModal.js';
 import '/imports/ui/teamModal.js';
+import '/imports/ui/openMatchFragment.js';
 import '/imports/ui/matchFragment.js';
 import '/imports/ui/teamFragment.js';
 
@@ -19,8 +20,23 @@ Session.set('fileId',undefined);
 Session.set("lastShown", "");
 
 Template.dashboard.helpers({
-  matchList() {
+  openMatchList() {
     return OpenMatches.find({}, {sort: {createdAt: -1}});
+  },
+
+  matchList() {
+		return Matches.find({
+			$or: [
+				{
+      		challenger: Meteor.user().username,
+      		status: "accepted",
+				},
+				{
+      		challenged: Meteor.user().username,
+      		status: "accepted",
+				}
+    	]
+		}).fetch();
   },
 
 	registerList: function() {

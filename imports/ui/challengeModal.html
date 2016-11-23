@@ -11,6 +11,7 @@
           <fieldset>
             <legend>Desafío a {{getChallengedName}}</legend>
             {{> afFieldInput name="local_id" type="hidden" value=getLocalID}}
+						{{> afFieldInput name="title" type="text" placeholder="Titulo del reto"}}
             {{> afFieldInput name="challenger" type="hidden" value=currentUser.username}}
             {{> afFieldInput name="challenged" type="hidden" value=getChallengedUsername}}
             {{> afFieldInput name="status" type="hidden" value="pending"}}

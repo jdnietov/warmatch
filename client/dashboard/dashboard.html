@@ -12,6 +12,7 @@
         {{#each confirmedRequests}}
           {{> notificationCard request=this}}
         {{/each}}
+				<hr>
 				<h3>Equipos</h3>
 				{{#each registerList}}
 					{{#if notShown teamName}}
@@ -22,7 +23,12 @@
 					{{/if}}
 				{{/each}}
 				<hr>
-				<h3>Encuentros</h3>
+				<h3>Matches Abiertos</h3>
+        {{#each openMatchList}}
+          {{> openMatchFragment}}
+        {{/each}}
+				<hr>
+				<h3>Historial</h3>
         {{#each matchList}}
           {{> matchFragment}}
         {{/each}}

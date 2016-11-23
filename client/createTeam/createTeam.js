@@ -47,6 +47,6 @@ Template.createTeam.events({
 
     Session.set("fileId",undefined);
 
-    Router.go('/')
+    Router.go('/');
   }
 });

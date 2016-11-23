@@ -1,4 +1,4 @@
-#matchFragment {
+#openMatchFragment {
   margin-top: 20px;
   border: 1px solid grey;
   background-color: white;
@@ -7,17 +7,17 @@
   width: 850px;
 }
 
-#matchFragment hr {
+#openMatchFragment hr {
   border-color: #BBBBBB;
 }
 
-#mf-desc2 {
+#mf-desc {
   display: table-cell;
   padding: 20px;
   padding-bottom: 0px;
 }
 
-#mf-photo2 {
+#mf-photo {
   display: inline-block;;
   text-align: center;
   margin-top: auto;
