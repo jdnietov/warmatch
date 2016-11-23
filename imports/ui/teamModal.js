@@ -7,20 +7,24 @@ import './teamModal.html';
 
 Template.teamModal.helpers({
 	statisticsList: function(){
-		return [
+		var ret = [
 			{name: "Partidos jugados", value: 0},
 			{name: "Partidos ganados", value: 0},
 			{name: "Partidos perdidos", value: 0},
 			{name: "Partidos empatados", value: 0}
 		];
+		console.log(ret);
+		return ret;
 	},
   sportsOptions: () => {
-    return [
-      {label: "Basketball", value: "basket"},
-      {label: "Baseball", value: "base"},
-      {label: "Fútbol", value: "football"},
-      {label: "Volleyball", value: "volley"}
-    ];
+		var ret = [
+			{label: "Fútbol", value: "Fútbol"},
+			{label: "Baloncesto", value: "Baloncesto"},
+			{label: "Béisbol", value: "Béisbol"},
+			{label: "Vóleibol", value: "Vóleibol"}
+		];
+		console.log(ret);
+    return ret;
   }
 });
 

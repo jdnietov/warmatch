@@ -21,9 +21,9 @@
 										<label>Descripción del equipo</label>
                     {{> afFieldInput name="description" type="text"}}
                     {{> afFormGroup name="sport" type="select" options=sportsOptions}}
-										{{> afFieldInput name="logo" type="hidden" value="Hola"}}
-										{{> afFieldInput name="statistics" type="hidden" value=statisticsList}}
-                    <button type="submit" class="btn btn-success" if="createTeam">Crear</button>
+										{{> afFieldInput name="logo" type="hidden" value="hola"}}
+										{{> afQuickField name="statistics" type="hidden" value=statisticsList}}
+                    <button type="submit" class="btn btn-success">Crear</button> <!-- if="createTeam" -->
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
                   </fieldset>
                 {{/autoForm}}
