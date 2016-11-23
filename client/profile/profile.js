@@ -1,6 +1,8 @@
 import { Session } from 'meteor/session';
 import { MatchSchema } from '/imports/api/schemas.js';
 import { Matches } from '/imports/api/matches.js';
+import { RegisterTURs } from '/imports/api/registerTURs.js';
+import { Teams } from '/imports/api/teams.js';
 import { Template } from 'meteor/templating';
 import { ImagesCol } from '/imports/api/images.js';
 import { starRatingService } from 'meteor/arkham:stars-rating-ui';
@@ -8,14 +10,18 @@ import { starRatingService } from 'meteor/arkham:stars-rating-ui';
 import '/imports/ui/challengeModal.js';
 import '/imports/ui/rateModal.js';
 import '/imports/ui/changePicModal.js';
+import '/imports/ui/matchFragment.js';
+import '/imports/ui/teamFragment.js';
 
 import './profile.css';
 import './profile.html';
 
 Session.set("editing",false);
 Session.set('fileId',undefined);
+Session.set("lastShown2", "");
 
 Meteor.subscribe('allUsers');
+
 
 Template.profile.helpers({
   getUser: username =>{
@@ -46,6 +52,40 @@ Template.profile.helpers({
 
   getMatchSchema: () => {
     return MatchSchema;
+  },
+
+	registerList: function() {
+		return RegisterTURs.find({userName: Session.get("username")}, {sort: {teamName: 1}}).fetch();
+	},
+
+	notShown: function(teamName) {
+		if(teamName == Session.get("lastShown2")){
+			return false;
+		}
+		return true;
+	},
+
+	alreadyShown: function(teamName) {
+		Session.set("lastShown2", teamName);
+	},
+
+	show: function(teamName) {
+		return Teams.findOne({name: teamName});
+	},
+
+  matchList() {
+		return Matches.find({
+			$or: [
+				{
+      		challenger: Session.get("username"),
+      		status: "accepted",
+				},
+				{
+      		challenged: Session.get("username"),
+      		status: "accepted",
+				}
+    	]
+		}).fetch();
   }
 });
 

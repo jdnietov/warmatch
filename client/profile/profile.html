@@ -1,6 +1,6 @@
 <template name="profile">
   <div id="profile" class="container">
-    {{getUser username}}
+	    {{getUser username}}
     <div id="profile-info">
       <div class="row">
         <div id="profile-pic" class="col-md-3">
@@ -30,9 +30,29 @@
         </div>
       </div>
     </div>
-    <hr>
-    <div id="profile-activity">
-      <h4>Todavía no existe actividad de este usuario.</h4>
+		<div class="info">
+			<div class="row">
+				<div class="col-md-3">
+
+				</div>
+				<div class="col-md-9">
+					<hr>
+					<h3>Equipos</h3>
+					{{#each registerList}}
+						{{#if notShown teamName}}
+							{{#with show teamName}}
+								{{> teamFragment}}
+							{{/with}}
+							{{alreadyShown}}
+						{{/if}}
+					{{/each}}
+					<hr>
+					<h3>Historial</h3>
+	        {{#each matchList}}
+	          {{> matchFragment}}
+	        {{/each}}
+				</div>
+			</div>
     </div>
   </div>
 </template>
