@@ -97,6 +97,10 @@ Template.team.events({
 		req.push(Meteor.user().username);
 
 		Teams.update(team._id, {$set: {requests: req}});
+	},
+
+	'click .quit-group'(event, instance) {
+
 	}
 });
 

@@ -56,31 +56,6 @@
             </ul>
           </div>
         </li>
-        <!-- <li>
-          <div class="dropdown-info dropdown">
-            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-              Equipos
-              {{#if teamInvites}}
-              <div>
-                {{teamInvites}}
-              </div>
-              {{/if}}
-              <span class="caret"></span></button>
-            <ul class="dropdown-menu">
-              {{#if turInvites}}
-              {{#each userTURs}}
-                {{#with getTURTeam this}}
-                  {{#with getTeamRequests this}}
-                    <li>lala</li>
-                  {{/with}}
-                {{/with}}
-              {{/each}}
-              {{else}}
-                <li><a href="#">No tienes peticiones pendientes.</a></li>
-              {{/if}}
-            </ul>
-          </div>
-        </li> -->
         <li><a href="/explore/%noquery%">Explorar</a></li>
       </ul>
       {{else}}
@@ -100,26 +75,3 @@
     </div>
   </nav>
 </template>
-
-<!-- <template name="teamRequestFrag">
-  {{fetchRequestInfo tur}}
-  <li class="request-item">
-    <div class="container-fluid">
-      <div class="request-photo row">
-        {{#with photoUrl team.logo}}
-        <div class="user-photo col-xs-3">
-          <img src="{{this.url}}" alt="">
-        </div>
-        {{/with}}
-          <div class="request-info col-xs-9">
-          <h4>{{name}} te ha retado!</h4>
-          <p>&quot;{{message}}&quot;</p>
-          <strong>Lugar: </strong> {{place}}<br>
-          <strong>Fecha: </strong> {{date}}<br>
-          <button id="btn-accept" class="btn btn-success">Aceptar</button>
-          <button id="btn-reject" class="btn btn-danger">Rechazar</button>
-        </div>
-      </div>
-    </div>
-  </li>
-</template> -->
