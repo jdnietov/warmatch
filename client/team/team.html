@@ -23,7 +23,13 @@
             {{#if isMember}}
             <!-- TODO -->
             {{else}}
+            {{#if hasApplied}}
+            <button class="btn btn-success">
+              <span class="glyphicon glyphicon-check"></span>
+              Ya aplicaste!</button>
+            {{else}}
             <button id="btn-apply" class="btn btn-success">Aplicar</button>
+            {{/if}}
             {{/if}}
           </div>
           <h3>{{sport}}</h3>
@@ -50,6 +56,14 @@
       </div>
 
       <div class="col-md-8">
+        {{#if isAdmin}} {{#if requests}}
+        <div id="team-notif">
+          <h2>Solicitudes</h2>
+          {{#each requests}}
+            {{> notifCard username=this}}
+          {{/each}}
+        </div>
+        {{/if}} {{/if}}
         <div id="matches">
           <p>Matches</p>
           <p>Aun no implementado</p>
@@ -78,4 +92,15 @@
       </div>
     </div>
   </div>
+</template>
+
+<template name="notifCard">
+  <ul>
+    <li>
+      <a href="/profile/{{username}}">{{getName username}}</a>  quiere unirse a tu grupo.
+      <a href="#"><strong data-username="{{username}}" class="req-accept">Aceptar</strong></a>
+      <strong>/</strong>
+      <a href="#"><strong class="req-reject">Rechazar</strong></a>
+    </li>
+  </ul>
 </template>
