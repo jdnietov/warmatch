@@ -12,6 +12,11 @@ Meteor.subscribe('allUsers');
 Template.explore.helpers({
   userList: function(val){
     var filter = Session.get("userFilter");
+    var temp = val.split("%20");
+    val = "";
+    for(var i=0; i<temp.length; i++){
+      val += temp[i];
+    }
     if(val)var regExx = "^"+val;
     else var regExx = ".*";
     if(filter){
