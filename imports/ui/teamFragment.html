@@ -8,8 +8,11 @@
     <div id="data">
       <h4><strong>{{name}}</strong></h4>
       <p>{{sport}}</p>
-			<p>{{description}}</p>
+      {{#if isAdmin name}}
+      <p>Tienes {{numRequests requests.length}} para este equipo.</p>
+      {{/if}}
     </div>
+
 		<button id="btn-seeTeam" class="btn btn-success">Ver equipo</button>
   </div>
 </template>

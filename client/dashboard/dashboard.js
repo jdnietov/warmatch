@@ -24,7 +24,7 @@ Template.dashboard.helpers({
   },
 
 	registerList: function() {
-		return RegisterTURs.find({userName: Meteor.user().username}, {sort: {teamName: 1}});
+		return RegisterTURs.find({userName: Meteor.user().username}, {sort: {teamName: 1}}).fetch();
 	},
 
 	notShown: function(teamName) {

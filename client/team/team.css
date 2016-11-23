@@ -70,3 +70,11 @@
 	margin-left: 0px;
 	padding-left: 0px;
 }
+
+#team-notif {
+	background-color: white;
+	border-radius: 10px;
+	color: rgb(35, 35, 35);
+	padding: 20px;
+	padding-top: 5px;
+}

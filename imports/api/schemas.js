@@ -65,7 +65,10 @@ Schemas.Role = new SimpleSchema({
 Schemas.RegisterTUR = new SimpleSchema({
 	teamName: {type: String},
 	userName: {type: String},
-	roleName: {type: String}
+	roleName: {
+    type: String,
+    allowedValues: ["Administrador", "Jugador"]
+  }
 })
 
 export const MatchSchema = Schemas.Match;

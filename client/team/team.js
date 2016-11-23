@@ -12,8 +12,6 @@ Session.set("editing",false);
 Session.set("teamName", "");
 Session.set("fileId",undefined);
 
-// TODO replace Session.get() with Reactive (or local) variables
-
 Template.team.helpers({
 	team: function() {
 		return Teams.findOne({name: Session.get("teamName")});
@@ -47,18 +45,12 @@ Template.team.helpers({
 			userName: Meteor.user().username,
 			teamName: Session.get("teamName"),
 		}).fetch().length != 0;
-	}
-});
-
-Template.userFragment.helpers({
-	member: function(_userName) {
-		return Meteor.users.findOne({username: _userName});
 	},
-	photoUrl: profile => {
-    var imageId = profile.photo;
-    var image = ImagesCol.findOne({_id:imageId});
-    return image;
-  }
+	hasApplied: () => {
+		return Teams.find({
+			name: Session.get("teamName")
+		}).fetch()[0].requests.length != 0;
+	}
 });
 
 Template.team.events({
@@ -105,5 +97,53 @@ Template.team.events({
 		req.push(Meteor.user().username);
 
 		Teams.update(team._id, {$set: {requests: req}});
+	},
+
+	'click .quit-group'(event, instance) {
+
+	}
+});
+
+Template.userFragment.helpers({
+	member: function(_userName) {
+		return Meteor.users.findOne({username: _userName});
+	},
+	photoUrl: profile => {
+    var imageId = profile.photo;
+    var image = ImagesCol.findOne({_id:imageId});
+    return image;
+  }
+});
+
+Template.notifCard.helpers({
+	getName: username => {
+		return Meteor.users.find({username: username}).fetch()[0].profile.name;
+	}
+});
+
+Template.notifCard.events({
+	'click strong'(event, instance) {
+		// console.log("asfdsafdsaf");
+		console.log(Teams.find({
+			name: Session.get("teamName")
+		}).fetch()[0].requests);
+
+		var req = Teams.find({
+			name: Session.get("teamName")
+		}).fetch()[0].requests;
+		var idx = req.indexOf(event.target.dataset.username);
+		req.splice(idx, 1);
+		console.log(req);
+
+		var team_id = Teams.find({name: Session.get("teamName")}).fetch()[0]._id;
+		Teams.update(team_id, {$set: {requests: req}});
+	},
+
+	'click .req-accept'(event, instance) {
+		RegisterTURs.insert({
+			teamName: Session.get("teamName"),
+			userName: event.target.dataset.username,
+			roleName: "Jugador"
+		});
 	}
 });

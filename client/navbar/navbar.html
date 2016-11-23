@@ -36,7 +36,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-          <div id="matches-info" class="dropdown">
+          <div class="dropdown-info dropdown">
             <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
               Partidas
               {{#if invites}}
@@ -56,7 +56,6 @@
             </ul>
           </div>
         </li>
-        <li><a href="#">Equipos</a></li>
         <li><a href="/explore/%noquery%">Explorar</a></li>
       </ul>
       {{else}}
@@ -75,15 +74,4 @@
       {{/if}}
     </div>
   </nav>
-</template>
-
-<template name="userCard">
-  <a href="/profile/{{username}}" a>
-    <div id="userCard" class="container">
-      <div class="user-photo">
-  			{{#with photoUrl profile}}
-  			<img src="{{this.url}}" alt=""> {{/with}}
-      </div>
-      {{profile.name}}
-    </div></a>
 </template>
