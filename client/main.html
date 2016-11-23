@@ -1,5 +1,5 @@
 <head>
-  <link rel="icon" type="image/x-icon" href="/Icon.ico" /> 
+  <link rel="icon" type="image/x-icon" href="/Icon.ico" />
   <title>Warmatch: Compite contra otros equipos y deportistas</title>
 </head>
 <body>
@@ -9,6 +9,8 @@
 <template name="application-layout">
   {{> navbar}}
   <div clas="main">
-    {{> yield main}}
+    {{#transition in="bounceInLeft" out="bounceOutRight"}}
+      {{> yield main}}
+    {{/transition}}
   </div>
 </template>

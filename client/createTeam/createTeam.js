@@ -8,17 +8,6 @@ import './createTeam.html';
 
 Session.set("fileId",undefined);
 
-Template.createTeam.helpers({
-  sportsOptions: () => {
-    return [
-      {label: "Basketball", value: "basket"},
-      {label: "Baseball", value: "base"},
-      {label: "Fútbol", value: "football"},
-      {label: "Volleyball", value: "volley"}
-    ];
-  },
-});
-
 Template.createTeam.events({
   'change .myFileInput': function(event, template) {
     if(Session.get('fileId')){
@@ -55,6 +44,8 @@ Template.createTeam.events({
 			userName: Meteor.user().username,
 			roleName: "Administrador"
 		})
+
+    Session.set("fileId",undefined);
 
     Router.go('/')
   }

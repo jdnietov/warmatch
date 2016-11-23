@@ -7,6 +7,13 @@ legend, label {font-family: CodeProLight;}
 
 input {font-color: black;}
 
+ul {
+  list-style-type: none;
+	padding:0;
+	margin:0;
+}
+
+
 body {
 	background-color: rgb(35, 35, 35);
 	color: white;

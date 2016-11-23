@@ -113,6 +113,7 @@ Template.register.events({
           Session.set("error", error.reason);
         }
         else{
+          Session.set("fileId",undefined);
           Session.set("error",null);
           Router.go('/');
         }

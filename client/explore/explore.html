@@ -36,17 +36,24 @@
 
         <div class="tab-content col-md-8">
           <div id="profiles" class="tab-pane fade in active">
-            {{#each userList val}}
-              <a href="/profile/{{username}}">{{> searchCard}}</a>
-            {{/each}}
+            <ul>
+              {{#transition in="fadeInUp:500" out="fadeOutDown:500"}}
+                {{#each userList val}}
+                  <li class="animated out"><a href="/profile/{{username}}">{{> searchCard}}</a></li>
+                {{/each}}
+              {{/transition}}
+            </ul>
           </div>
           <div id="teams" class="tab-pane fade">
-            {{#each teamList val}}
-              <a href="/team/{{name}}">{{> teamCard}}</a>
-    				{{/each}}
+            <ul>
+              {{#transition in="fadeInUp:500" out="fadeOutDown:500"}}
+                {{#each teamList val}}
+                  <li class="animated out"><a href="/team/{{name}}">{{> teamCard}}</a></li>
+        				{{/each}}
+              {{/transition}}
+            </ul>
           </div>
         </div>
-
       </div>
     </div>
   </div>

@@ -65,16 +65,6 @@ Router.route('/explore/:_searchValue', function () {
 	})
 })
 
-/*Router.route('/explore/:_searchValue', function () {
-	this.render('explore', {
-		to: 'main',
-		data: function(){
-      var params = this.params._searchValue.split("&&");
-      return {val: params[0], fil: params[1]};
-    }
-	})
-})*/
-
 // render username's profile
 Router.route('/profile/:_username', function () {
   if(this.params._username!="errorNotFound"){

@@ -31,10 +31,11 @@ Template.explore.helpers({
 
   teamList: function(val){
     var filter = Session.get("userFilter");
-    var regExx = "^"+val;
+    if(val)var regExx = "^"+val;
+    else var regExx = ".*";
     if(filter){
       var regEx = ".*"+filter+".*";
-      var query = Teams.find($and: [{name: {$regex : regExx, $options: 'i'}}, {sport: {$regex : regEx, $options: 'i'}}]);
+      var query = Teams.find({$and: [{name: {$regex : regExx, $options: 'i'}}, {sport: {$regex : regEx, $options: 'i'}}]});
     }
     else {
       var query = Teams.find({name: {$regex : regExx, $options: 'i'}});
